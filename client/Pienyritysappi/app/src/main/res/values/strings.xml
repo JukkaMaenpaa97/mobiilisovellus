@@ -9,4 +9,6 @@
     <string name="buttonsivu3">sivu3</string>
     <string name="buttonsivu4">sivu4</string>
     <string name="buttonsivu5">Sivu5</string>
+    <string name="categoryName">tas pitas olla kategorian nimi</string>
+    <string name="nappiKategoria">kategoria</string>
 </resources>
