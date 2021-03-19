@@ -9,6 +9,9 @@
     <string name="buttonsivu3">sivu3</string>
     <string name="buttonsivu4">sivu4</string>
     <string name="buttonsivu5">Sivu5</string>
-    <string name="categoryName">tas pitas olla kategorian nimi</string>
-    <string name="nappiKategoria">kategoria</string>
+    <string name="textRegister">Rekisteröidy</string>
+    <string name="textSahkoposti">Sähköposti</string>
+    <string name="textKategoria">Tässä pitäs olla kategorian nimi</string>
+    <string name="buttonkategoria">Kategoria</string>
+    <string name="buttonRegister">Rekisteröidy</string>
 </resources>
