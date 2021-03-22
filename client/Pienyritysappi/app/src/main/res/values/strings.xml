@@ -9,16 +9,6 @@
     <string name="buttonsivu3">sivu3</string>
     <string name="buttonsivu4">sivu4</string>
     <string name="buttonsivu5">Sivu5</string>
-    <string name="textRegister">Rekisteröidy</string>
-    <string name="textSahkoposti">Sähköposti</string>
     <string name="textKategoria">Tässä pitäs olla kategorian nimi</string>
     <string name="buttonkategoria">Kategoria</string>
-    <string name="buttonRegister">Rekisteröidy</string>
-    <string name="textNimi">Nimi</string>
-    <string name="textName2">Nimesi</string>
-    <string name="textNumber">Puhelinnumero</string>
-    <string name="textPaikka">Paikkakunta</string>
-    <string name="textPaikka2">Osoite</string>
-    <string name="textSalasana">Salasana</string>
-    <string name="buttonJatka">Luo Käyttäjä</string>
 </resources>
