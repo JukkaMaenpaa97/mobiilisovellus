@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="textRegister">Rekisteröidy</string>
+    <string name="textSahkoposti">Sähköposti</string>
+    <string name="buttonRegister">Rekisteröidy</string>
+    <string name="textNimi">Nimi</string>
+    <string name="textName2">Nimesi</string>
+    <string name="textNumber">Puhelinnumero</string>
+    <string name="textPaikka">Paikkakunta</string>
+    <string name="textPaikka2">Osoite</string>
+    <string name="textSalasana">Salasana</string>
+    <string name="buttonJatka">Luo Käyttäjä</string>
+</resources>
