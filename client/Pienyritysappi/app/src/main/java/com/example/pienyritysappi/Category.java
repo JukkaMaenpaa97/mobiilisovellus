@@ -14,6 +14,4 @@ public class Category extends AppCompatActivity {
         setContentView(R.layout.activity_category);
         Intent intent = getIntent();
     }
-
-
 }
