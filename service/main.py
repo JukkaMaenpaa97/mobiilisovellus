@@ -34,7 +34,7 @@ api.add_resource(Register, "/register")
 api.add_resource(Services, "/services/<id>")
 
 def main():
-    app.run(debug=False)
+    app.run(debug=True)
 
 if __name__ == '__main__':
     main()
