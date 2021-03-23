@@ -16,10 +16,7 @@ api = Api(app)
 mysql.init_app(app)
 
 # api modules
-from user import User
-from login import Login
-from register import Register
-from services import Services
+from user import User, Login, Register
 
 # default route index
 class Index(Resource):
@@ -30,8 +27,6 @@ api.add_resource(Index, "/")
 api.add_resource(User, "/user/<id>")
 api.add_resource(Login, "/login")
 api.add_resource(Register, "/register")
-
-api.add_resource(Services, "/services/<id>")
 
 def main():
     app.run(debug=False)
