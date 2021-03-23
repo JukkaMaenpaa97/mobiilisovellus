@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="textViewPalvelutTyot">Palvelut ja työt</string>
+    <string name="textviewTyoInfo">Tietoja työstä/palvelusta \ntaas muutamalla rivillä \nja ehkä hinta yms</string>
+    <string name="imageViewTyo" />
+    <string name="textviewCustomJob">olkoon tässä vaikka \njoku custom työ</string>
+
+
+</resources>
