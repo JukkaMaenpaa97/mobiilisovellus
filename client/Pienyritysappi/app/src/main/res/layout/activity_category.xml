@@ -8,12 +8,48 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="316dp"
-        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="84dp"
+        android:background="@drawable/textview_border"
         android:text="@string/textKategoria"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="219dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="172dp"
+        android:background="@drawable/textview_border"
+        android:text="@string/textviewCompanyInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="172dp"
+        android:background="@drawable/textview_border"
+        android:contentDescription="@string/imageViewCategory"
+        android:src="@drawable/inttisesu_mini"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/round_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/home_pic_icon_foreground"
+        android:contentDescription="@string/imageViewHomeButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

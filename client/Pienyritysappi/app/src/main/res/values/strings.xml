@@ -5,11 +5,10 @@
     <string name="button3">Button</string>
     <string name="button4">Button</string>
     <string name="buttonsivu1">sivu1</string>
-    <string name="buttonsivu2">sivu2</string>
+    <string name="buttonsivu2">firman profiili</string>
     <string name="buttonsivu3">sivu3</string>
     <string name="buttonsivu4">sivu4</string>
-    <string name="buttonsivu5">Sivu5</string>
-    <string name="textKategoria">Tässä pitäs olla kategorian nimi</string>
+    <string name="buttonsivu5">Services</string>
     <string name="buttonkategoria">Kategoria</string>
     <string name="buttonRegister">Rekisteröidy</string>
 </resources>
