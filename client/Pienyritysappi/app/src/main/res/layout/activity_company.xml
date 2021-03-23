@@ -4,6 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Company">
+    tools:context=".Company"
+    android:background="#ADD8E6">
+
+    <ImageButton
+        android:id="@+id/profileButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="330dp"
+        android:background="@drawable/round_button"
+        android:onClick="profileButtonClicked"
+        android:src="@drawable/profile_pic_icon_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="303dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_dialog_map" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="296dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="284dp"
+        android:layout_marginEnd="64dp"
+        android:text="TextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

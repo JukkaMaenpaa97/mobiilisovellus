@@ -86,4 +86,14 @@ public class Services extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),Category.class);
         startActivity(intent);
     }
+
+    public void profileButtonClicked(View view)
+    {
+
+    }
+
+    public void homeButtonClicked(View view)
+    {
+
+    }
 }
