@@ -1,6 +1,6 @@
 from flask_restful import Resource
-from database import mysql, query
-from auth import Auth
+from database.database import mysql, query
+from security.auth import Auth
 
 class Services(Resource):
     def get(self, id):

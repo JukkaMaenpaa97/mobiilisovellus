@@ -1,7 +1,6 @@
 from flask_restful import Resource
-from database import mysql, query
-from auth import Auth
-from hashlib import sha256
+from database.database import mysql, query
+from security.auth import Auth
 
 class Login(Resource):
     def get(email,password):

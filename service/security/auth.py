@@ -1,4 +1,4 @@
-from database import mysql 
+from database.database import mysql 
 
 class Auth():
 
