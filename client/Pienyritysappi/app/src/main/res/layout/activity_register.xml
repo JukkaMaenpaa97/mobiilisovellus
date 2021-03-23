@@ -1,153 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register">
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="211dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="36dp"
-        android:text="@string/textRegister"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="95dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="112dp"
-        android:text="@string/textSahkoposti"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="316dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="152dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:paddingStart="50dp"
+            android:paddingEnd="0dp"
+            android:text="@string/register"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="61dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="208dp"
-        android:text="@string/textNimi"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="317dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="248dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/textName2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingStart="50dp"
+            android:paddingEnd="0dp"
+            android:layout_marginTop="30dp"
+            />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="124dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="324dp"
-        android:text="@string/textNumber"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+           android:layout_marginStart="15dp"
+            android:autofillHints="" />
 
-    <EditText
-        android:id="@+id/editTextPhone"
-        android:layout_width="314dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="365dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="phone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="105dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="440dp"
-        android:text="@string/textPaikka"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textNimi"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:paddingStart="50dp"
+            android:paddingEnd="0dp"
+            android:layout_marginTop="30dp"
+            />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="313dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="482dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/textPaikka2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:autofillHints="" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="102dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="547dp"
-        android:text="@string/textSalasana"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textNumber"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingStart="50dp"
+            android:paddingEnd="0dp"
+            android:layout_marginTop="30dp"
+            />
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="326dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="586dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:autofillHints="" />
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="206dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="654dp"
-        android:text="@string/buttonJatka"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textPaikka"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingStart="50dp"
+            android:paddingEnd="0dp"
+            android:layout_marginTop="30dp"
+            />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            android:text=""
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:importantForAutofill="no"
+            />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textSalasana"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:paddingStart="50dp"
+            android:paddingEnd="0dp"
+            android:layout_marginTop="30dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:autofillHints="" />
+
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/buttonUser"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            />
+
+        <Button
+            android:id="@+id/button8"
+            android:onClick="button8Clicked"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:text="@string/buttonAlreadyacc"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            />
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</ScrollView>
+

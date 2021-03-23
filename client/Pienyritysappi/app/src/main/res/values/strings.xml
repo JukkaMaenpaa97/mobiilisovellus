@@ -11,4 +11,5 @@
     <string name="buttonsivu5">Sivu5</string>
     <string name="textKategoria">Tässä pitäs olla kategorian nimi</string>
     <string name="buttonkategoria">Kategoria</string>
+    <string name="buttonRegister">Rekisteröidy</string>
 </resources>
