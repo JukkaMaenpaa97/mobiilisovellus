@@ -1,13 +1,12 @@
 from flask import request
 from flask_restful import Resource
-from database import mysql, query
-from auth import Auth
+from database.database import mysql, query
+from security.auth import Auth
 import uuid
 import hashlib
 
 class Register(Resource):
     def post(self):
-
         # collecting post data to dict
         data = request.form
         if int(data.get('user_type')) == 1:
