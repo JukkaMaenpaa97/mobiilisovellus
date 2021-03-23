@@ -46,7 +46,7 @@
         android:id="@+id/imageView3"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:background="@drawable/textview_border"
+        android:background="@drawable/round_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/home_pic_icon_foreground"
