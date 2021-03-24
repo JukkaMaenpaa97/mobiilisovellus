@@ -1,14 +1,15 @@
 from flask_restful import Resource
-from database.database import mysql, query
+from flask import request
+from database.database import mysql,query
 from security.auth import Auth
+import hashlib
 
 class Login(Resource):
-    def get(email,password):
-        #password to hash
-        hashedpassword = hashlib.sha256(password.encode())
-        credentials = query("SELECT user_email, user_password FROM Users WHERE user_email = %(user_email)s,
-        {"user_email": email} AND  password = %(hashedpassword)s, {"user_password": hashedpassword}, False)
-
+      def post(email,password):
+      #def post(self):   #password to hash
+        data = request.form
+        testdictionary = {"user_email": data.get('user_email'), "user_password": hashlib.sha256(data.get('user_password'))}
+        credentials = query("SELECT (user_email, user_password) FROM Users WHERE user_email = %(user_email)s, AND  user_password = %(user_password)s", users)
         #check if query returned rows
         if(credentials is None):
             return {"message": "invalid_credentials"}
