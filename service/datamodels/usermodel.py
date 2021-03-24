@@ -7,7 +7,7 @@ class UserModel(DataModel):
         self.table = "users"
         self.fields = {
             "user_id":      self.field(),
-            "user_type":    self.field(),
+            "user_type":    self.field(value = "1"),
             "user_email":   self.field(),
             "user_password": self.field(public = False),
             "user_name":    self.field(),
