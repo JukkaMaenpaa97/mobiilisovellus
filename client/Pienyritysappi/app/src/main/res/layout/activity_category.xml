@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="128dp"
         android:background="@drawable/textview_border"
         android:text="@string/textKategoria"
         android:textSize="24sp"
@@ -35,21 +35,35 @@
         android:layout_height="94dp"
         android:layout_marginStart="260dp"
         android:layout_marginTop="172dp"
-        android:background="@drawable/textview_border"
         android:contentDescription="@string/imageViewCategory"
         android:src="@drawable/inttisesu_mini"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/round_button"
+        android:onClick="homeButtonClicked"
+        android:contentDescription="@string/imageButtonHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/home_pic_icon_foreground" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/round_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/home_pic_icon_foreground"
-        android:contentDescription="@string/imageViewHomeButton" />
+        app:srcCompat="@drawable/profile_pic_icon_foreground"
+        android:contentDescription="@string/imageButtonProfile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

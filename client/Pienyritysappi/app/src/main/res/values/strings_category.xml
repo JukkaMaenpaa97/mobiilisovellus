@@ -4,5 +4,7 @@
     <string name="imageViewCategory" />
     <string name="textviewCompanyInfo"> Firman tietoja \nKolmella tai neljällä \nRivillä \nNäin</string>
     <string name="imageViewHomeButton" />
+    <string name="imageButtonHome" />
+    <string name="imageButtonProfile" />
 
 </resources>
