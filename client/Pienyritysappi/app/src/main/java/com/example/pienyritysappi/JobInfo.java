@@ -2,17 +2,19 @@ package com.example.pienyritysappi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Company extends AppCompatActivity {
+public class JobInfo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_company);
-        Intent intent = getIntent();
+        setContentView(R.layout.activity_job_info);
+    }
+
+    public void homeButtonClicked(View view)
+    {
 
     }
 
@@ -21,13 +23,15 @@ public class Company extends AppCompatActivity {
 
     }
 
-    public void contactButtonClicked(View view)
+    public void purchaseJobButtonClicked(View view)
     {
 
     }
 
-    public void jobListingsButtonClicked(View view)
+    public void chatButtonClicked(View view)
     {
 
     }
+
+
 }

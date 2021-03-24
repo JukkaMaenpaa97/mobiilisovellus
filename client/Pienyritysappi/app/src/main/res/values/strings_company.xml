@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="textViewCompanyName">Firman Nimi</string>
+    <string name="contactButton">Yhteystiedot</string>
+    <string name="jobListingsButton">Selaa töitä</string>
+    <string name="infoTextView">Tähän tulee kaikki tiedo esim vaikka seuraavat asiat missä miten yms firman ite kirjoitettava. tiorp[ewiop[rtewp[ojfdkjghflsdk;tirep[owitroep[wtrewtew</string>
+    <string name="profileButton">TODO</string>
+</resources>

@@ -39,4 +39,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),Services.class);
         startActivity(intent);
     }
+
+    public void button6Clicked(View view)
+    {
+        Intent intent = new Intent(getApplicationContext(),JobInfo.class);
+        startActivity(intent);
+    }
 }
