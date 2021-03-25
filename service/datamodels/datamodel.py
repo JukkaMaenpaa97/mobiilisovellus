@@ -84,6 +84,7 @@ class DataModel:
             for key, value in result.items():
                 self.set(key, value)
             self.id = id
+            return True
 
     # populate object from dictionary containing required data
     def populate(self):
