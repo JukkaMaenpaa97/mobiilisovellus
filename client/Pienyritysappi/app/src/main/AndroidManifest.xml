@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pienyritysappi">
-        <activity android:name=".CustomerProfile"></activity>
+        <activity android:name=".ReservationActivity"></activity>
+        <activity android:name=".LogIn"/>
         <activity android:name=".JobInfo" />
         <activity android:name=".JobOrder" />
         <activity android:name=".Company" />

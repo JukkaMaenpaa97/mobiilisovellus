@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="textKategoria">Tässä pitäs olla kategorian nimi</string>
+    <string name="textKategoria">Kategorian nimi</string>
     <string name="imageViewCategory" />
     <string name="textviewCompanyInfo"> Firman tietoja \nKolmella tai neljällä \nRivillä \nNäin</string>
     <string name="imageViewHomeButton" />
+    <string name="imageButtonHome" />
+    <string name="imageButtonProfile" />
 
 </resources>

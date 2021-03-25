@@ -76,13 +76,23 @@
         android:id="@+id/button9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Asiakas profiili"
-        android:onClick="button9Clicked"
-        app:layout_constraintHorizontal_bias="0.277"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button6" />
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="56dp"
+        android:onClick="reserveButtonClicked"
+        android:text="@string/buttonReserve"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="508dp"
+        android:onClick="button10Clicked"
+        android:text="@string/button10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
