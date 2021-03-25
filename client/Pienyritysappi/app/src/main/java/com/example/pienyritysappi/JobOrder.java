@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class JobOrder extends AppCompatActivity {
 
@@ -13,5 +14,15 @@ public class JobOrder extends AppCompatActivity {
         setContentView(R.layout.activity_job_order);
         Intent intent = getIntent();
 
+    }
+
+    public void profileButtonClicked(View view) {
+        Intent intent = new Intent(getApplicationContext(), CustomerProfile.class);
+        startActivity(intent);
+    }
+
+    public void homeButtonClicked(View view) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
     }
 }

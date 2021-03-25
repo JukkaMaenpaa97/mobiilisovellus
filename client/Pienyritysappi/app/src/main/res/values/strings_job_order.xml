@@ -5,6 +5,8 @@
     <string name="textviewTyoInfo">Tietoja työstä/palvelusta \ntaas muutamalla rivillä \nja ehkä hinta yms</string>
     <string name="imageViewTyo" />
     <string name="textviewCustomJob">olkoon tässä vaikka \njoku custom työ</string>
+    <string name="imageButtonHomeInJobOrder" />
+    <string name="imageButtonProfileInJobOrder" />
 
 
 </resources>

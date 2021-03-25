@@ -25,6 +25,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="172dp"
         android:background="@drawable/textview_border"
+        android:onClick="companyTextClicked"
         android:text="@string/textviewCompanyInfo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -70,6 +71,7 @@
         android:layout_marginStart="260dp"
         android:layout_marginTop="172dp"
         android:contentDescription="@string/imageViewCategory"
+        android:onClick="companyImageClicked"
         android:src="@drawable/inttisesu_mini"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -107,6 +109,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/round_button"
+        android:onClick="profileButtonClicked"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profile_pic_icon_foreground"
