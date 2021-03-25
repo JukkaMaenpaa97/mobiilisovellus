@@ -50,4 +50,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),ReservationActivity.class);
         startActivity(intent);
     }
+
+    public void button10Clicked(View view)
+    {
+        Intent intent = new Intent(getApplicationContext(),LogIn.class);
+        startActivity(intent);
+    }
 }
