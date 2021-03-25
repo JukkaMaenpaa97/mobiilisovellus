@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     public void reserveButtonClicked(View view) {
         Intent intent = new Intent(getApplicationContext(),ReservationActivity.class);
         startActivity(intent);
@@ -55,5 +56,11 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent intent = new Intent(getApplicationContext(),LogIn.class);
         startActivity(intent);
+    }
+
+    public void button7Clicked(View view)
+    {
+        Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
+                startActivity(intent);
     }
 }

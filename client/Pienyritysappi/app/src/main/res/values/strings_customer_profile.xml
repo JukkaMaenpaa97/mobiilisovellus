@@ -5,4 +5,8 @@
     <string name="homeButton">customerhomebutton</string>
     <string name="customerprofileImage">customerImage</string>
     <string name="customerName"> </string>
+    <string name="customerprofileName">Nimi</string>
+    <string name="emailcustomerprofile">Sähköposti</string>
+    <string name="customerprofilepassword">Salasana</string>
+    <string name="customerconfirmpass">Vahvista salasana</string>
 </resources>

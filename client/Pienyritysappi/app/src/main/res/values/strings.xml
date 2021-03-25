@@ -14,4 +14,5 @@
     <string name="button6">job info</string>
     <string name="buttonReserve">ajanvaraus</string>
     <string name="button10">log in</string>
+    <string name="buttonasiakasprofiili">Asiakas profiili</string>
 </resources>
