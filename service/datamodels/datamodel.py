@@ -94,20 +94,27 @@ class DataModel:
         sdict = {}
         for key, value in self.fields.items():
             if value['public'] == True:
-                sdict[key] = value['value']
+                if value['formatter'] != None and callable(value['formatter']):
+                    sdict[key] = value['formatter'](value['value'])
+                else:
+                    sdict[key] = value['value']
         return {self.id: sdict}
 
     # set a fields value
-    # *** sanity checker not implemented yet ***
     def set(self, key, value):
         if key in self.fields and self.fields[key]['public'] == True:
-            self.fields[key]['value'] = value
+            if self.fields[key]['sanity'] != None and callable(self.fields[key]['sanity']):
+                self.fields[key]['value'] = self.fields[key]['sanity'](value)
+            else:
+                self.fields[key]['value'] = value
 
     # get a fields value
-    # *** formatter not implemented yet ***
     def get(self, key):
         if key in self.fields and self.fields[key]['public'] == True:
-            return self.fields[key]['value']
+            if self.fields[key]['formatter'] != None and callable(self.fields[key]['formatter']):
+                return self.fields[key]['formatter'](self.fields[key]['value'])
+            else:
+                return self.fields[key]['value']
         else:
             return None
 
