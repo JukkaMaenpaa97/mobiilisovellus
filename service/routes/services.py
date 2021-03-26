@@ -1,9 +1,13 @@
 from flask_restful import Resource
-from database.database import mysql, query
-from security.auth import Auth
+from datamodels.datamodellist import DataModelList
+from datamodels.servicemodel import ServiceModel
 
 class Services(Resource):
-    def get(self, id):
-        result = query("SELECT * FROM users WHERE user_id = %(user_id)s",
-        {"user_id": id}, True)
-        return result
+    def get(self):
+        servicemodel = ServiceModel()
+        servicelist = DataModelList(ServiceModel)
+
+        if servicelist.load("SELECT "+servicemodel.getFields()+" FROM "+servicemodel.getTable()):
+            return {"data": servicelist.serialize()}, 200
+        else:
+            return {"message": "Yhtään palvelua ei löytynyt"}, 404
