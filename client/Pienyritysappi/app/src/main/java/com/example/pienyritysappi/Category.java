@@ -25,12 +25,12 @@ public class Category extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void companyTextClicked(View view) {
+    public void companyImageClicked(View view) {
         Intent intent = new Intent(getApplicationContext(),Company.class);
         startActivity(intent);
     }
 
-    public void companyImageClicked(View view) {
+    public void buttonCompanyClicked(View view) {
         Intent intent = new Intent(getApplicationContext(),Company.class);
         startActivity(intent);
     }

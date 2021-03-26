@@ -25,4 +25,9 @@ public class JobOrder extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
+
+    public void buttonJobClicked(View view) {
+        Intent intent = new Intent(getApplicationContext(), ReservationActivity.class);
+        startActivity(intent);
+    }
 }

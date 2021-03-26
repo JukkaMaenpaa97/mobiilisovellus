@@ -2,9 +2,10 @@
 <resources>
     <string name="textKategoria">Kategorian nimi</string>
     <string name="imageViewCategory" />
-    <string name="textviewCompanyInfo"> Firman tietoja \nKolmella tai neljällä \nRivillä \nNäin</string>
+    <string name="buttonCompanyInfo"> Firman tietoja \nKolmella tai neljällä \nRivillä \nNäin</string>
     <string name="imageViewHomeButton" />
     <string name="imageButtonHome" />
     <string name="imageButtonProfile" />
+    <integer name="numberOfJobs">4</integer>
 
 </resources>
