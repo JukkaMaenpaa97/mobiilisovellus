@@ -7,9 +7,11 @@ class DataModelList:
     model = None
     data  = {}
 
+    # just adding the model to list class
     def __init__(self, model):
         self.model = model
 
+    # loads a list of datamodels based on query
     def load(self, sql, args = {}):
         result = query(sql, args)
 
@@ -25,6 +27,7 @@ class DataModelList:
 
         return True
 
+    # returns the serialized data for api
     def serialize(self):
         sdata = {}
 
