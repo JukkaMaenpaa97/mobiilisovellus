@@ -3,4 +3,13 @@
 
     <string name="imageButtonHomeInReservation" />
     <string name="imageButtonProfileInReservation" />
+    <string name="buttonInGrid1">aika1</string>
+    <string name="buttonInGrid2">aika2</string>
+    <string name="buttonInGrid3">aika3</string>
+    <string name="buttonInGrid4">aika4</string>
+    <string name="buttonInGrid5">aika5</string>
+    <string name="buttonInGrid6">aika6</string>
+    <string name="buttonInGrid7">aika7</string>
+    <string name="buttonInGrid8">aika8</string>
+    <string name="textViewUnreservedTimes">Vapaita aikoja</string>
 </resources>

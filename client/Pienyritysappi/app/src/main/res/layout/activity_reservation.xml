@@ -32,13 +32,103 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profile_pic_icon_foreground" />
 
-    <CalendarView
-        android:id="@+id/calendarView"
+    <GridLayout
+        android:layout_width="351dp"
+        android:layout_height="357dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="24dp"
+        android:columnCount="2"
+        android:rowCount="8"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_margin="4dp"
+            android:text="@string/buttonInGrid1"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/Button12"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_margin="4dp"
+            android:text="@string/buttonInGrid2"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/button13"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_margin="4dp"
+            android:text="@string/buttonInGrid3"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/button14"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_margin="4dp"
+            android:text="@string/buttonInGrid4"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/button15"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_margin="4dp"
+            android:text="@string/buttonInGrid5"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/button16"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_margin="4dp"
+            android:text="@string/buttonInGrid6"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/button17"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_margin="4dp"
+            android:text="@string/buttonInGrid7"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/button18"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_margin="4dp"
+            android:text="@string/buttonInGrid8"
+            android:textSize="12sp" />
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="167dp"
-        android:background="@drawable/textview_border"
+        android:layout_marginTop="150dp"
+        android:text="@string/textViewUnreservedTimes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
