@@ -18,7 +18,14 @@ public class Company extends AppCompatActivity {
 
     public void profileButtonClicked(View view)
     {
+        Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
+        startActivity(intent);
+    }
 
+    public void homeButtonClicked(View view)
+    {
+        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(intent);
     }
 
     public void contactButtonClicked(View view)
@@ -28,6 +35,7 @@ public class Company extends AppCompatActivity {
 
     public void jobListingsButtonClicked(View view)
     {
-
+        Intent intent = new Intent(getApplicationContext(),JobOrder.class);
+        startActivity(intent);
     }
 }

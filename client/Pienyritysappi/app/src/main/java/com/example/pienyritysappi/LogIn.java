@@ -2,6 +2,7 @@ package com.example.pienyritysappi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -20,11 +21,13 @@ public class LogIn extends AppCompatActivity {
 
     public void registerCustomerButtonClicked(View view)
     {
-
+        Intent intent = new Intent(getApplicationContext(),Register.class);
+        startActivity(intent);
     }
 
     public void registerCompanyButtonClicked(View view)
     {
-
+        Intent intent = new Intent(getApplicationContext(),Register.class);
+        startActivity(intent);
     }
 }

@@ -5,7 +5,7 @@
     <string name="pricingInfoTextView">Tähän tulee työn hinnoittelu</string>
     <string name="purchaseJobButton">Tilaa työ</string>
     <string name="chatButton">"Chat "</string>
-    <string name="purchaseJobButton1">Tilaa työ</string>
     <string name="moreInfoHeader">info</string>
     <string name="pricingHeader">hinnoittelu</string>
+
 </resources>

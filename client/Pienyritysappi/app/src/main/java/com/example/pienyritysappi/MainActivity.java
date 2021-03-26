@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     public void reserveButtonClicked(View view) {
         Intent intent = new Intent(getApplicationContext(),ReservationActivity.class);
         startActivity(intent);
