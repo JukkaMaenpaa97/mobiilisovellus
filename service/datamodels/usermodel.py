@@ -2,7 +2,6 @@ from datamodels.datamodel import DataModel
 
 class UserModel(DataModel):
     def __init__(self):
-        self.id = None
         self.primary_column = "user_id"
         self.table = "users"
         self.fields = {
@@ -19,5 +18,15 @@ class UserModel(DataModel):
             "user_company_id":  self.field()
         }
 
+        self.computed_fields = {
+            "user_type_string": self.computedField(parent="user_type", handler=self.computeUserType)
+        }
+
     def formatEmail(self, value):
         return str(value)
+
+    def computeUserType(self, value):
+        if value == 1:
+            return "Asiakas"
+        elif value == 2:
+            return "Yrityskäyttäjä"
