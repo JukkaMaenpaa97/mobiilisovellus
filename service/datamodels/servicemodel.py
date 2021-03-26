@@ -19,10 +19,16 @@ class ServiceModel(DataModel):
         }
 
         self.computed_fields = {
+            "service_type_string": self.computedField(parent="service_type", handler=self.getServiceTypeString),
             "service_provider_name": self.computedField(parent="service_provider_id", handler=self.getServiceProviderName),
             "service_category_name": self.computedField(parent="service_category", handler=self.getServiceCategoryName)
         }
 
+    def getServiceTypeString(self, value):
+        if value == 1:
+            return "Tuntihinta"
+        elif value == 2:
+            return "Kertamaksu"
 
     def getServiceProviderName(self, value):
         provider = UserModel()
