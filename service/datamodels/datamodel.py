@@ -25,7 +25,8 @@ class DataModel:
             sql = sql + ", ".join(update_fields)
             sql = sql + " WHERE "+self.primary_column+"=%(unique_identifier)s"
             update_values["unique_identifier"] = self.id
-            query(sql, update_values)
+            if query(sql, update_values) == None:
+                return False
             return True
         else:
             return False
@@ -51,8 +52,8 @@ class DataModel:
 
             sql = sql + "("+",".join(insert_fields)+")"
             sql = sql + " VALUES("+",".join(insert_placeholders)+")"
-            query(sql, insert_values)
-
+            if query(sql, insert_values) == None:
+                return False
             return True
         else:
             return False
@@ -62,7 +63,10 @@ class DataModel:
         if self.id != None:
             sql = "DELETE FROM "+self.table+" WHERE "+self.primary_column+"=%("+self.primary_column+")s"
             args = {self.primary_column: self.id}
-            query(sql, args)
+
+            if query(sql, args) == None:
+                return False
+
             self.id == None
             return True
         else:
@@ -89,7 +93,7 @@ class DataModel:
             return True
 
     # populate object from dictionary containing required data
-    # Note: private fields cannot be populated from outside 
+    # Note: private fields cannot be populated from outside
     def populate(self, data):
         self.id = data[self.primary_column]
 

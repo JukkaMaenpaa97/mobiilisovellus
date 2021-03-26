@@ -10,7 +10,7 @@ def query(query, params, single = False):
         mysql.connection.commit()
         if not cursor.rowcount:
             return None
-            
+
     except (MySQLdb.Error, MySQLdb.Warning) as e:
         print(e)
         return None
