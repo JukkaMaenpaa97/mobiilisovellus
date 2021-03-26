@@ -89,11 +89,12 @@ class DataModel:
             return True
 
     # populate object from dictionary containing required data
+    # Note: private fields cannot be populated from outside 
     def populate(self, data):
         self.id = data[self.primary_column]
 
         for key, value in data.items():
-            self.fields[key]['value'] = value
+            self.set(key, value)
 
         return True
 
