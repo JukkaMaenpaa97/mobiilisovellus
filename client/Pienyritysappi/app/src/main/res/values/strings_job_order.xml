@@ -7,6 +7,7 @@
     <string name="textviewCustomJob">olkoon tässä vaikka \njoku custom työ</string>
     <string name="imageButtonHomeInJobOrder" />
     <string name="imageButtonProfileInJobOrder" />
+    <integer name="numberOfJobs">8</integer>
 
 
 </resources>

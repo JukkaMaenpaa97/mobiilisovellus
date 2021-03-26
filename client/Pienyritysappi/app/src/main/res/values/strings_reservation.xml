@@ -12,4 +12,5 @@
     <string name="buttonInGrid7">aika7</string>
     <string name="buttonInGrid8">aika8</string>
     <string name="textViewUnreservedTimes">Vapaita aikoja</string>
+    <integer name="numberOfUnreservedTimes">16</integer>
 </resources>

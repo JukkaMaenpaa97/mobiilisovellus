@@ -35,6 +35,7 @@
             android:id="@+id/button22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAlignment="textStart"
             android:text="@string/buttonTyoInfo"
             android:onClick="buttonJobClicked"/>
 
@@ -42,6 +43,7 @@
             android:id="@+id/button23"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAlignment="textStart"
             android:text="@string/buttonTyoInfo"
             android:onClick="buttonJobClicked"/>
 
@@ -49,6 +51,7 @@
             android:id="@+id/button24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAlignment="textStart"
             android:text="@string/buttonTyoInfo"
             android:onClick="buttonJobClicked"/>
 
@@ -56,6 +59,7 @@
             android:id="@+id/button25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAlignment="textStart"
             android:text="@string/buttonTyoInfo"
             android:onClick="buttonJobClicked"/>
     </GridLayout>

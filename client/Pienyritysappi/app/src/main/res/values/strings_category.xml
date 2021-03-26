@@ -6,6 +6,6 @@
     <string name="imageViewHomeButton" />
     <string name="imageButtonHome" />
     <string name="imageButtonProfile" />
-    <integer name="numberOfJobs">4</integer>
+    <integer name="numberOfCompanies">4</integer>
 
 </resources>

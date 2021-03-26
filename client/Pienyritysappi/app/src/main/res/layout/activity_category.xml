@@ -24,7 +24,7 @@
         android:layout_height="401dp"
         android:layout_marginTop="170dp"
         android:columnCount="1"
-        android:rowCount="@integer/numberOfJobs"
+        android:rowCount="@integer/numberOfCompanies"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -36,6 +36,7 @@
             android:id="@+id/button12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAlignment="textStart"
             android:onClick="buttonCompanyClicked"
             android:text="@string/buttonCompanyInfo" />
 
@@ -43,6 +44,7 @@
             android:id="@+id/button19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAlignment="textStart"
             android:onClick="buttonCompanyClicked"
             android:text="@string/buttonCompanyInfo" />
 
@@ -50,6 +52,7 @@
             android:id="@+id/button20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAlignment="textStart"
             android:onClick="buttonCompanyClicked"
             android:text="@string/buttonCompanyInfo" />
 
@@ -57,6 +60,7 @@
             android:id="@+id/button21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAlignment="textStart"
             android:onClick="buttonCompanyClicked"
             android:text="@string/buttonCompanyInfo" />
     </GridLayout>
