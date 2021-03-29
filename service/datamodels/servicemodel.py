@@ -1,6 +1,4 @@
 from datamodels.datamodel import DataModel
-from datamodels.usermodel import UserModel
-from datamodels.categorymodel import CategoryModel
 
 class ServiceModel(DataModel):
     def __init__(self):
@@ -31,6 +29,7 @@ class ServiceModel(DataModel):
             return "Kertamaksu"
 
     def getServiceProviderName(self, value):
+
         provider = UserModel()
         if provider.load(value):
             return provider.get("user_name")
@@ -38,8 +37,12 @@ class ServiceModel(DataModel):
             return None
 
     def getServiceCategoryName(self, value):
+
         category = CategoryModel()
         if category.load(value):
             return category.get("category_name")
         else:
             return None
+
+from datamodels.usermodel import UserModel
+from datamodels.categorymodel import CategoryModel
