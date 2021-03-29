@@ -8,6 +8,7 @@ class Services(Resource):
         servicelist = DataModelList(ServiceModel)
 
         if servicelist.load("SELECT "+servicemodel.getFields()+" FROM "+servicemodel.getTable()):
+            servicelist.computeAll()
             return {"data": servicelist.serialize()}, 200
         else:
             return {"message": "Yhtään palvelua ei löytynyt"}, 404
