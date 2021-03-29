@@ -98,7 +98,7 @@ class DataModel:
         self.id = data[self.primary_column]
 
         for key, value in data.items():
-            self.set(key, value)
+            self.set(key, value, False)
 
         return True
 
@@ -121,20 +121,21 @@ class DataModel:
         return sdict
 
     # set a fields value
-    def set(self, key, value):
+    def set(self, key, value, compute=True):
         if key in self.fields and self.fields[key]['public'] == True:
             if self.fields[key]['sanity'] != None and callable(self.fields[key]['sanity']):
                 self.fields[key]['value'] = self.fields[key]['sanity'](value)
             else:
                 self.fields[key]['value'] = value
 
-            # checking if field has any computable fields
-            # looping through computable fields and checking if any have current field as parent
-            for ckey, item in self.computed_fields.items():
+            if compute:
+                # checking if field has any computable fields
+                # looping through computable fields and checking if any have current field as parent
+                for ckey, item in self.computed_fields.items():
 
-                # if parent is set to current field, run the handler function for the value
-                if item['parent'] == key:
-                    self.computed_fields[ckey]['value'] = self.computed_fields[ckey]['handler'](value)
+                    # if parent is set to current field, run the handler function for the value
+                    if item['parent'] == key:
+                        self.computed_fields[ckey]['value'] = self.computed_fields[ckey]['handler'](value)
 
     # get a fields value
     def get(self, key):
@@ -145,6 +146,16 @@ class DataModel:
                 return self.fields[key]['value']
         else:
             return None
+
+    # computes all computed values in object
+    # single instance's values are automatically computed, but
+    # populate function does not compute any, because of recursion danger.
+    # After populating, values must be computed explicitly
+    def computeValues(self):
+        # checking if field has any computable fields
+        # looping through computable fields and checking if any have current field as parent
+        for ckey, item in self.computed_fields.items():
+            self.computed_fields[ckey]['value'] = self.computed_fields[ckey]['handler'](self.fields[self.computed_fields[ckey]['parent']]['value'])
 
     # get a computed field, direct setting is not permitted
     def getComputed(self, key):
