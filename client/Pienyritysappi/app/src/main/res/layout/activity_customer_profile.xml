@@ -21,8 +21,8 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="194dp"
-        android:layout_height="159dp"
+        android:layout_width="173dp"
+        android:layout_height="128dp"
         android:layout_marginTop="4dp"
         android:contentDescription="@string/customerprofileImage"
         app:layout_constraintHorizontal_bias="0.497"
@@ -33,22 +33,24 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName3"
-        android:layout_width="288dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="300dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:text="@string/customerName"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView4" />
 
+
     <EditText
         android:id="@+id/editTextTextEmailAddress2"
-        android:layout_width="301dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="68dp"
+        android:layout_width="298dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
@@ -60,7 +62,7 @@
         android:id="@+id/textViewCustomerprofile1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:text="@string/customerprofileName"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -69,12 +71,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView4" />
 
-
     <TextView
         android:id="@+id/textViewCustomerprofile2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:text="@string/emailcustomerprofile"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -87,24 +88,24 @@
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="12dp"
         android:text="@string/customerprofilepassword"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintHorizontal_bias="0.153"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextTextEmailAddress2" />
 
     <EditText
         android:id="@+id/editTextTextPassword2"
-        android:layout_width="300dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="311dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPassword"
-        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView16" />
@@ -113,27 +114,51 @@
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="12dp"
         android:text="@string/customerconfirmpass"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintHorizontal_bias="0.195"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextTextPassword2" />
 
     <EditText
         android:id="@+id/editTextTextPassword3"
-        android:layout_width="304dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="307dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPassword"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView17"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@id/textView17" />
+
+    <Button
+        android:id="@+id/button26"
+        android:layout_width="184dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="28dp"
+        android:onClick="tietojenmuokkaus"
+        android:text="@string/customerprofilebutton"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextTextPassword3" />
+
+    <Button
+        android:id="@+id/button27"
+        android:layout_width="179dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="28dp"
+        android:onClick="tallennatiedot"
+        android:text="@string/buttonsavecustomerprofile"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextTextPassword3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
