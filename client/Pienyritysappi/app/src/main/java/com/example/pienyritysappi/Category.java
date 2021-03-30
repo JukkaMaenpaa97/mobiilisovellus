@@ -13,6 +13,13 @@ public class Category extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
         Intent intent = getIntent();
+        jsonParse();
+
+    }
+
+    private void jsonParse(){
+        String url = "http://mobiilisovellus.therozor.com:5000/";
+
     }
 
     public void homeButtonClicked(View view) {
