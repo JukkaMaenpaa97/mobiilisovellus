@@ -46,7 +46,7 @@ class Login(Resource):
                   return {"message": "login_success","apikey": apikey}
 
             except Exception:
-                  return {"message": "invalid credentials"}
+                  return {"error": "100","message": "invalid credentials"}
                      
             
       
