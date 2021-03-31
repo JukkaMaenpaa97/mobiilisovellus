@@ -37,9 +37,9 @@ class DataModelList:
 
     # returns the serialized data for api
     def serialize(self):
-        sdata = {}
+        sdata = []
 
         for model_id, model_instance  in self.data.items():
-            sdata[model_id] = model_instance.serialize()
+            sdata.append(model_instance.serialize())
 
         return sdata
