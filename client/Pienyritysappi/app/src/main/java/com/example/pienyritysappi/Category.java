@@ -35,7 +35,6 @@ public class Category extends AppCompatActivity {
 
     private void jsonParse(){
         String url = "http://mobiilisovellus.therozor.com:5000/categories";
-        System.out.println("kai mun private void jsonParse toimii");
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -44,19 +43,21 @@ public class Category extends AppCompatActivity {
                             JSONArray jsonArray = response.getJSONArray("data");
                             for (int i = 0; i < jsonArray.length(); i++){
                                 JSONObject category = jsonArray.getJSONObject(i);
-                                System.out.println(category);
+                                System.out.println("\n" + category + "\n");
                                 String categoryName = category.getString("category_name");
-                                System.out.println(categoryName);
+                                System.out.println("\n" + categoryName + "\n");
                                 mTextViewResult.setText(categoryName);
                             }
 
                         } catch (JSONException e) {
+                            System.out.println("\nnyt ollaan onResponsen catchissä\n");
                             e.printStackTrace();
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                System.out.println("onErrorResponsessa ollaan.");
                 error.printStackTrace();
             }
         });
