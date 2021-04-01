@@ -8,6 +8,6 @@ class Service(Resource):
         servicemodel = ServiceModel()
 
         if servicemodel.load(id):
-            return {"data": servicemodel.serialize()}, 200
+            return {"data": [servicemodel.serialize()]}, 200
         else:
             return {"message": "Palvelua ei löytynyt"}, 404
