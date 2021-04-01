@@ -42,7 +42,6 @@ public class Category extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
-
                             for (int i = 0; i < jsonArray.length(); i++){
                                 JSONObject category = jsonArray.getJSONObject(i);
                                 System.out.println(category);
@@ -61,7 +60,6 @@ public class Category extends AppCompatActivity {
                 error.printStackTrace();
             }
         });
-
         mQueue.add(request);
     }
 
