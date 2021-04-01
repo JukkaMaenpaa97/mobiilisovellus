@@ -27,6 +27,8 @@ class DataModel:
             update_values["unique_identifier"] = self.id
             if query(sql, update_values) == None:
                 return False
+
+            self.onUpdate()
             return True
         else:
             return False
@@ -54,6 +56,8 @@ class DataModel:
             sql = sql + " VALUES("+",".join(insert_placeholders)+")"
             if query(sql, insert_values) == None:
                 return False
+
+            self.onCreate()
             return True
         else:
             return False
@@ -67,6 +71,7 @@ class DataModel:
             if query(sql, args) == None:
                 return False
 
+            self.onDelete()
             self.id == None
             return True
         else:
@@ -90,6 +95,7 @@ class DataModel:
             for key, value in result.items():
                 self.set(key, value)
             self.id = id
+            self.onLoad()
             return True
 
     # populate object from dictionary containing required data
@@ -100,7 +106,28 @@ class DataModel:
         for key, value in data.items():
             self.set(key, value, False)
 
+        self.onPopulate()
         return True
+
+    # overridable methods
+    # these are always run after the corresponding operation
+    # ONLY if the operation was succesfull
+    def onUpdate(self):
+        pass
+
+    def onCreate(self):
+        pass
+
+    def onLoad(self):
+        pass
+
+    def onDelete(self):
+        pass
+
+    def onPopulate(self):
+        pass
+
+
 
     # returns a dictionary of all public fields
     def serialize(self):
