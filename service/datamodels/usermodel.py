@@ -30,3 +30,5 @@ class UserModel(DataModel):
             return "Asiakas"
         elif value == 2:
             return "Yrityskäyttäjä"
+        elif value == 3:
+            return "Ylläpitäjä"
