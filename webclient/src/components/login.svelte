@@ -9,7 +9,7 @@
 
     async function doLogin(e){
         e.preventDefault();
-        Api.login(username, password);
+        Api.services();
         let apikey = "oasijfoaiejfoei291024j01294j0";
         dispatch("login", {apikey: apikey});
     }
