@@ -2,6 +2,7 @@
 from flask import Flask
 from flask_restful import Api, Resource
 from flask_mysqldb import MySQL
+from flask_cors import CORS
 from config import api_config
 from database.database import mysql
 
@@ -16,12 +17,17 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 api = Api(app)
 mysql.init_app(app)
+CORS(app)
+
 
 # api modules
 from routes.user import User
 from login import Login
 from routes.register import Register
 from routes.services import Services
+from routes.service import Service
+from routes.categories import Categories
+
 
 # default route index
 class Index(Resource):
@@ -32,9 +38,12 @@ api.add_resource(Index, "/")
 api.add_resource(User, "/user/<id>")
 api.add_resource(Login, "/login")
 api.add_resource(Register, "/register")
+api.add_resource(Services, "/services")
+api.add_resource(Service, "/service/<id>")
+api.add_resource(Categories, "/categories")
 
 def main():
-    app.run(debug=True)
+    app.run(host="127.0.0.1", port=5021, debug=True)
 
 if __name__ == '__main__':
     main()
