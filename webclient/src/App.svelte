@@ -16,10 +16,11 @@
 	<div class="uk-container">
 		<Router url="{url}">
 			<nav>
-				<Link to="/">Home</Link>
-				<Link to="login">Login</Link>
-				<Link to="register">Register</Link>
-				<Link to="profile">Profile</Link>
+				<Link to="/">Selaa</Link>
+				<Link to="login">Kirjaudu</Link>
+				<Link to="register">Rekisteröidy</Link>
+				<Link to="profile">Profiili</Link>
+				<Link to="">Viestit</Link>
 			</nav>
 			<div>
 				<Route path="register" component="{Register}" />
