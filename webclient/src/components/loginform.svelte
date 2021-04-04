@@ -1,4 +1,6 @@
 <script>
+
+    import { navigate, Link } from 'svelte-routing';
     import { createEventDispatcher } from 'svelte';
     const dispatch = createEventDispatcher();
 
@@ -17,7 +19,7 @@
 
 <div class="uk-section">
     <div class="uk-container uk-container-xsmall">
-        <h1>Jobster webclient 0.1b</h1>
+        <h1>Jobster - Töille tekijöitä ja tekijöille töitä</h1>
         <form method="post" on:submit={doLogin}>
             <fieldset class="uk-fieldset">
                 <legend class="uk-legend">Kirjaudu sisään</legend>
@@ -30,9 +32,10 @@
                 <div class="uk-margin">
                     <input type="submit" class="uk-button uk-button-primary" value="Kirjaudu">
                     tai
-                    <button class="uk-button uk-button-secondary">Rekisteröidy</button>
+                    <button class="uk-button uk-button-secondary" on:click={ () => {navigate("/register");}}>Rekisteröidy</button>
                 </div>
             </fieldset>
         </form>
+        <Link to="">Unohditko salasanasi?</Link>
     </div>
 </div>

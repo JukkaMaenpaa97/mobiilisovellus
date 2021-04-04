@@ -3,21 +3,30 @@
 	import Icons from 'uikit/dist/js/uikit-icons';
 	UIkit.use(Icons);
 
-	import Menu from './components/menu.svelte';
-	import Login from './components/login.svelte';
-	import ServiceList from './components/servicelist.svelte';
+	import { Router, Link, Route } from "svelte-routing";
+	import Home from './routes/home.svelte';
+	import Login from './routes/login.svelte';
+	import Register from './routes/register.svelte';
+	import Profile from './routes/profile.svelte';
 
-	function onLogin(e){
-		UIkit.notification('<span uk-icon="icon: check"></span> Apikey retrieved', {pos: 'top-right'});
-	}
+	export let url = "";
 </script>
 
-<main>
-<Menu />
 <div class="uk-section">
-<div class="uk-container uk-container-small">
-	<ServiceList />
+	<div class="uk-container">
+		<Router url="{url}">
+			<nav>
+				<Link to="/">Home</Link>
+				<Link to="login">Login</Link>
+				<Link to="register">Register</Link>
+				<Link to="profile">Profile</Link>
+			</nav>
+			<div>
+				<Route path="register" component="{Register}" />
+				<Route path="login" component="{Login}" />
+				<Route path="profile" component="{Profile}" />
+				<Route path="/"><Home /></Route>
+			</div>
+		</Router>
+	</div>
 </div>
-	<!--<Login on:login={onLogin}/>-->
-</div>
-</main>
