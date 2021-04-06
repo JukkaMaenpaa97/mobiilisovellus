@@ -29,16 +29,17 @@ public class JobInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_info);
+        String url = getIntent().getStringExtra("keyurl");
         mTextViewResult = findViewById(R.id.header);
         mTextViewDescription = findViewById(R.id.jobInfoTextView);
         mTextViewPricing = findViewById(R.id.pricingTextView);
         mQueue = Volley.newRequestQueue(this);
-        jsonParse();
+        jsonParse(url);
 
     }
 
-    private void jsonParse(){
-        String url = "http://mobiilisovellus.therozor.com:5000/services?user_id=5031bd69-c634-43dd-9000-c8fe0b984e85";
+    private void jsonParse(String url){
+
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
