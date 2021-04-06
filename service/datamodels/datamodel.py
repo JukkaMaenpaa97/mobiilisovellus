@@ -100,6 +100,7 @@ class DataModel:
 
     # populate object from dictionary containing required data
     # Note: private fields cannot be populated from outside
+    # Note 2: private field CAN now be populated 
     def populate(self, data):
         self.id = data[self.primary_column]
 
@@ -149,7 +150,7 @@ class DataModel:
 
     # set a fields value
     def set(self, key, value, compute=True):
-        if key in self.fields and self.fields[key]['public'] == True:
+        if key in self.fields:
             if self.fields[key]['sanity'] != None and callable(self.fields[key]['sanity']):
                 self.fields[key]['value'] = self.fields[key]['sanity'](value)
             else:
@@ -166,7 +167,7 @@ class DataModel:
 
     # get a fields value
     def get(self, key):
-        if key in self.fields and self.fields[key]['public'] == True:
+        if key in self.fields:
             if self.fields[key]['formatter'] != None and callable(self.fields[key]['formatter']):
                 return self.fields[key]['formatter'](self.fields[key]['value'])
             else:
@@ -192,6 +193,7 @@ class DataModel:
             return None
 
     # setting a private field
+    # DEPRECATED
     def setPrivate(self, key, value):
         if self.fields[key]['sanity'] != None and callable(self.fields[key]['sanity']):
             self.fields[key]['value'] = self.fields[key]['sanity'](value)
@@ -199,6 +201,7 @@ class DataModel:
             self.fields[key]['value'] = value
 
     # get a private field
+    # DEPRECATED
     def getPrivate(self, key):
         if self.fields[key]['formatter'] != None and callable(self.fields[key]['formatter']):
             return self.fields[key]['formatter'](self.fields[key]['value'])
