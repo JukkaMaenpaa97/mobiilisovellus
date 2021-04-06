@@ -41,16 +41,12 @@ public class Category extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
-                            for (int i = 0; i < jsonArray.length(); i++){
-                                JSONObject category = jsonArray.getJSONObject(i);
-                                System.out.println("\n" + category + "\n");
-                                String categoryName = category.getString("category_name");
-                                System.out.println("\n" + categoryName + "\n");
-                                mTextViewResult.setText(categoryName);
-                            }
+                            JSONObject category = jsonArray.getJSONObject(1);   //tähän indeksi monennenko kategorian haluaa (0=eka 1=toka jne. tullaan vaihtamaan id:llä haettavaksi)
+                            String categoryName = category.getString("category_name");
+                            mTextViewResult.setText(categoryName);
 
                         } catch (JSONException e) {
-                            System.out.println("\nnyt ollaan onResponsen catchissä\n");
+                            System.out.println("\nnyt ollaan onResponsen catchissä: JSONExceptionissa siis\n");
                             e.printStackTrace();
                         }
                     }

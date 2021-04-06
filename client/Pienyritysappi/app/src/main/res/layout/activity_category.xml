@@ -20,17 +20,17 @@
 
 
     <GridLayout
-        android:layout_width="339dp"
-        android:layout_height="401dp"
-        android:layout_marginTop="170dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="160dp"
+        android:layout_width="301dp"
+        android:layout_height="382dp"
 
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="73dp"
+        android:layout_marginBottom="169dp"
         android:columnCount="1"
         android:rowCount="@integer/numberOfCompanies"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -98,7 +98,7 @@
         android:layout_width="220dp"
         android:layout_height="43dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="120dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
