@@ -1,69 +1,72 @@
 from flask import request
 from flask_restful import Resource
 from database.database import mysql, query
-from security.auth import Auth
-import uuid
+from validate.postvalidator import PostValidator
+from datamodels.usermodel import UserModel
 import hashlib
 
 class Register(Resource):
     def post(self):
         # collecting post data to dict
         data = request.form
-        if int(data.get('user_type')) == 1:
-            user = {
-                "user_id":          str(uuid.uuid4()),
-                "user_type":        int(data.get('user_type')),
-                "user_name":        data.get('user_name'),
-                "user_password":    hashlib.sha256(data.get('user_password').encode('utf-8')).hexdigest(),
-                "user_email":       data.get('user_email'),
-                "user_phone":       data.get('user_phone'),
-            }
-        elif int(data.get('user_type')) == 2:
-            user = {
-                "user_id":          str(uuid.uuid4()),
-                "user_type":        int(data.get('user_type')),
-                "user_name":        data.get('user_name'),
-                "user_password":    hashlib.sha256(data.get('user_password').encode('utf-8')).hexdigest(),
-                "user_email":       data.get('user_email'),
-                "user_phone":       data.get('user_phone'),
-                "user_company_id":  data.get('user_company_id'),
-                "user_company_name":data.get('user_company_name')
-            }
+        validator = PostValidator()
+        validator.postData(data)
 
-        # first checking if usertype is not set
-        if user['user_type'] == '' or user['user_type'] == None:
-            return self.failure({"user_type": "invalid"})
+        validator.addField(
+            "user_type",
+            type="integer",
+            validate=["not_empty"],
+            allowed=[1,2]
+        )
 
-        # checking if user type is valid
-        if user['user_type'] == 1 or user['user_type'] == 2:
-            failure_flag = False
-            invalid_fields = {}
+        validator.addField(
+            "user_name",
+            max_len=50,
+            validate=["not_empty"]
+        )
 
-            # looping all fields, push invalid to dict if no value is set
-            for key, value in user.items():
-                if value == None or value == '':
-                    invalid_fields[key] = "invalid"
-                    failure_flag = True
+        validator.addField(
+            "user_email",
+            max_len=50,
+            validate=["not_empty"]
+        )
 
-            if failure_flag:
-                return self.failure(invalid_fields)
+        validator.addField(
+            "user_password",
+            validate=["not_empty"]
+        )
+
+        validator.addField(
+            "user_password_again",
+            validate=["not_empty"]
+        )
+        validation_result = validator.validate()
+
+        if validation_result:
+            if validator.get("user_password") == validator.get("user_password_again"):
+                # validation passed, create a new user
+                new_user = UserModel()
+                new_user.set("user_type", validator.get("user_type"))
+                new_user.set("user_name", validator.get("user_name"))
+                new_user.set("user_email", validator.get("user_email"))
+
+                user_password = hashlib.sha256(validator.get("user_password").encode("utf-8")).hexdigest()
+                new_user.set("user_password", user_password)
+
+                if new_user.create():
+                    return {"message": "Rekisteröinti onnistui"}, 200
+                else:
+                    return {"message": "Virhe"}, 500
             else:
-                # everything was cool, let's add a new user to database
-                if user['user_type'] == 1:
-                    query("INSERT INTO users (user_id, user_type, user_email, user_password, user_name, user_phone) VALUES(%(user_id)s, %(user_type)s, %(user_email)s, %(user_password)s, %(user_name)s, %(user_phone)s)", user)
-                elif user['user_type'] == 2:
-                    query("INSERT INTO users (user_id, user_type, user_email, user_password, user_name, user_phone, user_company_name, user_company_id) VALUES(%(user_id)s, %(user_type)s, %(user_email)s, %(user_password)s, %(user_name)s, %(user_phone)s, %(user_company_name)s, %(user_company_id)s)", user)
-                return self.success()
-
+                return {
+                    "error": "110",
+                    "message": "Rekisteröinti epäonnistui. Salasanat eivät täsmää",
+                    "invalid_fields": ["user_password", "user_password_again"]
+                }
         else:
-            return self.failure({"user_type": "invalid"})
-
-    def success(self):
-        return {"message": "Rekisteröinti onnistui."}, 200
-
-    def failure(self, invalid_fields):
-        return {
-            "error": "110",
-            "message": "Rekisteröinti epäonnistui.",
-            "invalid_fields": invalid_fields
-        }, 400
+            return {
+                "error": "110",
+                "message": "Rekisteröinti epäonnistui.",
+                "invalid_fields": validator.getInvalidFields(),
+                "messages": validator.getInvalidMessages()
+            }, 400

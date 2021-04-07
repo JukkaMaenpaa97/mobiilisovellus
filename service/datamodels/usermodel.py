@@ -7,13 +7,13 @@ class UserModel(DataModel):
         self.fields = {
             "user_id":          self.field(),
             "user_type":        self.field(value = "1"),
-            "user_email":       self.field(),
+            "user_email":       self.field(public = False),
             "user_password":    self.field(public = False),
             "user_name":        self.field(),
-            "user_phone":       self.field(),
-            "user_address":     self.field(),
-            "user_postalcode":  self.field(),
-            "user_city":        self.field(),
+            "user_phone":       self.field(public = False),
+            "user_address":     self.field(public = False),
+            "user_postalcode":  self.field(public = False),
+            "user_city":        self.field(public = False),
             "user_company_name":self.field(),
             "user_company_id":  self.field()
         }
