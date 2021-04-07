@@ -47,6 +47,7 @@ public class Category extends AppCompatActivity {
         mQueue = Volley.newRequestQueue(this);
         jsonParse();
         jsonParseCompanyCount();
+        //serviceCount = Integer.parseInt(mTextViewServiceCount.getText().toString());  //EI TOIMI VIELÄ
         jsonParseButtons(serviceCount);
     }
 
@@ -56,12 +57,12 @@ public class Category extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            JSONObject jsonObject = response.getJSONObject("count");
-                            int serviceCount = jsonObject.getInt("count");           //EI TOIMI VIELÄ
-                            mTextViewServiceCount.setText(serviceCount);
+                            int serviceCountFromJson = response.getInt("count");
+                            String serviceCountString = Integer.toString(serviceCountFromJson);
+                            mTextViewServiceCount.setText(serviceCountString);
 
                         } catch (JSONException e) {
-                            System.out.println("\nnyt ollaan onResponsen catchissä: JSONExceptionissa siis\n");
+                            System.out.println("\nnyt ollaan onResponsen catchissä: JSONExceptionissa\n");
                             e.printStackTrace();
                         }
                     }
@@ -82,7 +83,7 @@ public class Category extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
-                            JSONObject category = jsonArray.getJSONObject(serviceCount-1);   //tähän indeksi monennenko kategorian haluaa (0=eka 1=toka jne. tullaan vaihtamaan id:llä haettavaksi)
+                            JSONObject category = jsonArray.getJSONObject(serviceCount-1);   //tähän indeksi monennenko haluaa (0=eka 1=toka jne. tullaan vaihtamaan id:llä haettavaksi)
                             String companyName = category.getString("user_company_name");
                             String contactName = category.getString("user_name");
                             switch (serviceCount-1){
