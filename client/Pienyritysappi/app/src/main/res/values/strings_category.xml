@@ -6,6 +6,7 @@
     <string name="imageViewHomeButton" />
     <string name="imageButtonHome" />
     <string name="imageButtonProfile" />
+    <string name="textViewServiceCount">0</string>
     <integer name="numberOfCompanies">4</integer>
 
 </resources>

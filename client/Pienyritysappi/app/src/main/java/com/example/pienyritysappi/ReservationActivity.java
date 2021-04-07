@@ -20,7 +20,7 @@ public class ReservationActivity extends AppCompatActivity {
     }
 
     public void profileButtonClicked(View view) {
-        Intent intent = new Intent(getApplicationContext(),Register.class);
+        Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
         startActivity(intent);
     }
 }
