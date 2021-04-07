@@ -100,7 +100,7 @@ class DataModel:
 
     # populate object from dictionary containing required data
     # Note: private fields cannot be populated from outside
-    # Note 2: private field CAN now be populated 
+    # Note 2: private field CAN now be populated
     def populate(self, data):
         self.id = data[self.primary_column]
 
@@ -131,12 +131,14 @@ class DataModel:
 
 
     # returns a dictionary of all public fields
-    def serialize(self):
+    # include_private list can be used to include private fields explicitly
+    # for example in a situation where user want their own information etc.
+    def serialize(self, include_private = []):
         sdict = {}
 
         # return all normal fields
         for key, value in self.fields.items():
-            if value['public'] == True:
+            if value['public'] == True or key in include_private:
                 if value['formatter'] != None and callable(value['formatter']):
                     sdict[key] = value['formatter'](value['value'])
                 else:
