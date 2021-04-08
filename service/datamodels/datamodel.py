@@ -214,7 +214,7 @@ class DataModel:
     def getFields(self, type = "sql_string"):
         keylist = []
         for key, field in self.fields.items():
-            keylist.append(key)
+            keylist.append(self.table+"."+key)
 
         if type == "sql_string":
             return ", ".join(keylist)
