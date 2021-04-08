@@ -12,7 +12,12 @@ class PostValidator:
         self.valid_flag = True
 
     def postData(self, post_data):
-        self.post_data = post_data
+        # checking if post data is actually set
+        # just a safeguard to avoid errors
+        if type(post_data) is dict:
+            self.post_data = post_data
+        else:
+            self.post_data = {}
 
     def addField(self, name, type = "string", min_len = None, max_len = None, validate = None, allowed = None, optional = False):
         self.fields[name] = {
@@ -27,7 +32,6 @@ class PostValidator:
         }
 
     def validate(self):
-        # validating all fields and getting the data from post
         for key, field in self.fields.items():
             item_valid_flag = True
 

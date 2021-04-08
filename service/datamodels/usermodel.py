@@ -1,4 +1,5 @@
 from datamodels.datamodel import DataModel
+from database.database import mysql, query
 
 class UserModel(DataModel):
     def __init__(self):
@@ -19,7 +20,8 @@ class UserModel(DataModel):
         }
 
         self.computed_fields = {
-            "user_type_string": self.computedField(parent="user_type", handler=self.computeUserType)
+            "user_type_string": self.computedField(parent="user_type", handler=self.computeUserType),
+            "user_total_service_count": self.computedField(parent="user_id", handler=self.getServiceCount)
         }
 
     def formatEmail(self, value):
@@ -32,3 +34,7 @@ class UserModel(DataModel):
             return "Yrityskäyttäjä"
         elif value == 3:
             return "Ylläpitäjä"
+
+    def getServiceCount(self, value):
+        service_count = query("SELECT COUNT(service_id) FROM services WHERE service_provider_id=%(user_id)s", {"user_id": value}, True)
+        return service_count['COUNT(service_id)']
