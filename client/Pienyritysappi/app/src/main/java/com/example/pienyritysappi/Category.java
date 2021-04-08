@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,6 +30,7 @@ public class Category extends AppCompatActivity {
     private RequestQueue mQueue;
     String categoryurl;
     private int serviceCount=1;
+    private String companyUserId="";
 
 
     @Override
@@ -134,7 +136,7 @@ public class Category extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("onErrorResponsessa ollaan.");
+                System.out.println("onErrorResponsessa ollaan. Category.java");
                 error.printStackTrace();
             }
         });
@@ -151,14 +153,37 @@ public class Category extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void companyImageClicked(View view) {
+    public void buttonCompanyClicked(View view) {
+        jsonParseUserId();
         Intent intent = new Intent(getApplicationContext(),Company.class);
+        intent.putExtra("userId", companyUserId);
         startActivity(intent);
+
     }
 
-    public void buttonCompanyClicked(View view) {
-        Intent intent = new Intent(getApplicationContext(),Company.class);
-        startActivity(intent);
+    private void jsonParseUserId() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, categoryurl, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray jsonArray = response.getJSONArray("data");
+                            JSONObject category = jsonArray.getJSONObject(0);   //tähän indeksi monennenko haluaa (0=eka 1=toka jne. tullaan vaihtamaan id:llä haettavaksi)
+                            companyUserId = category.getString("user_id");
+
+                        } catch (JSONException e) {
+                            System.out.println("\nnyt ollaan onResponsen catchissä: JSONExceptionissa\n");
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("onErrorResponsessa ollaan.Category.java jsonParseUserId");
+                error.printStackTrace();
+            }
+        });
+        mQueue.add(request);
     }
 
 }

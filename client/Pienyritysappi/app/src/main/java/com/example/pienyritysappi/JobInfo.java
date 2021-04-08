@@ -53,8 +53,10 @@ public class JobInfo extends AppCompatActivity {
                             String jobDescription = job.getString("service_description");
                             String jobAvailability = job.getString("service_availability");
                             mTextViewResult.setText(jobName);
-                            mTextViewDescription.setText(jobDescription + "\n\nSaatavuus:\n" + jobAvailability);
-                            mTextViewPricing.setText(jobPriceType + "\n" + jobPrice.toString() + " €");
+                            String description = jobDescription + "\n\nSaatavuus:\n" + jobAvailability;
+                            mTextViewDescription.setText(description);
+                            String pricing = jobPriceType + "\n" + jobPrice.toString() + " €";
+                            mTextViewPricing.setText(pricing);
 
 
 
