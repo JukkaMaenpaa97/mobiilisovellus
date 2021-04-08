@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="textKategoria">Kategorian nimi</string>
+    <string name="textKategoria">Valitun kategorian palvelut</string>
     <string name="imageViewCategory" />
     <string name="buttonCompanyInfo"> Firman tietoja \nKolmella tai neljällä \nRivillä \nNäin</string>
     <string name="imageViewHomeButton" />
     <string name="imageButtonHome" />
     <string name="imageButtonProfile" />
     <string name="textViewServiceCount">0</string>
-    <integer name="numberOfCompanies">4</integer>
+    <integer name="numberOfCompanies">8</integer>
 
 </resources>
