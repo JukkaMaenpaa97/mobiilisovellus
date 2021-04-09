@@ -31,7 +31,7 @@
         android:onClick="profileButtonClicked"
         android:src="@drawable/profile_pic_icon_foreground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageButton
         android:id="@+id/homeButton"
@@ -44,174 +44,20 @@
         android:src="@drawable/home_pic_icon_foreground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    
+    <GridLayout
+        android:id="@+id/categoryGridLayout"
+        android:layout_width="360dp"
+        android:layout_height="500dp"
+        android:layout_margin="10sp"
+        android:rowCount="8"
+        android:columnCount="1"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
 
-    <Button
-        android:id="@+id/catButton1"
-        android:layout_width="110dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="250dp"
-        android:backgroundTint="#D08221"
-        android:onClick="cat1Clicked"
-        android:text="@string/catButton1Text"
-        android:textColor="#ADD8E6 "
-        app:layout_constraintEnd_toStartOf="@+id/catButton2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/catButton2"
-        android:layout_width="110dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="250dp"
-        android:backgroundTint="#D08221"
-        android:onClick="cat2Clicked"
-        android:text="@string/catButton2Text"
-        android:textColor="#ADD8E6 "
-        app:layout_constraintEnd_toStartOf="@+id/catButton3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/catButton1"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/catButton3"
-        android:layout_width="110dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="250dp"
-        android:backgroundTint="#D08221"
-        android:onClick="cat3Clicked"
-        android:text="@string/catButton3Text"
-        android:textColor="#ADD8E6 "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/catButton2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/catButton4"
-        android:layout_width="110dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="340dp"
-        android:backgroundTint="#D08221"
-        android:onClick="cat4Clicked"
-        android:text="@string/catButton4Text"
-        android:textColor="#ADD8E6 "
-        app:layout_constraintEnd_toStartOf="@+id/catButton5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/catButton5"
-        android:layout_width="110dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="340dp"
-        android:backgroundTint="#D08221"
-        android:onClick="cat5Clicked"
-        android:text="@string/catButton5Text"
-        android:textColor="#ADD8E6 "
-        app:layout_constraintEnd_toStartOf="@+id/catButton6"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/catButton4"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/catButton6"
-        android:layout_width="110dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="340dp"
-        android:backgroundTint="#D08221"
-        android:onClick="cat6Clicked"
-        android:text="@string/catButton6Text"
-        android:textColor="#ADD8E6 "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/catButton5"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/catButton7"
-        android:layout_width="110dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="430dp"
-        android:backgroundTint="#D08221"
-        android:onClick="cat7Clicked"
-        android:text="@string/catButton7Text"
-        android:textColor="#ADD8E6 "
-        app:layout_constraintEnd_toStartOf="@+id/catButton8"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/catButton8"
-        android:layout_width="110dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="430dp"
-        android:backgroundTint="#D08221"
-        android:onClick="cat8Clicked"
-        android:text="@string/catButton8Text"
-        android:textColor="#ADD8E6 "
-        app:layout_constraintEnd_toStartOf="@+id/catButton9"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/catButton7"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/catButton9"
-        android:layout_width="110dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="430dp"
-        android:backgroundTint="#D08221"
-        android:onClick="cat9Clicked"
-        android:text="@string/catButton9Text"
-        android:textColor="#ADD8E6 "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/catButton8"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/catButton10"
-        android:layout_width="110dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="520dp"
-        android:backgroundTint="#D08221"
-        android:onClick="cat10Clicked"
-        android:text="@string/catButton10Text"
-        android:textColor="#ADD8E6 "
-        app:layout_constraintEnd_toStartOf="@+id/catButton11"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/catButton11"
-        android:layout_width="110dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="520dp"
-        android:backgroundTint="#D08221"
-        android:onClick="cat11Clicked"
-        android:text="@string/catButton11Text"
-        android:textColor="#ADD8E6 "
-        app:layout_constraintEnd_toStartOf="@+id/catButton12"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/catButton10"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/catButton12"
-        android:layout_width="110dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="520dp"
-        android:backgroundTint="#D08221"
-        android:onClick="cat12Clicked"
-        android:text="@string/catButton12Text"
-        android:textColor="#ADD8E6 "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/catButton11"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintLeft_toLeftOf="parent">
+    </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

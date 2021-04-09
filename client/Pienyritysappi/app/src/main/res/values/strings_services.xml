@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="catButton1Text">XDD</string>
-    <string name="catButton2Text">XDD</string>
-    <string name="catButton3Text">XDD</string>
-    <string name="catButton4Text">XDD</string>
-    <string name="catButton5Text">XDD</string>
-    <string name="catButton6Text">XDD</string>
-    <string name="catButton7Text">XDD</string>
-    <string name="catButton8Text">XDD</string>
-    <string name="catButton9Text">XDD</string>
-    <string name="catButton10Text">XDD</string>
-    <string name="catButton11Text">XDD</string>
-    <string name="catButton12Text">XDD</string>
+    <string name="catButton1Text">b1</string>
+    <string name="catButton2Text">b2</string>
+    <string name="catButton3Text">b3</string>
+    <string name="catButton4Text">b4</string>
+    <string name="catButton5Text">b5</string>
+    <string name="catButton6Text">b6</string>
+    <string name="catButton7Text">b7</string>
+    <string name="catButton8Text">b8</string>
+    <string name="catButton9Text">b9</string>
+    <string name="catButton10Text">b10</string>
+    <string name="catButton11Text">b11</string>
+    <string name="catButton12Text">b12</string>
     <string name="categoryTextView">Kategoriat</string>
 
 </resources>
