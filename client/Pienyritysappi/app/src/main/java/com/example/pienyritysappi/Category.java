@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -23,14 +23,11 @@ import org.json.JSONObject;
 public class Category extends AppCompatActivity {
 
     private TextView mTextViewCategoryName;
-    private Button mButton1;
-    private Button mButton2;
-    private Button mButton3;
-    private Button mButton4;
     private RequestQueue mQueue;
     String categoryurl;
     private int serviceCount=1;
     private String companyUserId="";
+    private Button nButton;
 
 
     @Override
@@ -39,19 +36,28 @@ public class Category extends AppCompatActivity {
         setContentView(R.layout.activity_category);
         Intent intent = getIntent();
         categoryurl = "http://mobiilisovellus.therozor.com:5000/providers?category_id=6a808015-417c-4bea-8b44-1b9be714bea1";//getIntent().getStringExtra("keyurl");
-        mButton1 = findViewById(R.id.button12);
-        mButton2 = findViewById(R.id.button19);
-        mButton3 = findViewById(R.id.button20);
-        mButton4 = findViewById(R.id.button21);
+
         mTextViewCategoryName = findViewById(R.id.textViewCategoryName);
         mQueue = Volley.newRequestQueue(this);
         jsonParseCompanyName();
         jsonParseCompanyCount();
         for(int i = 0; i<=serviceCount; i++) {
+            addButton(i); //luo myös onClickListenerin
             jsonParseButtons(i);
         }
+    }
 
-
+    private void addButton(int i) {
+        GridLayout layout = (GridLayout)findViewById(R.id.CompanyButtonGridLayout);
+        nButton = new Button(this);
+        nButton.setText(Integer.toString(i));
+        nButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                buttonCompanyClicked();
+            }
+        });
+        layout.addView(nButton);
     }
 
     private void jsonParseCompanyName() {
@@ -112,21 +118,7 @@ public class Category extends AppCompatActivity {
                             JSONObject category = jsonArray.getJSONObject(i);   //tähän indeksi monennenko haluaa (0=eka 1=toka jne. tullaan vaihtamaan id:llä haettavaksi)
                             String companyName = category.getString("user_company_name");
                             String contactName = category.getString("user_name");
-                            switch (i){
-                                case 0:
-                                    mButton1.setText(companyName + "\nYhteyshenkilö: " + contactName);
-                                    break;
-                                case 1:
-                                    mButton2.setText(companyName + "\nYhteyshenkilö: " + contactName);
-                                    break;
-                                case 2:
-                                    mButton3.setText(companyName + "\nYhteyshenkilö: " + contactName);
-                                    break;
-                                case 3:
-                                    mButton4.setText(companyName + "\nYhteyshenkilö: " + contactName);
-                                    break;
 
-                            }
 
                         } catch (JSONException e) {
                             System.out.println("\nnyt ollaan onResponsen catchissä: JSONExceptionissa\n");
@@ -153,11 +145,8 @@ public class Category extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void buttonCompanyClicked(View view) {
+    public void buttonCompanyClicked() {
         jsonParseUserId();
-        Intent intent = new Intent(getApplicationContext(),Company.class);
-        intent.putExtra("userId", companyUserId);
-        startActivity(intent);
 
     }
 
@@ -170,6 +159,10 @@ public class Category extends AppCompatActivity {
                             JSONArray jsonArray = response.getJSONArray("data");
                             JSONObject category = jsonArray.getJSONObject(0);   //tähän indeksi monennenko haluaa (0=eka 1=toka jne. tullaan vaihtamaan id:llä haettavaksi)
                             companyUserId = category.getString("user_id");
+                            System.out.println("companyUserId: " + companyUserId);
+                            Intent intent = new Intent(getApplicationContext(),Company.class);
+                            intent.putExtra("userId", companyUserId);
+                            startActivity(intent);
 
                         } catch (JSONException e) {
                             System.out.println("\nnyt ollaan onResponsen catchissä: JSONExceptionissa\n");

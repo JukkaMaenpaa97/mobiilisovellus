@@ -34,6 +34,7 @@ public class Company extends AppCompatActivity {
         Intent intent = getIntent();
         mTextViewCompanyName = findViewById(R.id.companyName);
         mTextViewCompanyInfo = findViewById(R.id.companyInfoTextView);
+        Bundle extras = intent.getExtras();
         user_id = getIntent().getStringExtra("userId");
         System.out.println(user_id);
         url = baseurl + user_id;
