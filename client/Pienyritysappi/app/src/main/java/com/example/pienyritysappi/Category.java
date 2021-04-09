@@ -31,6 +31,8 @@ public class Category extends AppCompatActivity {
     private String contactName;
     private JSONArray jsonArray;
     private JSONObject company;
+    private String baseUrl = "http://mobiilisovellus.therozor.com:5000/providers?category_id=";
+    private String categoryId;
 
 
     @Override
@@ -38,8 +40,8 @@ public class Category extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
         Intent intent = getIntent();
-        categoryurl = "http://mobiilisovellus.therozor.com:5000/providers?category_id=6a808015-417c-4bea-8b44-1b9be714bea1";//getIntent().getStringExtra("keyurl");
-
+        categoryId = intent.getStringExtra("categoryId");
+        categoryurl = baseUrl + categoryId;
         mTextViewCategoryName = findViewById(R.id.textViewCategoryName);
         mQueue = Volley.newRequestQueue(this);
         jsonParse();
@@ -57,7 +59,6 @@ public class Category extends AppCompatActivity {
                             for(int i = 0; i< companyCount; i++) {
                                 addButton(i); //luo myös onClickListenerin
                             }
-
                         } catch (JSONException e) {
                             System.out.println("\nnyt ollaan onResponsen catchissä: JSONExceptionissa\n");
                             e.printStackTrace();

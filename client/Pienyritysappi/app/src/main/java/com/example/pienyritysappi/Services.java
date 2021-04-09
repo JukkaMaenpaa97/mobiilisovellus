@@ -44,7 +44,7 @@ public class Services extends AppCompatActivity {
 
     private void addButton(int i)
     {
-        GridLayout gridLayout = (GridLayout)findViewById(R.id.categoryGridLayout);
+        GridLayout gridLayout = (GridLayout)findViewById(R.id.servicesGridLayout);
         button = new Button(this);
         try{
             category = jsonArray.getJSONObject(i);

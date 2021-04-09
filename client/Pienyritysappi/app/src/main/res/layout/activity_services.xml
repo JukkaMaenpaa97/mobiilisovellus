@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="parent" />
     
     <GridLayout
-        android:id="@+id/categoryGridLayout"
+        android:id="@+id/servicesGridLayout"
         android:layout_width="360dp"
         android:layout_height="500dp"
         android:layout_margin="10sp"
