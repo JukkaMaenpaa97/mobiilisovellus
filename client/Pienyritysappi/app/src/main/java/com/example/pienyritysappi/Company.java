@@ -95,8 +95,7 @@ public class Company extends AppCompatActivity {
     public void jobListingsButtonClicked(View view)
     {
         Intent intent = new Intent(getApplicationContext(),JobOrder.class);
-        //user_id = "5031bd69-c634-43dd-9000-c8fe0b984e85";
-        intent.putExtra("keyuser_id", user_id);
+        intent.putExtra("user_id", user_id);
         startActivity(intent);
     }
 }

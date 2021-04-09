@@ -83,6 +83,7 @@ public class Category extends AppCompatActivity {
             String buttonText = companyName + "\nYhteyshenkilö: " + contactName;
             String companyUserId = company.getString("user_id");
             nButton.setText(buttonText);
+            nButton.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             nButton.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
