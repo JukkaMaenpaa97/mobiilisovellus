@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.Toast;
 
 public class ReservationActivity extends AppCompatActivity {
 
     private Button nButton;
+    private int eec = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,5 +48,11 @@ public class ReservationActivity extends AppCompatActivity {
     public void profileButtonClicked(View view) {
         Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
         startActivity(intent);
+    }
+
+    public void supersecreteastereggasmr(View view) {
+        eec++;
+        String teksti = "no mitäs vittua nyt taas: " + Integer.toString(eec);
+        Toast.makeText(this, teksti, Toast.LENGTH_SHORT).show();
     }
 }
