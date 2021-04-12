@@ -57,9 +57,6 @@ public class JobInfo extends AppCompatActivity {
                             mTextViewDescription.setText(description);
                             String pricing = jobPriceType + "\n" + jobPrice.toString() + " €";
                             mTextViewPricing.setText(pricing);
-
-
-
                         } catch (JSONException e) {
                             System.out.println("\nnyt ollaan onResponsen catchissä: JSONExceptionissa siis\n");
                             e.printStackTrace();

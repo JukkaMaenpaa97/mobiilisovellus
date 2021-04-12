@@ -20,9 +20,9 @@
 
 
     <GridLayout
-        android:layout_width="301dp"
-        android:layout_height="382dp"
         android:id="@+id/CompanyButtonGridLayout"
+        android:layout_width="341dp"
+        android:layout_height="382dp"
         android:layout_marginStart="37dp"
         android:layout_marginTop="180dp"
         android:layout_marginEnd="73dp"
@@ -31,9 +31,10 @@
         android:rowCount="@integer/numberOfCompanies"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </GridLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"></GridLayout>
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -60,13 +61,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profile_pic_icon_foreground" />
-
-    <SearchView
-        android:layout_width="220dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="120dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

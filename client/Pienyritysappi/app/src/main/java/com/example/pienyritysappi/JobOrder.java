@@ -3,9 +3,11 @@ package com.example.pienyritysappi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -21,38 +23,40 @@ import org.json.JSONObject;
 
 public class JobOrder extends AppCompatActivity {
 
-    private Button mButton1;
+
     private RequestQueue mQueue;
     private String url;
-    private int jobCount=1;
     private String user_id = "";
+    private Button nButton;
+    private JSONArray jsonArray;
+    private JSONObject job;
+    private int jobCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_order);
         Intent intent = getIntent();
-        user_id = getIntent().getStringExtra("keyuser_id");
+        user_id = getIntent().getStringExtra("user_id");
         url = "http://mobiilisovellus.therozor.com:5000/services?user_id="+user_id;
         System.out.println("JobOrder url: "+ url);
-        mButton1 = findViewById(R.id.button22);
         mQueue = Volley.newRequestQueue(this);
-
-        jsonParseJobCount();
-        for(int i = 0; i<jobCount; i++) {
-            jsonParseButtons(i);
-        }
+        jsonParse();
 
     }
 
-    private void jsonParseJobCount() {
+    private void jsonParse() {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+                            jsonArray = response.getJSONArray("data");
                             jobCount = response.getInt("count");
 
+                            for(int i = 0; i< jobCount; i++) {
+                                addButton(i); //luo myös onClickListenerin
+                            }
 
                         } catch (JSONException e) {
                             System.out.println("\nnyt ollaan onResponsen catchissä: JSONExceptionissa\n");
@@ -62,50 +66,43 @@ public class JobOrder extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("onErrorResponsessa ollaan.");
+                System.out.println("onErrorResponsessa ollaan. Category.java");
                 error.printStackTrace();
             }
         });
         mQueue.add(request);
     }
 
-    private void jsonParseButtons(int i) {
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray jsonArray = response.getJSONArray("data");
-                            JSONObject job = jsonArray.getJSONObject(i);   //tähän indeksi, monennenko työn haluaa (0=eka 1=toka jne. tullaan vaihtamaan id:llä haettavaksi)
-                            String jobTitle = job.getString("service_title");
-                            String jobDescription = job.getString("service_description");
-                            String jobAvailability = job.getString("service_availability");
-                            switch(i) {
-                                case 0:
-                                    mButton1.setText(jobTitle + "\n" + jobDescription + "\nSaatavuus: " + jobAvailability);
-                                    break;
-                                case 1:
-                                    mButton1.setText(jobTitle + "\n" + jobDescription + "\nSaatavuus: " + jobAvailability);
-                                    break;
-                                case 2:
-                                    mButton1.setText(jobTitle + "\n" + jobDescription + "\nSaatavuus: " + jobAvailability);
-                                    break;
-
-                            }
-                        } catch (JSONException e) {
-                            System.out.println("\nnyt ollaan onResponsen catchissä: JSONExceptionissa siis\n");
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println("onErrorResponsessa ollaan.");
-                error.printStackTrace();
-            }
-        });
-        mQueue.add(request);
+    private void addButton(int i) {
+        GridLayout layout = (GridLayout)findViewById(R.id.jobButtonGridLayout);
+        nButton = new Button(this);
+        try {
+            job = jsonArray.getJSONObject(i);
+            String jobName = job.getString("service_title");
+            String jobAvailability = job.getString("service_availability");
+            String jobPrice = job.getString("service_price");
+            String jobId = job.getString("service_id");
+            String buttonText = jobName + "\nSaatavilla: " + jobAvailability + "\n" + jobPrice + " €";
+            nButton.setText(buttonText);
+            
+            nButton.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+            String jobBaseUrl = "http://mobiilisovellus.therozor.com:5000/service/";
+            String joburl = jobBaseUrl + jobId;
+            nButton.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(),JobInfo.class);
+                    intent.putExtra("keyurl", joburl);
+                    startActivity(intent);
+                }
+            });
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        layout.addView(nButton);
     }
+
+
 
     public void profileButtonClicked(View view) {
         Intent intent = new Intent(getApplicationContext(), CustomerProfile.class);
@@ -119,7 +116,7 @@ public class JobOrder extends AppCompatActivity {
 
     public void buttonJobClicked(View view) {
         Intent intent = new Intent(getApplicationContext(), JobInfo.class);
-        intent.putExtra("keyurl",url);
+
         startActivity(intent);
     }
 }
