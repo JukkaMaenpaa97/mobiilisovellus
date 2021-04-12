@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="textViewsalasana">Salasana</string>
+    <string name="textViewEmail">Sähköposti</string>
+    <string name="textViewLogIn">Kirjaudu Sisään</string>
+    <string name="buttonLogIn">Kirjaudu Sisään</string>
+    <string name="buttonRegisterCustomer">Rekisteröidy asiakkaana</string>
+    <string name="buttonRegisterCompany">Rekisteröidy yrityksenä</string>
+</resources>

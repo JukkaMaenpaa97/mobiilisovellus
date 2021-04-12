@@ -4,4 +4,6 @@
     <integer name="numberOfTimes">64</integer>
     <string name="imageViewHomeReservation" />
     <string name="imageViewProfileReservation" />
+    <string name="switch_turha_switch">turha switch</string>
+    <string name="supersecreteastereggasmrbuttoninreservationactivity" />
 </resources>
