@@ -33,6 +33,7 @@ public class Category extends AppCompatActivity {
     private JSONObject company;
     private String baseUrl = "http://mobiilisovellus.therozor.com:5000/providers?category_id=";
     private String categoryId;
+    private String apikey;
 
 
     @Override

@@ -30,7 +30,7 @@
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
         app:layout_constraintTop_toBottomOf="@id/companyPicture1"
         android:layout_marginTop="50dp" />
 
@@ -43,7 +43,7 @@
         android:textSize="15sp"
         android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
         app:layout_constraintTop_toBottomOf="@id/logInTextView"
         android:layout_marginTop="35dp" />
 
@@ -52,12 +52,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="sähköposti"
+        android:inputType="textEmailAddress"
+        android:hint="@string/editTextEmailLogIn"
         app:layout_constraintTop_toBottomOf="@id/emailTextView"
         android:layout_marginTop="5dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="50dp"/>
+        android:layout_marginStart="50dp"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/passwordTextView"
@@ -70,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@id/emailEditText"
         android:layout_marginTop="25dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="50dp"/>
+        android:layout_marginStart="50dp"/>
 
     <EditText
         android:id="@+id/passwordEditText"
@@ -78,11 +79,12 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="salasana"
+        android:hint="@string/editTextPasswordLogIn"
         app:layout_constraintTop_toBottomOf="@id/passwordTextView"
         android:layout_marginTop="5dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="50dp"/>
+        android:layout_marginStart="50dp"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/logInButton"
