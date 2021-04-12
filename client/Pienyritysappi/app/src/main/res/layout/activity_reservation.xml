@@ -1,135 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ReservationActivity">
 
-    <ImageButton
-        android:id="@+id/imageButton3"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/textview_border">
+
+        <GridLayout
+            android:id="@+id/reservationGridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="@integer/numberOfTimes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </GridLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="319dp"
-        android:layout_marginTop="17dp"
-        android:background="@drawable/round_button"
-        android:contentDescription="@string/imageButtonHome"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="20dp"
         android:onClick="homeButtonClicked"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/round_button"
+        android:contentDescription="@string/imageViewHomeReservation"
         app:srcCompat="@drawable/home_pic_icon_foreground" />
 
-    <ImageButton
-        android:id="@+id/imageButton4"
+    <ImageView
+        android:id="@+id/imageViewProfileReservation"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="19dp"
-        android:background="@drawable/round_button"
-        android:contentDescription="@string/imageButtonProfile"
         android:onClick="profileButtonClicked"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/profile_pic_icon_foreground" />
+        android:background="@drawable/round_button"
+        app:srcCompat="@drawable/profile_pic_icon_foreground"
+        android:contentDescription="@string/imageViewProfileReservation" />
 
-    <GridLayout
-        android:layout_width="351dp"
-        android:layout_height="357dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="220dp"
-        android:layout_marginEnd="24dp"
-        android:columnCount="2"
-        android:rowCount="@integer/numberOfUnreservedTimes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        >
-
-        <Button
-            android:id="@+id/button11"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:layout_margin="4dp"
-            android:text="@string/buttonInGrid1"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/Button12"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:layout_margin="4dp"
-            android:text="@string/buttonInGrid2"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/button13"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:layout_margin="4dp"
-            android:text="@string/buttonInGrid3"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/button14"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:layout_margin="4dp"
-            android:text="@string/buttonInGrid4"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/button15"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:layout_margin="4dp"
-            android:text="@string/buttonInGrid5"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/button16"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:layout_margin="4dp"
-            android:text="@string/buttonInGrid6"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/button17"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:layout_margin="4dp"
-            android:text="@string/buttonInGrid7"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/button18"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:layout_margin="4dp"
-            android:text="@string/buttonInGrid8"
-            android:textSize="12sp" />
-
-    </GridLayout>
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:text="@string/textViewUnreservedTimes"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
