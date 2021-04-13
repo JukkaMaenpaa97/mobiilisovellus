@@ -8,4 +8,5 @@
     <string name="buttonUser">Luo Käyttäjä</string>
     <string name="textSalasana">Salasana</string>
     <string name="buttonAlreadyacc">Onko jo Käyttäjä?</string>
+    <string name="textView8">Vahvista salasana</string>
 </resources>

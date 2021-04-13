@@ -17,16 +17,16 @@ import java.util.regex.Pattern;
 
 public class CustomerProfile extends AppCompatActivity {
 
-    private static final Pattern PASSWORD_PATTERN =
-            Pattern.compile("^" +
+    //private static final Pattern PASSWORD_PATTERN =
+           // Pattern.compile("^" +
                     //"(?=.*[0-9])" +         //at least 1 digit
                     //"(?=.*[a-z])" +         //at least 1 lower case letter
                     //"(?=.*[A-Z])" +         //at least 1 upper case letter
-                    "(?=.*[a-zA-Z])" +      //any letter
-                    "(?=.*[@#$%^&+=])" +    //at least 1 special character
-                    "(?=\\S+$)" +           //no white spaces
-                    ".{4,}" +               //at least 4 characters
-                    "$");
+                    //"(?=.*[a-zA-Z])" +      //any letter
+                    //"(?=.*[@#$%^&+=])" +    //at least 1 special character
+                   // "(?=\\S+$)" +           //no white spaces
+                   // ".{4,}" +               //at least 4 characters
+                  //  "$");
 
     private EditText textInputEmail;
     private EditText textInputPassword;
@@ -81,7 +81,7 @@ public class CustomerProfile extends AppCompatActivity {
         if (usernameInput.isEmpty()) {
             textInputUsername.setError("Nimi ei voi olla tyhjä");
             return false;
-        } else if (usernameInput.length() > 15) {
+        } else if (usernameInput.length() > 50) {
             textInputUsername.setError("Nimi liian pitkä");
             return false;
         } else {
