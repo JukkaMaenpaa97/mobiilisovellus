@@ -6,4 +6,6 @@
     <string name="buttonLogIn">Kirjaudu Sisään</string>
     <string name="buttonRegisterCustomer">Rekisteröidy asiakkaana</string>
     <string name="buttonRegisterCompany">Rekisteröidy yrityksenä</string>
+    <string name="editTextEmailLogIn">sähköposti</string>
+    <string name="editTextPasswordLogIn">salasana</string>
 </resources>
