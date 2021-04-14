@@ -9,11 +9,14 @@ def query(query, params, single = False):
     try:
         cursor.execute(query, params)
         mysql.connection.commit()
+
         if not cursor.rowcount:
+            cursor.close()
             return None
 
     except (MySQLdb.Error, MySQLdb.Warning) as e:
         print(e)
+        cursor.close()
         return None
 
     try:
@@ -21,7 +24,10 @@ def query(query, params, single = False):
             result = cursor.fetchone()
         else:
             result = cursor.fetchall()
+
+        cursor.close()
         return result
     except TypeError as e:
         print(e)
+        cursor.close()
         return None
