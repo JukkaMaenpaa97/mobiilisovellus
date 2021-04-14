@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 class PostValidator:
     post_data = None
     fields = None
@@ -6,6 +8,7 @@ class PostValidator:
     valid_flag = None
 
     def __init__(self):
+        self.post_data = {}
         self.fields = {}
         self.invalid_fields = []
         self.invalid_messages = []
@@ -75,7 +78,7 @@ class PostValidator:
                             self.invalid_messages.append(key+" value is not allowed, expecting ("+", ".join(allowed_string)+")")
                             self.invalid(key)
                     elif field['type'] == "double":
-                        if not double(self.post_data[key]) in field['allowed']:
+                        if not Decimal(self.post_data[key]) in field['allowed']:
                             item_valid_flag = False
                             self.invalid_messages.append(key+" value is not allowed, expecting ("+", ".join(allowed_string)+")")
                             self.invalid(key)
@@ -87,7 +90,7 @@ class PostValidator:
                     elif field['type'] == "integer":
                         self.fields[key]['value'] = int(self.post_data[key])
                     elif field['type'] == "double":
-                        self.fields[key]['value'] = double(self.post_data[key])
+                        self.fields[key]['value'] = Decimal(self.post_data[key])
             #endif
         return self.valid_flag
 
