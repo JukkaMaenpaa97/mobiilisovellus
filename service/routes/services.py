@@ -59,7 +59,7 @@ class Services(Resource):
 
         if validator.validate():
 
-            # ennen luontia tarkistetaan onko kategoria olemassa
+            # Before creation check if the category exists
             category = CategoryModel()
             if category.load(validator.get("service_category")) == False:
                 return {
@@ -68,7 +68,7 @@ class Services(Resource):
                     "invalid_fields": ['service_category']
                 }
 
-            # luodaan uusi palvelu
+            # Create a new service
             service = ServiceModel()
             service.set("service_category", validator.get("service_category"))
             service.set("service_provider_id", current_user.get("user_id"))
