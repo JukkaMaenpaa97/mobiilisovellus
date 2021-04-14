@@ -19,20 +19,28 @@ api = Api(app)
 mysql.init_app(app)
 CORS(app)
 
+from datamodels.usermodel import UserModel
 
 # api modules
 from routes.user import User
-from login import Login
+from routes.login import Login
 from routes.register import Register
-from routes.services import Services
-from routes.service import Service
-from routes.categories import Categories
 
+from routes.service import Service
+from routes.services import Services
+from routes.categories import Categories
+from routes.image import Image
+from routes.categories import Categories
+from routes.category import Category
+from routes.providers import Providers
+
+# Route for testing all things in the real scope
+from routes.testroute import TestRoute
 
 # default route index
 class Index(Resource):
     def get(self):
-        return {"message": "Jobster API 0.1 beta"}
+        return {"message": "Jobster API 0.1 beta" }
 
 api.add_resource(Index, "/")
 api.add_resource(User, "/user/<id>")
@@ -41,6 +49,11 @@ api.add_resource(Register, "/register")
 api.add_resource(Services, "/services")
 api.add_resource(Service, "/service/<id>")
 api.add_resource(Categories, "/categories")
+api.add_resource(Category, "/category/<id>")
+api.add_resource(Image, "/image/<id>")
+api.add_resource(Providers, "/providers")
+api.add_resource(TestRoute, "/test")
+
 
 def main():
     app.run(host="127.0.0.1", port=5021, debug=True)
