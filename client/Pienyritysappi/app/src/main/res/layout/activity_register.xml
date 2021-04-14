@@ -39,14 +39,14 @@
 
         <EditText
             android:id="@+id/editTextTextEmailAddress"
-            android:layout_width="350dp"
+            android:layout_width="337dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
+            android:autofillHints=""
             android:ems="10"
-            android:inputType="textEmailAddress"
-           android:layout_marginStart="15dp"
-            android:autofillHints="" />
+            android:inputType="textEmailAddress" />
 
 
         <TextView
@@ -63,15 +63,15 @@
 
         <EditText
             android:id="@+id/editTextTextPersonName"
-            android:layout_width="350dp"
+            android:layout_width="336dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text=""
             android:layout_gravity="center"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
-            android:autofillHints="" />
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="" />
 
         <TextView
             android:id="@+id/textView5"
@@ -87,14 +87,14 @@
 
         <EditText
             android:id="@+id/editTextPhone"
-            android:layout_width="350dp"
+            android:layout_width="337dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="phone"
             android:layout_gravity="center"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
-            android:autofillHints="" />
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="phone" />
 
         <TextView
             android:id="@+id/textView6"
@@ -110,16 +110,15 @@
 
         <EditText
             android:id="@+id/editTextTextPersonName2"
-            android:layout_width="350dp"
+            android:layout_width="333dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPostalAddress"
-            android:text=""
             android:layout_gravity="center"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
+            android:ems="10"
             android:importantForAutofill="no"
-            />
+            android:inputType="textPostalAddress"
+            android:text="" />
 
         <TextView
             android:id="@+id/textView7"
@@ -135,15 +134,39 @@
 
         <EditText
             android:id="@+id/editTextTextPassword"
-            android:layout_width="350dp"
+            android:layout_width="332dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="15dp"
-            android:autofillHints="" />
+            android:layout_marginTop="10dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="textPassword" />
 
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textView8"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:paddingStart="50dp"
+            android:paddingEnd="0dp"
+            android:layout_marginTop="30dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextTextPassword4"
+            android:layout_width="326dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/button7"
@@ -152,24 +175,19 @@
             android:text="@string/buttonUser"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
+            android:onClick="buttonregister"
             />
 
         <Button
             android:id="@+id/button8"
-            android:onClick="button8Clicked"
             android:layout_width="190dp"
             android:layout_height="wrap_content"
-            android:text="@string/buttonAlreadyacc"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/white"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            />
-
-
-
-
-
+            android:backgroundTint="@color/white"
+            android:onClick="button8Clicked"
+            android:text="@string/buttonAlreadyacc"
+            android:textColor="@color/black" />
 
 
     </LinearLayout>

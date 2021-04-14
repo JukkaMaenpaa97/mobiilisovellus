@@ -2,17 +2,48 @@ package com.example.pienyritysappi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.regex.Pattern;
 
 public class CustomerProfile extends AppCompatActivity {
+
+    //private static final Pattern PASSWORD_PATTERN =
+           // Pattern.compile("^" +
+                    //"(?=.*[0-9])" +         //at least 1 digit
+                    //"(?=.*[a-z])" +         //at least 1 lower case letter
+                    //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                    //"(?=.*[a-zA-Z])" +      //any letter
+                    //"(?=.*[@#$%^&+=])" +    //at least 1 special character
+                   // "(?=\\S+$)" +           //no white spaces
+                   // ".{4,}" +               //at least 4 characters
+                  //  "$");
+
+    private EditText textInputEmail;
+    private EditText textInputPassword;
+    private EditText textInputUsername;
+    private EditText textInputPassword2;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_profile);
+
+        textInputEmail = findViewById(R.id.editTextTextEmailAddress2);
+        textInputPassword = findViewById(R.id.editTextTextPassword2);
+        textInputUsername = findViewById(R.id.editTextTextPersonName3);
+        textInputPassword2 = findViewById(R.id.editTextTextPassword3);
 
         EditText mEdit = (EditText) findViewById(R.id.editTextTextPersonName3);
         mEdit.setEnabled(false);
@@ -28,10 +59,59 @@ public class CustomerProfile extends AppCompatActivity {
 
     }
 
+    private boolean tarkastaEmail() {
+        String emailInput = textInputEmail.getText().toString().trim();
 
-    public void profileButton2Clicked(View view)
-    {
-        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        if (emailInput.isEmpty()) {
+            textInputEmail.setError("Sähköposti ei voi olla tyhjä");
+            return false;
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
+            textInputEmail.setError("Sähköposti ei ole pätevä");
+            return false;
+        } else {
+            textInputEmail.setError(null);
+            return true;
+        }
+    }
+
+    private boolean tarkastaNimi() {
+
+        String usernameInput = textInputUsername.getText().toString().trim();
+
+        if (usernameInput.isEmpty()) {
+            textInputUsername.setError("Nimi ei voi olla tyhjä");
+            return false;
+        } else if (usernameInput.length() > 50) {
+            textInputUsername.setError("Nimi liian pitkä");
+            return false;
+        } else {
+            textInputUsername.setError(null);
+            return true;
+        }
+    }
+
+    private boolean tarkastaSalasana() {
+
+        String pw = textInputPassword.getText().toString().trim();
+        String pw2 = textInputPassword2.getText().toString().trim();
+
+        if (pw.isEmpty()) {
+            textInputPassword.setError("Salasana ei voi olla tyhjä");
+            return false;
+        } else if (!pw.equals(pw2))  {
+            textInputPassword.setError("Salasant eivät täsmää");
+            return false;
+        }
+         else {
+            textInputPassword.setError(null);
+            return true;
+        }
+    }
+
+
+
+    public void profileButton2Clicked(View view) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
 
@@ -62,5 +142,19 @@ public class CustomerProfile extends AppCompatActivity {
         EditText mEdit4 = (EditText) findViewById(R.id.editTextTextPassword3);
         mEdit4.setEnabled(false);
 
+        if (!tarkastaSalasana() | !tarkastaEmail() |  !tarkastaNimi()) {
+            return;
+        }
+
+        String input = "Sähköposti: " + textInputEmail.getText().toString();
+        input += "\n";
+        input += "Nimi: " + textInputUsername.getText().toString();
+        input += "\n";
+        input += "Salasana: " + textInputPassword.getText().toString();
+        Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
+
+
     }
+
+
 }
