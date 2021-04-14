@@ -29,7 +29,7 @@ class Login(Resource):
             getapi = Api()
             time_created=""
             time_expires=""
-            data = request.form
+            data = request.json
             credentials = {"user_email": data.get('user_email'), "user_password": hashlib.sha256(data.get('user_password').encode('utf-8')).hexdigest() }
             crendentialcheck = query("SELECT user_email, user_password FROM users WHERE user_email = %(user_email)s AND user_password = %(user_password)s", credentials)
             getid = query("SELECT user_id FROM users WHERE user_email = %(user_email)s AND user_password = %(user_password)s", credentials,True)

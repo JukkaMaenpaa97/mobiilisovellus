@@ -14,7 +14,10 @@ class Orders(Resource):
         ordermodel = OrderModel()
         orderlist = DataModelList(OrderModel)
 
-        if(orderlist.load("SELECT "+ordermodel.getFields()+" FROM "+ordermodel.getTable())):
+        if(orderlist.load("SELECT "+ordermodel.getFields()+" FROM "+ordermodel.getTable())) and orderlist.count() > 0:
+
+        #elif orderlist.count() > 0:
+
             orderlist.computeAll()
             return{ "message": "Tilausten listaus",
                     "count": orderlist.count(),

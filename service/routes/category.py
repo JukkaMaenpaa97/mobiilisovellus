@@ -25,7 +25,7 @@ class Category(Resource):
     def put(self,id):
         categoryupdate = CategoryModel()
         if categoryupdate.load(id):
-                data = request.form
+                data = request.json
                 validator = PostValidator()
                 validator.postData(data)
                 validator.addField(
