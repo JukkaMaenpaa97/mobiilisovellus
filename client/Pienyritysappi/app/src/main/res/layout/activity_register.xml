@@ -13,6 +13,8 @@
         android:orientation="vertical">
 
 
+
+
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -94,6 +96,7 @@
             android:layout_marginTop="10dp"
             android:autofillHints=""
             android:ems="10"
+            android:maxLength="10"
             android:inputType="phone" />
 
         <TextView
@@ -168,6 +171,26 @@
             android:ems="10"
             android:inputType="textPassword" />
 
+        <Switch
+            android:id="@+id/switchasiakas"
+            android:layout_width="342dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/switchAsiakas"
+            android:textSize="20sp"
+             />
+
+        <Switch
+            android:id="@+id/switchtarjoaja"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/switchTarjoaja"
+            android:textSize="20sp"
+            />
+
         <Button
             android:id="@+id/button7"
             android:layout_width="200dp"
@@ -188,6 +211,8 @@
             android:onClick="button8Clicked"
             android:text="@string/buttonAlreadyacc"
             android:textColor="@color/black" />
+
+
 
 
     </LinearLayout>

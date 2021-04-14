@@ -9,4 +9,6 @@
     <string name="textSalasana">Salasana</string>
     <string name="buttonAlreadyacc">Onko jo Käyttäjä?</string>
     <string name="textView8">Vahvista salasana</string>
+    <string name="switchAsiakas">Asiakas</string>
+    <string name="switchTarjoaja">Palvelun tarjoaja</string>
 </resources>

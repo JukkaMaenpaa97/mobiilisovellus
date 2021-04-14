@@ -18,21 +18,20 @@ import java.util.regex.Pattern;
 public class CustomerProfile extends AppCompatActivity {
 
     //private static final Pattern PASSWORD_PATTERN =
-           // Pattern.compile("^" +
-                    //"(?=.*[0-9])" +         //at least 1 digit
-                    //"(?=.*[a-z])" +         //at least 1 lower case letter
-                    //"(?=.*[A-Z])" +         //at least 1 upper case letter
-                    //"(?=.*[a-zA-Z])" +      //any letter
-                    //"(?=.*[@#$%^&+=])" +    //at least 1 special character
-                   // "(?=\\S+$)" +           //no white spaces
-                   // ".{4,}" +               //at least 4 characters
-                  //  "$");
+    // Pattern.compile("^" +
+    //"(?=.*[0-9])" +         //at least 1 digit
+    //"(?=.*[a-z])" +         //at least 1 lower case letter
+    //"(?=.*[A-Z])" +         //at least 1 upper case letter
+    //"(?=.*[a-zA-Z])" +      //any letter
+    //"(?=.*[@#$%^&+=])" +    //at least 1 special character
+    // "(?=\\S+$)" +           //no white spaces
+    // ".{4,}" +               //at least 4 characters
+    //  "$");
 
     private EditText textInputEmail;
     private EditText textInputPassword;
     private EditText textInputUsername;
     private EditText textInputPassword2;
-
 
 
     @Override
@@ -98,16 +97,14 @@ public class CustomerProfile extends AppCompatActivity {
         if (pw.isEmpty()) {
             textInputPassword.setError("Salasana ei voi olla tyhjä");
             return false;
-        } else if (!pw.equals(pw2))  {
+        } else if (!pw.equals(pw2)) {
             textInputPassword.setError("Salasant eivät täsmää");
             return false;
-        }
-         else {
+        } else {
             textInputPassword.setError(null);
             return true;
         }
     }
-
 
 
     public void profileButton2Clicked(View view) {
@@ -130,31 +127,32 @@ public class CustomerProfile extends AppCompatActivity {
     }
 
     public void tallennatiedot(View view) {
-        EditText mEdit = (EditText) findViewById(R.id.editTextTextPersonName3);
-        mEdit.setEnabled(false);
 
-        EditText mEdit2 = (EditText) findViewById(R.id.editTextTextEmailAddress2);
-        mEdit2.setEnabled(false);
 
-        EditText mEdit3 = (EditText) findViewById(R.id.editTextTextPassword2);
-        mEdit3.setEnabled(false);
+            EditText mEdit = (EditText) findViewById(R.id.editTextTextPersonName3);
+            mEdit.setEnabled(false);
 
-        EditText mEdit4 = (EditText) findViewById(R.id.editTextTextPassword3);
-        mEdit4.setEnabled(false);
+            EditText mEdit2 = (EditText) findViewById(R.id.editTextTextEmailAddress2);
+            mEdit2.setEnabled(false);
 
-        if (!tarkastaSalasana() | !tarkastaEmail() |  !tarkastaNimi()) {
-            return;
+            EditText mEdit3 = (EditText) findViewById(R.id.editTextTextPassword2);
+            mEdit3.setEnabled(false);
+
+            EditText mEdit4 = (EditText) findViewById(R.id.editTextTextPassword3);
+            mEdit4.setEnabled(false);
+
+            if (!tarkastaSalasana() | !tarkastaEmail() | !tarkastaNimi()) {
+                return;
+            }
+
+            String input = "Sähköposti: " + textInputEmail.getText().toString();
+            input += "\n";
+            input += "Nimi: " + textInputUsername.getText().toString();
+            Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
+
+
         }
-
-        String input = "Sähköposti: " + textInputEmail.getText().toString();
-        input += "\n";
-        input += "Nimi: " + textInputUsername.getText().toString();
-        input += "\n";
-        input += "Salasana: " + textInputPassword.getText().toString();
-        Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
 
 
     }
 
-
-}
