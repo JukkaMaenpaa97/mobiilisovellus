@@ -69,7 +69,7 @@ class Service(Resource):
                 else:
                     return {
                         "message": "Palvelua ei päivitetty tai annetut tiedot olivat samat."
-                    }, 304
+                    }, 200
             else:
                 return Auth.unauthorizedResponse()
 
