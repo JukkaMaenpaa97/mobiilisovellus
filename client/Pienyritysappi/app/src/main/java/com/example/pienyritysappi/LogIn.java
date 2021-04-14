@@ -27,6 +27,8 @@ public class LogIn extends AppCompatActivity {
     private EditText etEmail;
     private EditText etPassword;
     private String apikey = "";
+    private String registeredPassword = "";
+    private String registeredEmail = "";
 
 
     @Override
@@ -35,6 +37,15 @@ public class LogIn extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
         etEmail = findViewById(R.id.emailEditText);
         etPassword = findViewById(R.id.passwordEditText);
+        try {
+            Intent intent = getIntent();
+            registeredEmail = intent.getStringExtra("registered_email");
+            registeredPassword = intent.getStringExtra("registered_password");
+            etEmail.setText(registeredEmail);
+            etPassword.setText(registeredPassword);
+        }catch (Exception e){
+            System.out.println("ei askeista rekisterointia");
+        }
     }
 
     public void logInButtonClicked(View view)
