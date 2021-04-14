@@ -16,7 +16,7 @@
         android:background="@drawable/round_button"
         android:onClick="profileButtonClicked"
         android:src="@drawable/profile_pic_icon_foreground"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription="@string/profileButton" />
 
@@ -27,7 +27,7 @@
         android:background="@drawable/round_button"
         android:onClick="homeButtonClicked"
         android:src="@drawable/home_pic_icon_foreground"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="10dp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="5dp"

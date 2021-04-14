@@ -1,6 +1,7 @@
 package com.example.pienyritysappi;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -47,13 +48,16 @@ public class Services extends AppCompatActivity {
         GridLayout gridLayout = (GridLayout)findViewById(R.id.servicesGridLayout);
         button = new Button(this);
         try{
+            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+            params.setMargins(10,10,10,10);
             category = jsonArray.getJSONObject(i);
             categoryName = category.getString("category_name");
             String buttonText = categoryName ;
             String categoryId = category.getString("category_id");
             button.setText(buttonText);
             button.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
-            button.setBackgroundColor(Color.GREEN);
+            button.setBackground(button.getContext().getDrawable(R.drawable.rounded_button));
+            button.setLayoutParams(params);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

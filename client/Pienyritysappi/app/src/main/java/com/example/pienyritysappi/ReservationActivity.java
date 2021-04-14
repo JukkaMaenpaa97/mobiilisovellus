@@ -28,8 +28,12 @@ public class ReservationActivity extends AppCompatActivity {
         GridLayout layout = (GridLayout)findViewById(R.id.reservationGridLayout);
         nButton = new Button(this);
         String buttonText = "aika " + Integer.toString(i+1);
+        GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+        params.setMargins(10,10,10,10);
+        nButton.setLayoutParams(params);
         nButton.setText(buttonText);
         nButton.setTextSize(20);
+        nButton.setBackground(nButton.getContext().getDrawable(R.drawable.rounded_button));
         nButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
