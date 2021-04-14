@@ -6,4 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".ConfirmReservation">
 
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/round_button"
+        android:onClick="profileButtonClicked"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_pic_icon_foreground"
+        android:contentDescription="@string/imageButtonProfileConfirm" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/round_button"
+        android:onClick="homeButtonClicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/home_pic_icon_foreground"
+        android:contentDescription="@string/imageButtonHomeConfirm" />
 </androidx.constraintlayout.widget.ConstraintLayout>
