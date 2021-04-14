@@ -130,20 +130,32 @@ public class CustomerProfile extends AppCompatActivity {
 
 
             EditText mEdit = (EditText) findViewById(R.id.editTextTextPersonName3);
-            mEdit.setEnabled(false);
+            mEdit.setEnabled(true);
 
             EditText mEdit2 = (EditText) findViewById(R.id.editTextTextEmailAddress2);
-            mEdit2.setEnabled(false);
+            mEdit2.setEnabled(true);
 
             EditText mEdit3 = (EditText) findViewById(R.id.editTextTextPassword2);
-            mEdit3.setEnabled(false);
+            mEdit3.setEnabled(true);
 
             EditText mEdit4 = (EditText) findViewById(R.id.editTextTextPassword3);
-            mEdit4.setEnabled(false);
+            mEdit4.setEnabled(true);
 
             if (!tarkastaSalasana() | !tarkastaEmail() | !tarkastaNimi()) {
                 return;
             }
+
+        mEdit = (EditText) findViewById(R.id.editTextTextPersonName3);
+        mEdit.setEnabled(false);
+
+        mEdit2 = (EditText) findViewById(R.id.editTextTextEmailAddress2);
+        mEdit2.setEnabled(false);
+
+        mEdit3 = (EditText) findViewById(R.id.editTextTextPassword2);
+        mEdit3.setEnabled(false);
+
+        mEdit4 = (EditText) findViewById(R.id.editTextTextPassword3);
+        mEdit4.setEnabled(false);
 
             String input = "Sähköposti: " + textInputEmail.getText().toString();
             input += "\n";
