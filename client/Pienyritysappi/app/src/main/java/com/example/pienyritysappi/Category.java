@@ -84,6 +84,11 @@ public class Category extends AppCompatActivity {
             contactName = company.getString("user_name");
             String buttonText = companyName + "\nYhteyshenkilö: " + contactName;
             String companyUserId = company.getString("user_id");
+
+            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+            params.setMargins(10,10,10,10);
+            nButton.setLayoutParams(params);
+            nButton.setBackground(nButton.getContext().getDrawable(R.drawable.rounded_button));
             nButton.setText(buttonText);
             nButton.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             nButton.setOnClickListener(new View.OnClickListener(){

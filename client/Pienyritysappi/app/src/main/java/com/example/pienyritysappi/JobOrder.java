@@ -83,9 +83,13 @@ public class JobOrder extends AppCompatActivity {
             String jobPrice = job.getString("service_price");
             String jobId = job.getString("service_id");
             String buttonText = jobName + "\nSaatavilla: " + jobAvailability + "\n" + jobPrice + " €";
+
+            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+            params.setMargins(10,10,10,10);
             nButton.setText(buttonText);
-            
             nButton.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+            nButton.setLayoutParams(params);
+            nButton.setBackground(nButton.getContext().getDrawable(R.drawable.rounded_button));
             String jobBaseUrl = "http://mobiilisovellus.therozor.com:5000/service/";
             String joburl = jobBaseUrl + jobId;
             nButton.setOnClickListener(new View.OnClickListener(){

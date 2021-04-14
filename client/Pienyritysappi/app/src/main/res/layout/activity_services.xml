@@ -9,15 +9,18 @@
 
     <TextView
         android:id="@+id/header"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="96dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:gravity="center"
         android:text="@string/categoryTextView"
+        android:textStyle="bold"
         android:textColor="#D08221"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
