@@ -90,6 +90,7 @@ public class Category extends AppCompatActivity {
             nButton.setLayoutParams(params);
             nButton.setBackground(nButton.getContext().getDrawable(R.drawable.rounded_button));
             nButton.setText(buttonText);
+            nButton.setPadding(30,0,30,0);
             nButton.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             nButton.setOnClickListener(new View.OnClickListener(){
                 @Override

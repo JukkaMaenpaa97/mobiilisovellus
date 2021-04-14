@@ -90,6 +90,7 @@ public class JobOrder extends AppCompatActivity {
             nButton.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             nButton.setLayoutParams(params);
             nButton.setBackground(nButton.getContext().getDrawable(R.drawable.rounded_button));
+            nButton.setPadding(30,0,30,0);
             String jobBaseUrl = "http://mobiilisovellus.therozor.com:5000/service/";
             String joburl = jobBaseUrl + jobId;
             nButton.setOnClickListener(new View.OnClickListener(){

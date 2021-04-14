@@ -58,6 +58,7 @@ public class Services extends AppCompatActivity {
             button.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             button.setBackground(button.getContext().getDrawable(R.drawable.rounded_button));
             button.setLayoutParams(params);
+            button.setPadding(30,0,30,0);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

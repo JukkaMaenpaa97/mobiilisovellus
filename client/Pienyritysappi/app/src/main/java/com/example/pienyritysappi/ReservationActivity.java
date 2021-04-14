@@ -34,6 +34,7 @@ public class ReservationActivity extends AppCompatActivity {
         nButton.setText(buttonText);
         nButton.setTextSize(20);
         nButton.setBackground(nButton.getContext().getDrawable(R.drawable.rounded_button));
+        nButton.setPadding(30,0,30,0);
         nButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
