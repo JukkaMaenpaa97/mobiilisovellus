@@ -24,18 +24,24 @@ class Order(Resource):
             else:
                 ordermodel = OrderModel()
                 data = request.json
-                #validator = PostValidator()
-                #validator.postData(request.json)
-                #validator.addField("order_comments", validate=['not_empty'])
+                validator = PostValidator()
+                validator.postData(data)
+                validator.addField("order_comments", validate=['not empty'])
                 order = Order()
                 order_created = order.timeStamp()
+            if validator.validate():
                 ordermodel.set("order_service_provider_id", id)
                 ordermodel.set("order_sender_id",current_user.get("user_id"))
                 ordermodel.set("order_status", 1)
-                ordermodel.set("order_comments",data.get("order_comments"))
+                ordermodel.set("order_comments",validator.get("order_comments"))
                 ordermodel.set("order_created", order_created)
-                ordermodel.create()
-                return{"message": "onnistui"}
+                if ordermodel.create():
+                    return{"message": "Tilauksen luominen onnistui"}, 200
+                else:
+                    return{"message": "tilauksen luominen epäonnistui"},400
+            else:
+                    return{"message": "Virheelliset tiedot." },400
+
                 
                 
                 
@@ -52,7 +58,6 @@ class Order(Resource):
             validator.postData(request.json)
             validator.addField("order_status", validate=['not_empty'])
             validator.addField("order_comments", validate=['not_empty'])
-            #print(validator.get("order_status"))
 
             if validator.validate():
                 if validator.get("order_status") == 2:
@@ -74,11 +79,9 @@ class Order(Resource):
 
 
             if ordermodel.update():
-                print("täällä")
-                return{"message": "Tilauksen päivitys onnistui."}
-            
+                return{"message": "Tilauksen päivitys onnistui."},200
             else:
-                return{"message": "Tilausta ei muutettu. Tapahtui virhe tai tiedot ovat jo ajan tasalla."}
+                return{"message": "Tilausta ei muutettu. Tapahtui virhe tai tiedot ovat jo ajan tasalla."},400
                     
                 
                 
