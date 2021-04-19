@@ -13,11 +13,11 @@
         android:layout_marginStart="17dp"
         android:layout_marginTop="19dp"
         android:background="@drawable/round_button"
+        android:contentDescription="@string/imageButtonProfileConfirm"
         android:onClick="profileButtonClicked"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/profile_pic_icon_foreground"
-        android:contentDescription="@string/imageButtonProfileConfirm" />
+        app:srcCompat="@drawable/profile_pic_icon_foreground" />
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -26,9 +26,42 @@
         android:layout_marginTop="19dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/round_button"
+        android:contentDescription="@string/imageButtonHomeConfirm"
         android:onClick="homeButtonClicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/home_pic_icon_foreground"
-        android:contentDescription="@string/imageButtonHomeConfirm" />
+        app:srcCompat="@drawable/home_pic_icon_foreground" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="543dp"
+        android:text="@string/buttonConfirm"
+        android:onClick="ConfirmClicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewConfirmInfo"
+        android:layout_width="256dp"
+        android:layout_height="215dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="184dp"
+        android:text="@string/textviewConfirmInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewConfirmHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:text="@string/textviewConfirmHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

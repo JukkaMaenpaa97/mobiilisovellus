@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,6 +28,7 @@ public class LogIn extends AppCompatActivity {
     private EditText etEmail;
     private EditText etPassword;
     private String apikey = "";
+    private String userId = "";
     private String registeredPassword = "";
     private String registeredEmail = "";
 
@@ -48,12 +50,11 @@ public class LogIn extends AppCompatActivity {
         }
     }
 
-    public void logInButtonClicked(View view)
-    {
+    public void logInButtonClicked(View view) {
+        Toast.makeText(getApplicationContext(), "tässä saattaa kestää hetki", Toast.LENGTH_SHORT);
         logInEmail = etEmail.getText().toString();
         logInPassword = etPassword.getText().toString();
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-
         JSONObject postData = new JSONObject();
         try {
             postData.put("user_email", logInEmail);
@@ -69,7 +70,8 @@ public class LogIn extends AppCompatActivity {
                 try {
                     apikey = response.getString("apikey");
                     System.out.println(apikey);
-
+                    //userId = response.getString("user_id"); //täs välis vielä käyttäjän id:n tallennus
+                    System.out.println(userId);
                     Intent intent = new Intent(getApplicationContext(),Services.class);
                     startActivity(intent);
                 } catch (JSONException e) {
@@ -92,6 +94,11 @@ public class LogIn extends AppCompatActivity {
 
     public void registerCompanyButtonClicked(View view) {
         Intent intent = new Intent(getApplicationContext(),Register.class);
+        startActivity(intent);
+    }
+
+    public void logInLessClicked(View view) {
+        Intent intent = new Intent(getApplicationContext(), Services.class);
         startActivity(intent);
     }
 }

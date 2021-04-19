@@ -3,4 +3,7 @@
 
     <string name="imageButtonProfileConfirm" />
     <string name="imageButtonHomeConfirm" />
+    <string name="buttonConfirm">Varmista tilaus</string>
+    <string name="textviewConfirmInfo" />
+    <string name="textviewConfirmHeader" />
 </resources>
