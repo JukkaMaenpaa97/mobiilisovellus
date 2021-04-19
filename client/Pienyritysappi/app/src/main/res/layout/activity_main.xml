@@ -113,6 +113,7 @@
         android:layout_marginStart="266dp"
         android:layout_marginTop="126dp"
         android:text="@string/buttonaddjob"
+        android:onClick="addJobClicked"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

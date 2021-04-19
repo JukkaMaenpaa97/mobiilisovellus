@@ -60,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
     public void button7Clicked(View view)
     {
         Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
-                startActivity(intent);
+        startActivity(intent);
+    }
+
+    public void addJobClicked(View view) {
+        Intent intent = new Intent(getApplicationContext(), AddJob.class);
+        startActivity(intent);
     }
 }
