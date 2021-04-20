@@ -10,4 +10,6 @@
     <string name="saatavuus">Saatavuus</string>
     <string name="hinta">Hinta</string>
     <string name="palvelun_selostus_sis_lt">Palvelun selostus / sisältö</string>
+    <string name="PriceType">Hinnan tyyppi: esim. tuntihinta</string>
+    <string name="apikey">apikeypls</string>
 </resources>

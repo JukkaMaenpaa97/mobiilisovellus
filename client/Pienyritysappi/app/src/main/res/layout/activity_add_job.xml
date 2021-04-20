@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/editTextJobName"
         android:layout_width="318dp"
         android:layout_height="46dp"
         android:layout_marginStart="53dp"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/editTextJobAvailability"
         android:layout_width="321dp"
         android:layout_height="48dp"
         android:layout_marginStart="53dp"
@@ -55,10 +55,10 @@
         android:inputType="textPersonName"
         android:text="@string/newJobAvailability"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextJobName" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName7"
+        android:id="@+id/editTextPrice"
         android:layout_width="321dp"
         android:layout_height="48dp"
         android:layout_marginStart="53dp"
@@ -69,10 +69,24 @@
         android:inputType="textPersonName"
         android:text="@string/newJobPrice"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextJobDescription" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/editTextPriceType"
+        android:layout_width="321dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/PriceType"
+        android:inputType="textPersonName"
+        android:text="@string/newJobPrice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPrice" />
+
+    <EditText
+        android:id="@+id/editTextJobDescription"
         android:layout_width="321dp"
         android:layout_height="113dp"
         android:layout_marginStart="53dp"
@@ -83,16 +97,30 @@
         android:inputType="textPersonName"
         android:text="@string/newJobDescription"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextJobAvailability" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="321dp"
         android:layout_height="43dp"
-        android:layout_marginStart="53dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/textview_border"
         android:spinnerMode="dropdown"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPriceType" />
+
+    <EditText
+        android:id="@+id/editTextApikey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/apikey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        android:autofillHints="" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
