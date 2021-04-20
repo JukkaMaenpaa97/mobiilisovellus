@@ -7,27 +7,22 @@
 	import Home from './routes/home.svelte';
 	import Login from './routes/login.svelte';
 	import Register from './routes/register.svelte';
+	import RegisterSuccess from './routes/registersuccess.svelte';
 	import Profile from './routes/profile.svelte';
+	import Menu from './components/menu.svelte';
 
 	export let url = "";
 </script>
 
-<div class="uk-section">
-	<div class="uk-container">
-		<Router url="{url}">
-			<nav>
-				<Link to="/">Selaa</Link>
-				<Link to="login">Kirjaudu</Link>
-				<Link to="register">Rekisteröidy</Link>
-				<Link to="profile">Profiili</Link>
-				<Link to="">Viestit</Link>
-			</nav>
-			<div>
-				<Route path="register" component="{Register}" />
-				<Route path="login" component="{Login}" />
-				<Route path="profile" component="{Profile}" />
-				<Route path="/"><Home /></Route>
-			</div>
-		</Router>
+<Router url="{url}">
+	<Menu />
+	<div class="uk-section">
+		<div class="uk-container">
+			<Route path="register" component="{Register}" />
+			<Route path="registersuccess" component="{RegisterSuccess}" />
+			<Route path="login" component="{Login}" />
+			<Route path="profile" component="{Profile}" />
+			<Route path="/"><Home /></Route>
+		</div>
 	</div>
-</div>
+</Router>

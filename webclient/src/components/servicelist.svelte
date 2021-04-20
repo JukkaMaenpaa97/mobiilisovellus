@@ -17,7 +17,8 @@
 </script>
 
 <h2>Palvelut {#if loading}<div uk-spinner></div>{/if}</h2>
-
-{#each services as service}
-    <Service data={service} full={false}/>
-{/each}
+<div class="uk-grid-small">
+    {#each services as service}
+        <Service data={service} full={false}/>
+    {/each}
+</div>
