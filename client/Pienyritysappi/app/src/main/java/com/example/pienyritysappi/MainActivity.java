@@ -67,4 +67,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), AddJob.class);
         startActivity(intent);
     }
+
+    public void companyEditProfileClicked(View view)
+    {
+        Intent intent = new Intent(getApplicationContext(),CompanyEditProfile.class);
+        startActivity(intent);
+    }
 }

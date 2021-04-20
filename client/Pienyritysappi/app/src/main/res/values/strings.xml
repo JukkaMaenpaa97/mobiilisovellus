@@ -16,4 +16,5 @@
     <string name="button10">log in</string>
     <string name="applogo">applogo</string>
     <string name="buttonaddjob">addjob</string>
+    <string name="editCompanyProfile">firma edit</string>
 </resources>

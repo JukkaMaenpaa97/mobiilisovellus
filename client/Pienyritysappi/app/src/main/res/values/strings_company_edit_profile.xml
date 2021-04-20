@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="companyEditProfileHeader">Profiilin Tiedot</string>
+    <string name="companyName">Yrityksen Nimi</string>
+    <string name="companyNameEditText">Yrityksen Nimi</string>
+    <string name="companyEmailTextView">Sähköposti</string>
+    <string name="companyEmailEditText">Yrityksen sposti</string>
+    <string name="companyPhoneTextView">Puhelin</string>
+    <string name="companyPhoneEditText">Yrityksen puhelin</string>
+    <string name="companyAddressTextView">Osoite</string>
+    <string name="comapanyAddressEditText">Yrityksen Osoite</string>
+    <string name="companyPostalCodeTextView">Postinumero</string>
+    <string name="companyPostalCodeEditText">Yrityksen Postinumero</string>
+    <string name="companyCityTextView">Kaupunki</string>
+    <string name="companyCityEditText">Yrityksen Kaupunki</string>
+    <string name="companyIdTextView">Y-tunnus (ei pakollinen)</string>
+    <string name="companyIdEditText">Y-tunnus</string>
+    <string name="passwordTextView">Salasana</string>
+    <string name="passwordEditText">Salasana</string>
+    <string name="pwConfirmTextView">Vahvista Salasana</string>
+    <string name="pwConfirmEditText">Salasana</string>
+    <string name="companyDescTextView">Yrityksen kuvaus</string>
+    <string name="companyDescEditText">kuvaus</string>
+    <string name="editButton">Muokkaa</string>
+    <string name="saveButton">Tallenna</string>
+    <string name="home1Button">home button</string>
+</resources>
