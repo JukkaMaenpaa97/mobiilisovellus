@@ -6,14 +6,29 @@
 
     import Api from "../services/api.js";
 
-    let username;
-    let password;
+    let user_email;
+    let user_password;
 
-    async function doLogin(e){
+    let loading = false;
+    let field_class = "";
+    let error_message = "";
+
+    function doLogin(e){
         e.preventDefault();
-        Api.services();
-        let apikey = "oasijfoaiejfoei291024j01294j0";
-        dispatch("login", {apikey: apikey});
+        loading = true;
+
+        Api.login(user_email, user_password,
+            (response) => {
+                loading = false;
+                field_class = "uk-form-success";
+                error_message = "";
+            },
+            (error) => {
+                loading = false;
+                error_message = "Virheelliset kirjautumistiedot!";
+                field_class="uk-form-danger";
+            }
+        );
     }
 </script>
 
@@ -22,15 +37,20 @@
         <h1>Jobster - Töille tekijöitä ja tekijöille töitä</h1>
         <form method="post" on:submit={doLogin}>
             <fieldset class="uk-fieldset">
-                <legend class="uk-legend">Kirjaudu sisään</legend>
+                <legend class="uk-legend">Kirjaudu sisään {#if loading}<div uk-spinner></div>{/if}</legend>
                 <div class="uk-margin">
-                    <input type="text" class="uk-input" name="username" placeholder="Sähköpostiosoite" bind:value={username}>
+                    <input type="text" class="uk-input { field_class }" name="user_email" placeholder="Sähköpostiosoite" bind:value={user_email} disabled={loading}>
                 </div>
                 <div class="uk-margin">
-                    <input type="password" class="uk-input" name="password" placeholder="Salasana" bind:value={password}>
+                    <input type="password" class="uk-input { field_class }" name="user_password" placeholder="Salasana" bind:value={user_password} disabled={loading}>
                 </div>
+                {#if error_message !== ""}
+                <div class="uk-alert uk-alert-danger" uk-alert>
+                    {error_message}
+                </div>
+                {/if}
                 <div class="uk-margin">
-                    <input type="submit" class="uk-button uk-button-primary" value="Kirjaudu">
+                    <input type="submit" class="uk-button uk-button-primary" value="Kirjaudu" disabled={loading}>
                     tai
                     <button class="uk-button uk-button-secondary" on:click={ () => {navigate("/register");}}>Rekisteröidy</button>
                 </div>
