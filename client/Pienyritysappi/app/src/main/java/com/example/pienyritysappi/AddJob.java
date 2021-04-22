@@ -38,7 +38,6 @@ public class AddJob extends AppCompatActivity {
     private ArrayAdapter<String> spinnerAdapterPriceType;
     private TextView tvJobTitle;
     private TextView tvJobDescription;
-
     private TextView tvJobPrice;
     private TextView tvJobAvailability;
     private String job_title;
@@ -60,7 +59,6 @@ public class AddJob extends AppCompatActivity {
         mSpinnerPriceType = findViewById(R.id.spinnerpricetype);
         tvJobTitle = findViewById(R.id.editTextJobName);
         tvJobDescription = findViewById(R.id.editTextJobDescription);
-
         tvJobPrice = findViewById(R.id.editTextPrice);
         tvJobAvailability = findViewById(R.id.editTextJobAvailability);
         spinnerAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, android.R.id.text1);
@@ -165,8 +163,5 @@ public class AddJob extends AppCompatActivity {
         requestQueue.add(jsonObjectRequest);
     }
 
-    public void testspinner(View view) {
-        spinnerpositionpricetype = mSpinnerPriceType.getSelectedItemPosition() + 1;
-        System.out.println(Integer.toString(spinnerpositionpricetype));
-    }
+
 }
