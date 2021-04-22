@@ -2,10 +2,7 @@ package com.example.pienyritysappi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -72,7 +69,7 @@ public class LogIn extends AppCompatActivity {
                     System.out.println(apikey);
                     //userId = response.getString("user_id"); //täs välis vielä käyttäjän id:n tallennus
                     System.out.println(userId);
-                    Intent intent = new Intent(getApplicationContext(),Services.class);
+                    Intent intent = new Intent(getApplicationContext(), Categories.class);
                     startActivity(intent);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -98,7 +95,7 @@ public class LogIn extends AppCompatActivity {
     }
 
     public void logInLessClicked(View view) {
-        Intent intent = new Intent(getApplicationContext(), Services.class);
+        Intent intent = new Intent(getApplicationContext(), Categories.class);
         startActivity(intent);
     }
 }

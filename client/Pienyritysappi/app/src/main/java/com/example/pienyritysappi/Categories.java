@@ -1,10 +1,8 @@
 package com.example.pienyritysappi;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,9 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.concurrent.TimeUnit;
-
-public class Services extends AppCompatActivity {
+public class Categories extends AppCompatActivity {
 
     private Button button;
     private RequestQueue mQueue;
@@ -36,7 +32,7 @@ public class Services extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_services);
+        setContentView(R.layout.activity_categories);
         Intent intent = getIntent();
         catUrl = "http://mobiilisovellus.therozor.com:5000/categories";
         mQueue = Volley.newRequestQueue(this);
@@ -62,7 +58,7 @@ public class Services extends AppCompatActivity {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(),Category.class);
+                    Intent intent = new Intent(getApplicationContext(), ChosenCategory.class);
                     intent.putExtra("categoryId", categoryId);
                     startActivity(intent);
                 }

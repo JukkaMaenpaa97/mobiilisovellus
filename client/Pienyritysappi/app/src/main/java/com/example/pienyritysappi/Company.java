@@ -35,7 +35,7 @@ public class Company extends AppCompatActivity {
         mTextViewCompanyName = findViewById(R.id.companyName);
         mTextViewCompanyInfo = findViewById(R.id.companyInfoTextView);
         Bundle extras = intent.getExtras();
-        user_id = getIntent().getStringExtra("userId");
+        user_id = intent.getStringExtra("userId");
         System.out.println(user_id);
         url = baseurl + user_id;
         System.out.println(url);
@@ -94,7 +94,7 @@ public class Company extends AppCompatActivity {
 
     public void jobListingsButtonClicked(View view)
     {
-        Intent intent = new Intent(getApplicationContext(),JobOrder.class);
+        Intent intent = new Intent(getApplicationContext(), CompanyServices.class);
         intent.putExtra("user_id", user_id);
         startActivity(intent);
     }

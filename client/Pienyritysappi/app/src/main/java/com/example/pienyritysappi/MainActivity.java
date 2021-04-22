@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+
+
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void button1Clicked(View view)
     {
-        Intent intent = new Intent(getApplicationContext(),Category.class);
+        Intent intent = new Intent(getApplicationContext(), ChosenCategory.class);
         startActivity(intent);
     }
     public void button2Clicked(View view)
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void button3Clicked(View view)
     {
-        Intent intent = new Intent(getApplicationContext(),JobOrder.class);
+        Intent intent = new Intent(getApplicationContext(), CompanyServices.class);
         startActivity(intent);
     }
     public void button4Clicked(View view)
@@ -36,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void button5Clicked(View view)
     {
-        Intent intent = new Intent(getApplicationContext(),Services.class);
+        Intent intent = new Intent(getApplicationContext(), Categories.class);
         startActivity(intent);
     }
 
@@ -73,4 +76,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),CompanyEditProfile.class);
         startActivity(intent);
     }
+
 }

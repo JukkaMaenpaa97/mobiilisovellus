@@ -136,7 +136,7 @@ public class AddJob extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 System.out.println(response);
-                Intent intent = new Intent(getApplicationContext(), Services.class);
+                Intent intent = new Intent(getApplicationContext(), Categories.class);
                 startActivity(intent);
             }
         }, new Response.ErrorListener() {

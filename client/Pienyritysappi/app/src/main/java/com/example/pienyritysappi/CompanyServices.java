@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
-import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,46 +19,43 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Category extends AppCompatActivity {
+public class CompanyServices extends AppCompatActivity {
 
-    private TextView mTextViewCategoryName;
+
     private RequestQueue mQueue;
-    private String categoryurl;
-    private int companyCount =1;
+    private String url;
+    private String user_id = "";
     private Button nButton;
-    private String companyName;
-    private String contactName;
     private JSONArray jsonArray;
-    private JSONObject company;
-    private String baseUrl = "http://mobiilisovellus.therozor.com:5000/providers?category_id=";
-    private String categoryId;
-    private String apikey;
-
+    private JSONObject job;
+    private int jobCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category);
+        setContentView(R.layout.activity_company_services);
         Intent intent = getIntent();
-        categoryId = intent.getStringExtra("categoryId");
-        categoryurl = baseUrl + categoryId;
-        mTextViewCategoryName = findViewById(R.id.textViewCategoryName);
+        user_id = getIntent().getStringExtra("user_id");
+        url = "http://mobiilisovellus.therozor.com:5000/services?user_id="+user_id;
+        System.out.println("JobOrder url: "+ url);
         mQueue = Volley.newRequestQueue(this);
         jsonParse();
+
     }
 
     private void jsonParse() {
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, categoryurl, null,
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
                             jsonArray = response.getJSONArray("data");
-                            companyCount = response.getInt("count");
-                            mTextViewCategoryName.setText(response.getString("category_name"));
-                            for(int i = 0; i< companyCount; i++) {
+                            jobCount = response.getInt("count");
+
+                            for(int i = 0; i< jobCount; i++) {
                                 addButton(i); //luo myös onClickListenerin
                             }
+
                         } catch (JSONException e) {
                             System.out.println("\nnyt ollaan onResponsen catchissä: JSONExceptionissa\n");
                             e.printStackTrace();
@@ -76,27 +72,30 @@ public class Category extends AppCompatActivity {
     }
 
     private void addButton(int i) {
-        GridLayout layout = (GridLayout)findViewById(R.id.CompanyButtonGridLayout);
+        GridLayout layout = (GridLayout)findViewById(R.id.jobButtonGridLayout);
         nButton = new Button(this);
         try {
-            company = jsonArray.getJSONObject(i);
-            companyName = company.getString("user_company_name");
-            contactName = company.getString("user_name");
-            String buttonText = companyName + "\nYhteyshenkilö: " + contactName;
-            String companyUserId = company.getString("user_id");
+            job = jsonArray.getJSONObject(i);
+            String jobName = job.getString("service_title");
+            String jobAvailability = job.getString("service_availability");
+            String jobPrice = job.getString("service_price");
+            String jobId = job.getString("service_id");
+            String buttonText = jobName + "\nSaatavilla: " + jobAvailability + "\n" + jobPrice + " €";
 
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
             params.setMargins(10,10,10,10);
+            nButton.setText(buttonText);
+            nButton.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
             nButton.setLayoutParams(params);
             nButton.setBackground(nButton.getContext().getDrawable(R.drawable.rounded_button));
-            nButton.setText(buttonText);
             nButton.setPadding(30,0,30,0);
-            nButton.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+            String jobBaseUrl = "http://mobiilisovellus.therozor.com:5000/service/";
+            String joburl = jobBaseUrl + jobId;
             nButton.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(),Company.class);
-                    intent.putExtra("userId", companyUserId);
+                    Intent intent = new Intent(getApplicationContext(),JobInfo.class);
+                    intent.putExtra("keyurl", joburl);
                     startActivity(intent);
                 }
             });
@@ -106,13 +105,21 @@ public class Category extends AppCompatActivity {
         layout.addView(nButton);
     }
 
-    public void homeButtonClicked(View view) {
-        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+
+
+    public void profileButtonClicked(View view) {
+        Intent intent = new Intent(getApplicationContext(), CustomerProfile.class);
         startActivity(intent);
     }
 
-    public void profileButtonClicked(View view) {
-        Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
+    public void homeButtonClicked(View view) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void buttonJobClicked(View view) {
+        Intent intent = new Intent(getApplicationContext(), JobInfo.class);
+
         startActivity(intent);
     }
 }
