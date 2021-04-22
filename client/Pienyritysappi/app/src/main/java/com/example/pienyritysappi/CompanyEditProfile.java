@@ -7,6 +7,18 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.regex.Pattern;
 
@@ -26,10 +38,25 @@ public class CompanyEditProfile extends AppCompatActivity {
      private EditText textInputCompanyId;
      private EditText textInputCompanyDescription;
 
-    @Override
+     private String userId = "";
+     private String baseUrl = "http://mobiilisovellus.therozor.com:5000/user/";
+     private String url;
+     private RequestQueue mQueue;
+     private JSONArray userInfo;
+     private JSONObject jsonObject;
+     private int count;
+     private String apikey;
+
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_edit_profile);
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        userId = "5031bd69-c634-43dd-9000-c8fe0b984e85"; //intent.getStringExtra("userId");
+        url= baseUrl+userId;//tama url vain testi kaytossa ei oikea
+
+         mQueue = Volley.newRequestQueue(this);
 
         textInputAddress = findViewById(R.id.companyAddressEditText);
         textInputCity = findViewById(R.id.companyCityEditText);
@@ -42,7 +69,6 @@ public class CompanyEditProfile extends AppCompatActivity {
         textInputPhone = findViewById(R.id.companyPhoneEditText);
         textInputPostalCode = findViewById(R.id.companyPostalCodeEditText);
 
-
         textInputAddress.setEnabled(false);
         textInputCity.setEnabled(false);
         textInputCompanyDescription.setEnabled(false);
@@ -54,12 +80,8 @@ public class CompanyEditProfile extends AppCompatActivity {
         textInputPhone.setEnabled(false);
         textInputEmail.setEnabled(false);
 
-    }
+        getCompanyProfileInfo();
 
-    public void profileButtonClicked(View view)
-    {
-        Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
-        startActivity(intent);
     }
 
     public void homeButtonClicked(View view)
@@ -124,21 +146,11 @@ public class CompanyEditProfile extends AppCompatActivity {
             textInputCity.setError("Kenttä ei voi olla tyhjä");
             return false;
         }
-        try
+        else
         {
-            Integer.parseInt(companyCity);
-            textInputPostalCode.setError("Kaupungin nimessä ei voi olla numeroita");
-            return false;
+            textInputCity.setError(null);
+            return true;
         }
-
-        // TAA EI TOIMI VIELA
-        catch (NumberFormatException e)
-        {
-            System.out.println("Stringissä ei ole numeroita");
-            textInputPostalCode.setError(null);
-
-        }
-        return true;
     }
 
     private boolean checkPhoneNumber()
@@ -159,7 +171,6 @@ public class CompanyEditProfile extends AppCompatActivity {
             textInputPhone.setError(null);
             return true;
         }
-
     }
 
     private boolean checkCompanyName()
@@ -237,7 +248,18 @@ public class CompanyEditProfile extends AppCompatActivity {
 
     public void saveInformationButtonClicked(View view)
     {
-        if(!checkPassword() | !checkEmail() | !checkCompanyName() | !checkAddress() | !checkCity() | !checkPostalCode() | !checkPhoneNumber())
+        String updateCompanyName;
+        String updateEmail;
+        String updatePhone;
+        String updateAddress;
+        String updatePostalCode;
+        String updateCity;
+        String updatePassword;
+        String updateCompanyId;
+        String updateCompanyDesc;
+        mQueue = Volley.newRequestQueue(this);
+
+        if (!checkPassword() | !checkEmail() | !checkCompanyName() | !checkAddress() | !checkCity() | !checkPostalCode() | !checkPhoneNumber())
         {
             return;
         }
@@ -252,5 +274,102 @@ public class CompanyEditProfile extends AppCompatActivity {
         textInputPostalCode.setEnabled(false);
         textInputPhone.setEnabled(false);
         textInputEmail.setEnabled(false);
+
+        updateAddress = textInputAddress.getText().toString();
+        updateCity = textInputCity.getText().toString();
+        updateCompanyDesc = textInputCompanyDescription.getText().toString();
+        updateCompanyId = textInputCompanyId.getText().toString();
+        updateCompanyName = textInputCompanyName.getText().toString();
+        updateEmail = textInputEmail.getText().toString();
+        updatePassword = textInputPassword.getText().toString();
+        updatePhone = textInputPhone.getText().toString();
+        updatePostalCode = textInputPostalCode.getText().toString();
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JSONObject postData = new JSONObject();
+        try
+        {
+            postData.put("user_address", updateAddress);
+            postData.put("user_city",updateCity);
+            postData.put("",updateCompanyDesc);
+            postData.put("user_company_id",updateCompanyId);
+            postData.put("user_company_name",updateCompanyName);
+            postData.put("user_email",updateEmail);
+            postData.put("user_password",updatePassword);
+            postData.put("user_phone",updatePhone);
+            postData.put("user_postalcode",updatePostalCode);
+
+        } catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, postData, new Response.Listener<JSONObject>()
+        {
+            @Override
+            public void onResponse(JSONObject response) {
+                System.out.println(response);
+                System.out.println("muokkaus onnistui");
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError e) {
+                e.printStackTrace();
+                System.out.println("saveInformationButtonClicked Error Response");
+            }
+        });
+       requestQueue.add(request);
+
+        Toast.makeText(this, "Tallennus onnistui!", Toast.LENGTH_SHORT).show();
+    }
+
+
+    private void getCompanyProfileInfo()
+    {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>()
+        {
+            @Override
+            public void onResponse(JSONObject response)
+            {
+                try
+                {
+                    userInfo = response.getJSONArray("data");
+                    //count = response.getInt("count");
+                    jsonObject = userInfo.getJSONObject(0);
+
+                    String address = jsonObject.getString("user_address");
+                    String postalCode = jsonObject.getString("user_postalcode");
+                    String phone = jsonObject.getString("user_phone");
+                    String companyName = jsonObject.getString("user_company_name");
+                    String companyId = jsonObject.getString("user_company_id");
+                    String companyDesc = jsonObject.getString(""); //????????
+                    String email = jsonObject.getString("user_email");
+                    String city = jsonObject.getString("user_city");
+                    String pw = jsonObject.getString("user_password");
+
+                    textInputAddress.setText(address);
+                    textInputCity.setText(city);
+                    textInputCompanyId.setText(companyId);
+                    textInputCompanyName.setText(companyName);
+                    textInputCompanyDescription.setText(companyDesc);
+                    textInputEmail.setText(email);
+                    textInputPhone.setText(phone);
+                    textInputPostalCode.setText(postalCode);
+                    textInputPassword.setText(pw);
+
+
+                } catch (JSONException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                System.out.println("getCompanyProfileInfo Error Response");
+            }
+        });
+        mQueue.add(request);
     }
 }
