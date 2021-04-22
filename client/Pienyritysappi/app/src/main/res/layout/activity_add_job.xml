@@ -9,13 +9,13 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="200dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="92dp"
+        android:layout_width="242dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="68dp"
         android:text="@string/textviewAddJobHeader"
-        android:textSize="24sp"
+        android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,10 +23,11 @@
         android:id="@+id/button12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="249dp"
-        android:layout_marginTop="606dp"
+        android:layout_marginTop="596dp"
         android:onClick="addJobConfirmClicked"
         android:text="@string/buttonAddJobConfirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,94 +35,87 @@
         android:id="@+id/editTextJobName"
         android:layout_width="318dp"
         android:layout_height="46dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="142dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/uuden_palvelun_nimi"
         android:inputType="textPersonName"
         android:text="@string/nameNewJobName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextJobAvailability"
         android:layout_width="321dp"
         android:layout_height="48dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="196dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/saatavuus"
         android:inputType="textPersonName"
         android:text="@string/newJobAvailability"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextJobName" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextPrice"
         android:layout_width="321dp"
         android:layout_height="48dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="373dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/hinta"
         android:inputType="textPersonName"
         android:text="@string/newJobPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextJobDescription" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextPriceType"
         android:layout_width="321dp"
         android:layout_height="48dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="429dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/PriceType"
         android:inputType="textPersonName"
         android:text="@string/newJobPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPrice" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextJobDescription"
         android:layout_width="321dp"
         android:layout_height="113dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="252dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/palvelun_selostus_sis_lt"
         android:inputType="textPersonName"
         android:text="@string/newJobDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextJobAvailability" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="321dp"
         android:layout_height="43dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="485dp"
         android:background="@drawable/textview_border"
         android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPriceType" />
-
-    <EditText
-        android:id="@+id/editTextApikey"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/apikey"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

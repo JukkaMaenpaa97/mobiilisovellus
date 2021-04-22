@@ -12,12 +12,13 @@ public class ConfirmReservation extends AppCompatActivity {
     private int index = 0;
     private TextView tvHeader;
     private TextView tvInfo;
+    private String infotext;
+    private String headertext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_reservation);
-        Intent intent;
         index = getIntent().getIntExtra("indeksi",0);
         System.out.println(index);
         tvHeader = findViewById(R.id.textViewConfirmHeader);
@@ -25,7 +26,6 @@ public class ConfirmReservation extends AppCompatActivity {
         String i = Integer.toString(index);
         tvHeader.setText(i);
         tvInfo.setText(i);
-
     }
 
     public void homeButtonClicked(View view) {

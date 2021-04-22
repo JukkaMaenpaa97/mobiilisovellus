@@ -2,7 +2,6 @@ package com.example.pienyritysappi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -45,11 +44,10 @@ public class AddJob extends AppCompatActivity {
     private String job_price_type;
     private String job_price;
     private String job_availability;
-    private String job_category;
-    private TextView apikey;
     private String api_key;
     private int spinnerposition;
     private String categoryId;
+    private JSONObject postData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,11 +63,10 @@ public class AddJob extends AppCompatActivity {
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinner.setAdapter(spinnerAdapter);
         mQueue = Volley.newRequestQueue(this);
-        parseCategories();
-        System.out.println("parsen jälkeen on pouta sää");
+        getCategories();
     }
 
-    private void parseCategories() {
+    private void getCategories() {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, catUrl, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -110,7 +107,6 @@ public class AddJob extends AppCompatActivity {
         job_price = tvJobPrice.getText().toString();
         job_price_type = tvJobPriceType.getText().toString();
         job_title = tvJobTitle.getText().toString();
-        apikey = (TextView)findViewById(R.id.editTextApikey);
         api_key = "A5NG1QCBjxNwikVq2zocyAOtGXw3oZCm";
         System.out.println(job_availability);
         System.out.println(categoryId);
@@ -120,7 +116,7 @@ public class AddJob extends AppCompatActivity {
         System.out.println(job_title);
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        JSONObject postData = new JSONObject();
+        postData = new JSONObject();
         try {
             postData.put("service_category", categoryId);
             postData.put("service_type", 1);
@@ -129,6 +125,7 @@ public class AddJob extends AppCompatActivity {
             postData.put("service_price_type", job_price_type);
             postData.put("service_price", job_price);
             postData.put("service_availability", job_availability);
+            System.out.println("postData.put shitit laitettu");
         } catch(JSONException e) {
             e.printStackTrace();
         }
@@ -136,8 +133,9 @@ public class AddJob extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 System.out.println(response);
-                Intent intent = new Intent(getApplicationContext(), Categories.class);
-                startActivity(intent);
+                System.out.println("onnistui");
+                //Intent intent = new Intent(getApplicationContext(), Services.class);
+                //startActivity(intent);
             }
         }, new Response.ErrorListener() {
             @Override
