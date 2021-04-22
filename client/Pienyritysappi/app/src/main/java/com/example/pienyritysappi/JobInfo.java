@@ -24,12 +24,13 @@ public class JobInfo extends AppCompatActivity {
     private TextView mTextViewDescription;
     private TextView mTextViewPricing;
     private RequestQueue mQueue;
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_info);
-        String url = getIntent().getStringExtra("keyurl");
+        url = getIntent().getStringExtra("keyurl");
         mTextViewResult = findViewById(R.id.header);
         mTextViewDescription = findViewById(R.id.jobInfoTextView);
         mTextViewPricing = findViewById(R.id.pricingTextView);
@@ -87,6 +88,7 @@ public class JobInfo extends AppCompatActivity {
     public void purchaseJobButtonClicked(View view)
     {
         Intent intent = new Intent(getApplicationContext(),ReservationActivity.class);
+        intent.putExtra("url",url);
         startActivity(intent);
     }
 

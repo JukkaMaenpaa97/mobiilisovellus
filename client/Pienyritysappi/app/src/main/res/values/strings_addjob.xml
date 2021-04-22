@@ -12,4 +12,5 @@
     <string name="palvelun_selostus_sis_lt">Palvelun selostus / sisältö</string>
     <string name="PriceType">Hinnan tyyppi: esim. tuntihinta</string>
     <string name="apikey">apikeypls</string>
+    <string name="testibutton">testi</string>
 </resources>

@@ -14,12 +14,14 @@ public class ConfirmReservation extends AppCompatActivity {
     private TextView tvInfo;
     private String infotext;
     private String headertext;
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_reservation);
         index = getIntent().getIntExtra("indeksi",0);
+        url = getIntent().getStringExtra("url");
         System.out.println(index);
         tvHeader = findViewById(R.id.textViewConfirmHeader);
         tvInfo = findViewById(R.id.textViewConfirmInfo);

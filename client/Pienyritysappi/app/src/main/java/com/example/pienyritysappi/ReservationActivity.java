@@ -13,12 +13,14 @@ public class ReservationActivity extends AppCompatActivity {
 
     private Button nButton;
     private int eec = 0;
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
-
+        url = getIntent().getStringExtra("url");
+        System.out.println(url);
         for(int i = 0; i < 60; i++){
             addButton(i);
         }
@@ -40,6 +42,7 @@ public class ReservationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ConfirmReservation.class);
                 intent.putExtra("indeksi", i);
+                intent.putExtra("url", url);
                 startActivity(intent);
             }
         });

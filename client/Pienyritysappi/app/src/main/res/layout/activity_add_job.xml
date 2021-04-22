@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddJob"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/gradient_background"
+    tools:context=".AddJob">
 
     <TextView
         android:id="@+id/textView8"
@@ -77,21 +77,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextPriceType"
-        android:layout_width="321dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="429dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/PriceType"
-        android:inputType="textPersonName"
-        android:text="@string/newJobPrice"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
         android:id="@+id/editTextJobDescription"
         android:layout_width="321dp"
         android:layout_height="113dp"
@@ -115,6 +100,28 @@
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerpricetype"
+        android:layout_width="321dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="432dp"
+        android:background="@drawable/textview_border"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="538dp"
+        android:text="@string/testibutton"
+        android:onClick="testspinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

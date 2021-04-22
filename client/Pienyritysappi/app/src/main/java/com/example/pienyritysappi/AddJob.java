@@ -27,6 +27,7 @@ public class AddJob extends AppCompatActivity {
 
     private RequestQueue mQueue;
     private Spinner mSpinner;
+    private Spinner mSpinnerPriceType;
     private int categoryCount;
     private JSONArray jsonArray;
     private JSONObject category;
@@ -34,18 +35,20 @@ public class AddJob extends AppCompatActivity {
     private String addJobUrl = "http://mobiilisovellus.therozor.com:5000/services";
     private String categoryName;
     private ArrayAdapter<String> spinnerAdapter;
+    private ArrayAdapter<String> spinnerAdapterPriceType;
     private TextView tvJobTitle;
     private TextView tvJobDescription;
-    private TextView tvJobPriceType;
+
     private TextView tvJobPrice;
     private TextView tvJobAvailability;
     private String job_title;
     private String job_description;
-    private String job_price_type;
+    private int job_price_type;
     private String job_price;
     private String job_availability;
     private String api_key;
     private int spinnerposition;
+    private int spinnerpositionpricetype;
     private String categoryId;
     private JSONObject postData;
 
@@ -54,14 +57,21 @@ public class AddJob extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_job);
         mSpinner = findViewById(R.id.spinner);
+        mSpinnerPriceType = findViewById(R.id.spinnerpricetype);
         tvJobTitle = findViewById(R.id.editTextJobName);
         tvJobDescription = findViewById(R.id.editTextJobDescription);
-        tvJobPriceType = findViewById(R.id.editTextPriceType);
+
         tvJobPrice = findViewById(R.id.editTextPrice);
         tvJobAvailability = findViewById(R.id.editTextJobAvailability);
         spinnerAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, android.R.id.text1);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinner.setAdapter(spinnerAdapter);
+        spinnerAdapterPriceType = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, android.R.id.text1);
+        spinnerAdapterPriceType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAdapterPriceType.add("Tuntihinta");
+        spinnerAdapterPriceType.add("Kertamaksu");
+        spinnerAdapterPriceType.notifyDataSetChanged();
+        mSpinnerPriceType.setAdapter(spinnerAdapterPriceType);
         mQueue = Volley.newRequestQueue(this);
         getCategories();
     }
@@ -98,6 +108,7 @@ public class AddJob extends AppCompatActivity {
         job_availability = tvJobAvailability.getText().toString();
         job_description = tvJobDescription.getText().toString();
         spinnerposition = mSpinner.getSelectedItemPosition();
+        spinnerpositionpricetype = mSpinnerPriceType.getSelectedItemPosition() + 1;
         try {
             category = jsonArray.getJSONObject(spinnerposition);
             categoryId = category.getString("category_id");
@@ -105,7 +116,7 @@ public class AddJob extends AppCompatActivity {
             e.printStackTrace();
         }
         job_price = tvJobPrice.getText().toString();
-        job_price_type = tvJobPriceType.getText().toString();
+        job_price_type = 1;
         job_title = tvJobTitle.getText().toString();
         api_key = "A5NG1QCBjxNwikVq2zocyAOtGXw3oZCm";
         System.out.println(job_availability);
@@ -119,7 +130,7 @@ public class AddJob extends AppCompatActivity {
         postData = new JSONObject();
         try {
             postData.put("service_category", categoryId);
-            postData.put("service_type", 1);
+            postData.put("service_type", job_price_type);
             postData.put("service_title", job_title);
             postData.put("service_description", job_description);
             postData.put("service_price_type", job_price_type);
@@ -152,5 +163,10 @@ public class AddJob extends AppCompatActivity {
             }
         };
         requestQueue.add(jsonObjectRequest);
+    }
+
+    public void testspinner(View view) {
+        spinnerpositionpricetype = mSpinnerPriceType.getSelectedItemPosition() + 1;
+        System.out.println(Integer.toString(spinnerpositionpricetype));
     }
 }
