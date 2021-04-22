@@ -12,4 +12,5 @@
     <string name="buttonasiakasprofiili">Asiakas profiili</string>
     <string name="customerprofilebutton">Muokkaa tietoja</string>
     <string name="buttonsavecustomerprofile">Tallenna tiedot</string>
+    <string name="puhelinnumero">Puhelinnumero</string>
 </resources>
