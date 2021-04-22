@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CustomerProfile"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
     android:background="@drawable/gradient_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".CompanyEditProfile">
 
     <ImageButton
         android:id="@+id/profileButton"
@@ -46,7 +51,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView4" />
 
-
     <EditText
         android:id="@+id/editTextTextEmailAddress2"
         android:layout_width="298dp"
@@ -73,17 +77,18 @@
         app:layout_constraintTop_toBottomOf="@id/imageView4" />
 
     <TextView
-        android:id="@+id/textViewCustomerprofile2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/emailcustomerprofile"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.161"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextTextPersonName3" />
+    android:id="@+id/textViewCustomerprofile2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:text="@string/emailcustomerprofile"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintHorizontal_bias="0.161"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/editTextTextPersonName3" />
+
 
     <TextView
         android:id="@+id/textView16"
@@ -137,14 +142,40 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView17" />
 
+
+    <EditText
+        android:id="@+id/muokaanumero"
+        android:layout_width="307dp"
+        android:layout_height="46dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:maxLength="10"
+        android:inputType="phone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textviewnumero" />
+
+    <TextView
+        android:id="@+id/textviewnumero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/puhelinnumero"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.175"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/editTextTextPassword3" />
+
     <Button
         android:id="@+id/button26"
         android:layout_width="184dp"
         android:layout_height="54dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="92dp"
         android:onClick="tietojenmuokkaus"
         android:text="@string/customerprofilebutton"
-        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextTextPassword3" />
@@ -153,7 +184,7 @@
         android:id="@+id/button27"
         android:layout_width="179dp"
         android:layout_height="53dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="92dp"
         android:onClick="tallennatiedot"
         android:text="@string/buttonsavecustomerprofile"
         app:layout_constraintHorizontal_bias="0.931"
@@ -162,5 +193,7 @@
         app:layout_constraintTop_toBottomOf="@id/editTextTextPassword3" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
 

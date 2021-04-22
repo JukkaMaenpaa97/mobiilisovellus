@@ -28,10 +28,15 @@ public class CustomerProfile extends AppCompatActivity {
     // ".{4,}" +               //at least 4 characters
     //  "$");
 
+    private static final Pattern PUHELIN_PATTERN =
+            Pattern.compile("^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$");
+
+
     private EditText textInputEmail;
     private EditText textInputPassword;
     private EditText textInputUsername;
     private EditText textInputPassword2;
+    private EditText textInputNumber;
 
 
     @Override
@@ -43,6 +48,7 @@ public class CustomerProfile extends AppCompatActivity {
         textInputPassword = findViewById(R.id.editTextTextPassword2);
         textInputUsername = findViewById(R.id.editTextTextPersonName3);
         textInputPassword2 = findViewById(R.id.editTextTextPassword3);
+        textInputNumber = findViewById(R.id.muokaanumero);
 
         EditText mEdit = (EditText) findViewById(R.id.editTextTextPersonName3);
         mEdit.setEnabled(false);
@@ -71,6 +77,23 @@ public class CustomerProfile extends AppCompatActivity {
             textInputEmail.setError(null);
             return true;
         }
+    }
+
+    private boolean tarkistapuhelin() {
+
+        String phoneInput = textInputNumber.getText().toString().trim();
+
+        if (phoneInput.isEmpty()) {
+            textInputNumber.setError("Kenttä ei voi olla tyhjä");
+            return false;
+        } else if (!PUHELIN_PATTERN.matcher(phoneInput).matches()) {
+            textInputNumber.setError("Puhelinnumero ei kelpaa");
+            return false;
+        } else {
+            textInputNumber.setError(null);
+            return true;
+        }
+
     }
 
     private boolean tarkastaNimi() {
@@ -141,7 +164,7 @@ public class CustomerProfile extends AppCompatActivity {
             EditText mEdit4 = (EditText) findViewById(R.id.editTextTextPassword3);
             mEdit4.setEnabled(true);
 
-            if (!tarkastaSalasana() | !tarkastaEmail() | !tarkastaNimi()) {
+            if (!tarkastaSalasana() | !tarkastaEmail() | !tarkastaNimi() |  !tarkistapuhelin()) {
                 return;
             }
 
