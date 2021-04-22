@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Company"
-    android:background="#ADD8E6">
+    android:background="@drawable/gradient_background">
 
     <ImageButton
         android:id="@+id/profileButton"

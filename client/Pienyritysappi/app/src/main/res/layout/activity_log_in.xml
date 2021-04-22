@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ADD8E6"
-    tools:context=".LogIn">
+    tools:context=".LogIn"
+    android:background="@drawable/gradient_background">
 
 
     <ImageView

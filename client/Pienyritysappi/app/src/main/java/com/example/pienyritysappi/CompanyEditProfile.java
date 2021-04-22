@@ -356,8 +356,6 @@ public class CompanyEditProfile extends AppCompatActivity {
                     textInputPhone.setText(phone);
                     textInputPostalCode.setText(postalCode);
                     textInputPassword.setText(pw);
-
-
                 } catch (JSONException e)
                 {
                     e.printStackTrace();

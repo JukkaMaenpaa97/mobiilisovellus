@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ADD8E6"
-    tools:context=".Categories">
+    tools:context=".Categories"
+    android:background="@drawable/gradient_background">
 
     <TextView
         android:id="@+id/header"
@@ -17,7 +17,7 @@
         android:gravity="center"
         android:text="@string/categoryTextView"
         android:textStyle="bold"
-        android:textColor="#D08221"
+        android:textColor="#9969C7"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
