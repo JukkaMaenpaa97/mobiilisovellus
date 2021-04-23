@@ -29,7 +29,7 @@ class Orders(Resource):
                                "data": orderlist.serialize()},200
                else:
                     return{"message": "Tilausten listaus epäonnistui"}, 404
-        else:
+        elif user_type == 1:
             if(orderlist.load("SELECT " + ordermodel.getFields()+ " FROM " + ordermodel.getTable()+" WHERE order_sender_id=%(user_id)s",{"user_id": user_id})):
                if orderlist.count() > 0:
                    orderlist.computeAll()
