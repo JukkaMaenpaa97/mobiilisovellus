@@ -87,7 +87,7 @@ public class JobInfo extends AppCompatActivity {
 
     public void purchaseJobButtonClicked(View view)
     {
-        Intent intent = new Intent(getApplicationContext(),ReservationActivity.class);
+        Intent intent = new Intent(getApplicationContext(),ConfirmReservation.class);
         intent.putExtra("url",url);
         startActivity(intent);
     }

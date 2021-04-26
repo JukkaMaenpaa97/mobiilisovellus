@@ -52,7 +52,7 @@ public class Company extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
-                            JSONObject company = jsonArray.getJSONObject(0);   //tähän indeksi monennenko haluaa (0=eka 1=toka jne. tullaan vaihtamaan id:llä haettavaksi)
+                            JSONObject company = jsonArray.getJSONObject(0);
                             mTextViewCompanyName.setText(company.getString("user_company_name"));
                             String companyUser = company.getString("user_name");
                             String companyId = company.getString("user_company_id");

@@ -6,4 +6,5 @@
     <string name="buttonConfirm">Varmista tilaus</string>
     <string name="textviewConfirmInfo" />
     <string name="textviewConfirmHeader" />
+    <string name="jobComments">Lisätietoja tai kommentteja tilaukseen</string>
 </resources>

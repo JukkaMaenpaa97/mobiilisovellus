@@ -41,7 +41,6 @@ public class ReservationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ConfirmReservation.class);
-                intent.putExtra("indeksi", i);
                 intent.putExtra("url", url);
                 startActivity(intent);
             }

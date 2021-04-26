@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfirmReservation"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/gradient_background"
+    tools:context=".ConfirmReservation">
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -38,8 +38,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="543dp"
-        android:text="@string/buttonConfirm"
         android:onClick="ConfirmClicked"
+        android:text="@string/buttonConfirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,11 +47,12 @@
 
     <TextView
         android:id="@+id/textViewConfirmInfo"
-        android:layout_width="256dp"
-        android:layout_height="215dp"
-        android:layout_marginStart="77dp"
+        android:layout_width="340dp"
+        android:layout_height="168dp"
         android:layout_marginTop="184dp"
         android:text="@string/textviewConfirmInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,6 +64,20 @@
         android:text="@string/textviewConfirmHeader"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextjobComments"
+        android:layout_width="340dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="372dp"
+        android:ems="10"
+        android:hint="@string/jobComments"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
