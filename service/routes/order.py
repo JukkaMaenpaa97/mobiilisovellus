@@ -8,44 +8,7 @@ import time
 
 
 
-class Order(Resource):
-
-    def timeStamp(self):
-        order_created =""
-        order_created = int(time.time())
-        return order_created
-        
-
-    def post(self,id):
-        
-            current_user = Auth.checkApiKey()
-            if not current_user:
-                return Auth.unauthorizedResponse()
-            else:
-                ordermodel = OrderModel()
-                data = request.json
-                validator = PostValidator()
-                validator.postData(data)
-                validator.addField("order_comments", validate=['not empty'])
-                order = Order()
-                order_created = order.timeStamp()
-            if validator.validate():
-                ordermodel.set("order_service_provider_id", id)
-                ordermodel.set("order_sender_id",current_user.get("user_id"))
-                ordermodel.set("order_status", 1)
-                ordermodel.set("order_comments",validator.get("order_comments"))
-                ordermodel.set("order_created", order_created)
-                if ordermodel.create():
-                    return{"message": "Tilauksen luominen onnistui"}, 200
-                else:
-                    return{"message": "tilauksen luominen epäonnistui"},400
-            else:
-                    return{"message": "Virheelliset tiedot." },400
-
-                
-                
-                
-                
+class Order(Resource):             
 
     def put(self,id):
             current_user = Auth.checkApiKey()
