@@ -21,7 +21,8 @@ class UserModel(DataModel):
 
         self.computed_fields = {
             "user_type_string": self.computedField(parent="user_type", handler=self.computeUserType),
-            "user_total_service_count": self.computedField(parent="user_id", handler=self.getServiceCount)
+            "user_total_service_count": self.computedField(parent="user_id", handler=self.getServiceCount),
+            "user_rating": self.computedField(parent="user_id", handler=self.getUserRating)
         }
 
     def formatEmail(self, value):
@@ -38,3 +39,14 @@ class UserModel(DataModel):
     def getServiceCount(self, value):
         service_count = query("SELECT COUNT(service_id) FROM services WHERE service_provider_id=%(user_id)s", {"user_id": value}, True)
         return service_count['COUNT(service_id)']
+
+    def getUserRating(self, value):
+        rating = RatingModel()
+        ratings = query("SELECT AVG(rating_grade) 'grade' FROM "+rating.getTable()+" WHERE rating_service_provider_id=%(user_id)s", {"user_id": value}, True)
+
+        if ratings['grade'] != None:
+            return float(ratings['grade'])
+        return None
+
+from datamodels.datamodellist import DataModelList
+from datamodels.ratingmodel import RatingModel
