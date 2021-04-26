@@ -12,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pienyritysappi"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AddJob"></activity>
-        <activity android:name=".CompanyEditProfile"/>
+        <activity android:name=".OrderedServices"></activity>
+        <activity android:name=".AddJob" />
+        <activity android:name=".CompanyEditProfile" />
         <activity android:name=".ConfirmReservation" />
         <activity android:name=".ReservationActivity" />
         <activity android:name=".LogIn" />
