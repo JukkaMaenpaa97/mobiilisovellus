@@ -108,7 +108,13 @@ public class ConfirmReservation extends AppCompatActivity {
         System.out.println(url);
         orderComments = mEditText.getText().toString();
         System.out.println(orderComments);
-        postNewOrder();
+        String usernameInput = mEditText.getText().toString().trim();
+        if (usernameInput.length() > 50) {
+            mEditText.setError("Nimi liian pitkä");
+            //kato tämä kuntoon
+        }else{
+                postNewOrder();
+            }
     }
 
     private void postNewOrder() {

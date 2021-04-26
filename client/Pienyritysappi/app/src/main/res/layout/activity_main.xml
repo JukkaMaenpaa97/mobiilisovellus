@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/gradient_background"
+    tools:context=".MainActivity">
 
     <Button
         android:id="@+id/button"
@@ -113,8 +113,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="266dp"
         android:layout_marginTop="126dp"
-        android:text="@string/buttonaddjob"
         android:onClick="addJobClicked"
+        android:text="@string/buttonaddjob"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -128,6 +128,17 @@
         android:text="@string/editCompanyProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button9" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="259dp"
+        android:layout_marginTop="277dp"
+        android:onClick="orderedServicesClicked"
+        android:text="@string/buttonorderedservices"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

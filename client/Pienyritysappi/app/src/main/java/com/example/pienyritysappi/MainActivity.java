@@ -77,4 +77,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void orderedServicesClicked(View view) {
+        Intent intent = new Intent(getApplicationContext(),OrderedServices.class);
+        startActivity(intent);
+    }
 }
