@@ -24,7 +24,7 @@ class User(Resource):
         if usermodel.load(id):
             return {
                 "message": "Toisen käyttäjän tiedot",
-                "data": [usermodel.serialize()]
+                "data": [usermodel.serialize(include_private=["user_email", "user_phone", "user_address", "user_postalcode", "user_city"])]
             }, 200
         else:
             return {"message": "Käyttäjää ei löytynyt"}, 404

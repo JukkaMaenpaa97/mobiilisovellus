@@ -9,6 +9,7 @@ class Providers(Resource):
         usermodel = UserModel()
         userlist = DataModelList(UserModel)
         category_id = request.args.get('category_id')
+        category_name = None
 
         if category_id == None:
             userlist.load(
