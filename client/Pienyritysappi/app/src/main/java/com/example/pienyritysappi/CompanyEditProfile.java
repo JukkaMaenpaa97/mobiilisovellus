@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -20,6 +21,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 public class CompanyEditProfile extends AppCompatActivity {
@@ -38,25 +41,22 @@ public class CompanyEditProfile extends AppCompatActivity {
      private EditText textInputCompanyId;
      private EditText textInputCompanyDescription;
 
-     private String userId = "";
-     private String baseUrl = "http://mobiilisovellus.therozor.com:5000/user/";
-     private String url;
+     private String url= "http://mobiilisovellus.therozor.com:5000/user/me";
+
      private RequestQueue mQueue;
      private JSONArray userInfo;
      private JSONObject jsonObject;
-     private int count;
-     private String apikey;
+     private JSONObject postData;
+     private String api_key;
 
      @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_edit_profile);
-        Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
-        userId = "5031bd69-c634-43dd-9000-c8fe0b984e85"; //intent.getStringExtra("userId");
-        url= baseUrl+userId;//tama url vain testi kaytossa ei oikea
 
-         mQueue = Volley.newRequestQueue(this);
+        api_key = "A5NG1QCBjxNwikVq2zocyAOtGXw3oZCm";
+
+        mQueue = Volley.newRequestQueue(this);
 
         textInputAddress = findViewById(R.id.companyAddressEditText);
         textInputCity = findViewById(R.id.companyCityEditText);
@@ -257,7 +257,7 @@ public class CompanyEditProfile extends AppCompatActivity {
         String updatePassword;
         String updateCompanyId;
         String updateCompanyDesc;
-        mQueue = Volley.newRequestQueue(this);
+
 
         if (!checkPassword() | !checkEmail() | !checkCompanyName() | !checkAddress() | !checkCity() | !checkPostalCode() | !checkPhoneNumber())
         {
@@ -277,7 +277,7 @@ public class CompanyEditProfile extends AppCompatActivity {
 
         updateAddress = textInputAddress.getText().toString();
         updateCity = textInputCity.getText().toString();
-        updateCompanyDesc = textInputCompanyDescription.getText().toString();
+        //updateCompanyDesc = textInputCompanyDescription.getText().toString();
         updateCompanyId = textInputCompanyId.getText().toString();
         updateCompanyName = textInputCompanyName.getText().toString();
         updateEmail = textInputEmail.getText().toString();
@@ -286,12 +286,12 @@ public class CompanyEditProfile extends AppCompatActivity {
         updatePostalCode = textInputPostalCode.getText().toString();
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        JSONObject postData = new JSONObject();
+        postData = new JSONObject();
         try
         {
             postData.put("user_address", updateAddress);
             postData.put("user_city",updateCity);
-            postData.put("",updateCompanyDesc);
+           // postData.put("",updateCompanyDesc);
             postData.put("user_company_id",updateCompanyId);
             postData.put("user_company_name",updateCompanyName);
             postData.put("user_email",updateEmail);
@@ -304,12 +304,12 @@ public class CompanyEditProfile extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, postData, new Response.Listener<JSONObject>()
+        JsonObjectRequest jsonObjectRequest= new JsonObjectRequest(Request.Method.POST, url, postData, new Response.Listener<JSONObject>()
         {
             @Override
             public void onResponse(JSONObject response) {
                 System.out.println(response);
-                System.out.println("muokkaus onnistui");
+                System.out.println(" tietojen muokkaus onninstui muokkaus onnistui");
             }
         }, new Response.ErrorListener() {
             @Override
@@ -317,8 +317,17 @@ public class CompanyEditProfile extends AppCompatActivity {
                 e.printStackTrace();
                 System.out.println("saveInformationButtonClicked Error Response");
             }
-        });
-       requestQueue.add(request);
+        })
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("apikey", api_key);
+                return headers;
+            }
+        };
+        requestQueue.add(jsonObjectRequest);
 
         Toast.makeText(this, "Tallennus onnistui!", Toast.LENGTH_SHORT).show();
     }
@@ -334,28 +343,28 @@ public class CompanyEditProfile extends AppCompatActivity {
                 try
                 {
                     userInfo = response.getJSONArray("data");
-                    //count = response.getInt("count");
                     jsonObject = userInfo.getJSONObject(0);
 
-                    String address = jsonObject.getString("user_address");
-                    String postalCode = jsonObject.getString("user_postalcode");
-                    String phone = jsonObject.getString("user_phone");
+                  //  String address = jsonObject.getString("user_address");
+                   // String postalCode = jsonObject.getString("user_postalcode");
+                   // String phone = jsonObject.getString("user_phone");
                     String companyName = jsonObject.getString("user_company_name");
                     String companyId = jsonObject.getString("user_company_id");
-                    String companyDesc = jsonObject.getString(""); //????????
+                   // String companyDesc = jsonObject.getString(""); //????????
                     String email = jsonObject.getString("user_email");
-                    String city = jsonObject.getString("user_city");
-                    String pw = jsonObject.getString("user_password");
+                   // String city = jsonObject.getString("user_city");
+                    //String pw = jsonObject.getString("user_password");
 
-                    textInputAddress.setText(address);
-                    textInputCity.setText(city);
+                   // textInputAddress.setText(address);
+                   // textInputCity.setText(city);
                     textInputCompanyId.setText(companyId);
                     textInputCompanyName.setText(companyName);
-                    textInputCompanyDescription.setText(companyDesc);
+                    //textInputCompanyDescription.setText(companyDesc);
                     textInputEmail.setText(email);
-                    textInputPhone.setText(phone);
-                    textInputPostalCode.setText(postalCode);
-                    textInputPassword.setText(pw);
+                   // textInputPhone.setText(phone);
+                    //textInputPostalCode.setText(postalCode);
+                   // textInputPassword.setText(pw);
+
                 } catch (JSONException e)
                 {
                     e.printStackTrace();
@@ -367,7 +376,16 @@ public class CompanyEditProfile extends AppCompatActivity {
                 error.printStackTrace();
                 System.out.println("getCompanyProfileInfo Error Response");
             }
-        });
+        })
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("apikey", api_key);
+                return headers;
+            }
+        };
         mQueue.add(request);
     }
 }

@@ -1,8 +1,10 @@
 package com.example.pienyritysappi;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +20,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 public class CompanyServices extends AppCompatActivity {
 
@@ -83,12 +87,15 @@ public class CompanyServices extends AppCompatActivity {
             String buttonText = jobName + "\nSaatavilla: " + jobAvailability + "\n" + jobPrice + " €";
 
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-            params.setMargins(10,10,10,10);
+            params.width = MATCH_PARENT;
+            params.setMargins(0,15,0,15);
             nButton.setText(buttonText);
-            nButton.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+            nButton.setShadowLayer(2,2,2,0xFF000000);
+            nButton.setTextColor(Color.parseColor("#FFFFFF"));
+            nButton.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             nButton.setLayoutParams(params);
             nButton.setBackground(nButton.getContext().getDrawable(R.drawable.rounded_button));
-            nButton.setPadding(30,0,30,0);
+
             String jobBaseUrl = "http://mobiilisovellus.therozor.com:5000/service/";
             String joburl = jobBaseUrl + jobId;
             nButton.setOnClickListener(new View.OnClickListener(){

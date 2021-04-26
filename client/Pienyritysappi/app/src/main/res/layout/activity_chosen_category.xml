@@ -17,7 +17,11 @@
         android:gravity="center"
         android:text="@string/textKategoria"
         android:textStyle="bold"
-        android:textColor="#D08221"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,20 +30,18 @@
 
     <GridLayout
         android:id="@+id/CompanyButtonGridLayout"
-        android:layout_width="341dp"
-        android:layout_height="382dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginEnd="73dp"
-        android:layout_marginBottom="169dp"
+        android:layout_width="360dp"
+        android:layout_height="500dp"
+        android:layout_margin="50sp"
         android:columnCount="1"
         android:rowCount="@integer/numberOfCompanies"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"></GridLayout>
+        app:layout_constraintTop_toBottomOf="@+id/textViewCategoryName"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+    </GridLayout>
 
     <ImageButton
         android:id="@+id/imageButton"
