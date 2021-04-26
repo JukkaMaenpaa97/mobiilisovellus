@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -18,6 +19,9 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ConfirmReservation extends AppCompatActivity {
 
@@ -33,9 +37,12 @@ public class ConfirmReservation extends AppCompatActivity {
     private String availability;
     private String headertext;
     private String url;
+    private String postUrl = "http://mobiilisovellus.therozor.com:5000/orders";
     private String serviceId;
     private String orderComments;
     private EditText mEditText;
+    private JSONObject postData;
+    private String api_key = "A5NG1QCBjxNwikVq2zocyAOtGXw3oZCm";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +87,7 @@ public class ConfirmReservation extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("onErrorResponsessa ollaan. Category.java");
+                System.out.println("onErrorResponsessa ollaan. ConfirmReservation.java");
                 error.printStackTrace();
             }
         });
@@ -101,7 +108,41 @@ public class ConfirmReservation extends AppCompatActivity {
         System.out.println(url);
         orderComments = mEditText.getText().toString();
         System.out.println(orderComments);
-        //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        //startActivity(intent);
+        postNewOrder();
+    }
+
+    private void postNewOrder() {
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        postData = new JSONObject();
+        try {
+            postData.put("order_service_id", serviceId);
+            postData.put("order_comments", orderComments);
+            System.out.println("postData.put shitit laitettu");
+        } catch(JSONException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, postUrl, postData, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                System.out.println(response);
+                System.out.println("onnistui");
+                //Intent intent = new Intent(getApplicationContext(), OrderedServices.class);
+                //startActivity(intent);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                System.out.println("errorResponse");
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("apikey", api_key);
+                return headers;
+            }
+        };
+        requestQueue.add(jsonObjectRequest);
     }
 }
