@@ -34,7 +34,7 @@ class ServiceModel(DataModel):
 
         provider = UserModel()
         if provider.load(value):
-            return provider.get("user_name")
+            return provider.get("user_company_name")
         else:
             return None
 
