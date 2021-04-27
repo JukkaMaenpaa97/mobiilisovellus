@@ -62,6 +62,9 @@ public class CustomerProfile extends AppCompatActivity {
         EditText mEdit4 = (EditText) findViewById(R.id.editTextTextPassword3);
         mEdit4.setEnabled(false);
 
+        EditText mEdit5 = (EditText) findViewById(R.id.muokaanumero);
+        mEdit5.setEnabled(false);
+
     }
 
     private boolean tarkastaEmail() {
@@ -147,6 +150,9 @@ public class CustomerProfile extends AppCompatActivity {
 
         EditText mEdit4 = (EditText) findViewById(R.id.editTextTextPassword3);
         mEdit4.setEnabled(true);
+
+        EditText mEdit5 = (EditText) findViewById(R.id.muokaanumero);
+        mEdit5.setEnabled(true);
     }
 
     public void tallennatiedot(View view) {
@@ -163,6 +169,9 @@ public class CustomerProfile extends AppCompatActivity {
 
             EditText mEdit4 = (EditText) findViewById(R.id.editTextTextPassword3);
             mEdit4.setEnabled(true);
+
+            EditText mEdit5 = (EditText) findViewById(R.id.muokaanumero);
+            mEdit5.setEnabled(true);
 
             if (!tarkastaSalasana() | !tarkastaEmail() | !tarkastaNimi() |  !tarkistapuhelin()) {
                 return;
