@@ -57,7 +57,7 @@ public class OrderedServices extends AppCompatActivity {
                         try {
                             jsonArray = response.getJSONArray("data");
                             orderCount = response.getInt("count");
-                            for(int i = 0; i< orderCount; i++) {
+                            for(int i = 0; i < orderCount; i++) {
                                 addButton(i);
                             }
                         } catch (JSONException e) {
@@ -68,7 +68,7 @@ public class OrderedServices extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("onErrorResponsessa ollaan");
+                System.out.println("onErrorResponsessa ollaan, mut miks???");
                 error.printStackTrace();
                 GridLayout layout = (GridLayout)findViewById(R.id.OrderedServicesGridLayout);
                 nButton = new Button(getApplicationContext());
@@ -79,6 +79,14 @@ public class OrderedServices extends AppCompatActivity {
                 nButton.setText("ei tilauksia");
                 nButton.setPadding(30,0,30,0);
                 nButton.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+                nButton.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.putExtra("orderID", orderID);
+                        startActivity(intent);
+                    }
+                });
                 layout.addView(nButton);
             }
         }){
@@ -96,13 +104,14 @@ public class OrderedServices extends AppCompatActivity {
         GridLayout layout = (GridLayout)findViewById(R.id.OrderedServicesGridLayout);
         nButton = new Button(this);
         try {
-            service = jsonArray.getJSONObject(i);
+            JSONObject orderObject = jsonArray.getJSONObject(i);
+            service = orderObject.getJSONObject("order_service_info");
             //tässä kohtaa tarvii saada tolla i-indeksillä sen kyseisen servicen tiedot; palvelunimi, palvelu selostus, mahdollinen kommentti, palvelun tila, yms. ja laittaa ne buttonTextiin
             serviceTitle = service.getString("service_title");
             orderPrice = service.getString("service_price");
             serviceProvider = service.getString("service_provider_name");
-            orderID = service.getString("order_id");
-            orderStatus = service.getInt("order_status");
+            orderID = orderObject.getString("order_id");
+            orderStatus = orderObject.getInt("order_status");
             switch(orderStatus){
                 case 1:
                     orderStatusString="Odottaa";
@@ -118,7 +127,7 @@ public class OrderedServices extends AppCompatActivity {
                     break;
             }
             buttonText = serviceTitle + "\ntila: " + orderStatusString + "\n" + serviceProvider + "\nhinta: " + orderPrice + " €";
-            //mieti myös onClickiä
+
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
             params.setMargins(10,10,10,10);
             nButton.setLayoutParams(params);
@@ -129,7 +138,7 @@ public class OrderedServices extends AppCompatActivity {
             nButton.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), ConfirmReservation.class);
+                    Intent intent = new Intent(getApplicationContext(), ChosenOrder.class);
                     intent.putExtra("orderID", orderID);
                     startActivity(intent);
                 }
