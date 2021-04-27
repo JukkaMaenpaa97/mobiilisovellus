@@ -26,6 +26,7 @@ import java.util.Map;
 public class OrderedServices extends AppCompatActivity {
 
     private String Url = "http://mobiilisovellus.therozor.com:5000/orders";
+    private String orderID;
     private String serviceTitle;
     private String orderPrice;
     private int orderStatus;
@@ -100,6 +101,7 @@ public class OrderedServices extends AppCompatActivity {
             serviceTitle = service.getString("service_title");
             orderPrice = service.getString("service_price");
             serviceProvider = service.getString("service_provider_name");
+            orderID = service.getString("order_id");
             orderStatus = service.getInt("order_status");
             switch(orderStatus){
                 case 1:
@@ -124,6 +126,14 @@ public class OrderedServices extends AppCompatActivity {
             nButton.setText(buttonText);
             nButton.setPadding(30,0,30,0);
             nButton.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+            nButton.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), ConfirmReservation.class);
+                    intent.putExtra("orderID", orderID);
+                    startActivity(intent);
+                }
+            });
         } catch (JSONException e) {
             e.printStackTrace();
         }
