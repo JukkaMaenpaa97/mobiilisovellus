@@ -11,11 +11,17 @@ import time
 class Order(Resource):
     
     def get (self,id):
-        order = OrderModel()
-        if order.load(id):
-            return {"data": [order.serialize()]}, 200
-        else:
-            return {"message": "Tilausta ei löytynyt"}, 404
+            current_user = Auth.checkApiKey()
+            if not current_user:
+                return Auth.unauthorizedResponse()
+            order = OrderModel()
+            if order.load(id):
+                if current_user.get("user_id") == order.get("order_sender_id"):
+                    return {"data": [order.serialize()]}, 200
+                else:
+                    return{"message": "ei oikeuksia tähän tilaukseen"}
+            else:
+                return {"message": "Tilausta ei löytynyt"}, 404
             
             
     
