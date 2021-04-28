@@ -15,7 +15,7 @@ class Order(Resource):
         if order.load(id):
             return {"data": [order.serialize()]}, 200
         else:
-            return {"message": "Palvelua ei löytynyt"}, 404
+            return {"message": "Tilausta ei löytynyt"}, 404
             
             
     
