@@ -20,10 +20,10 @@ class Rating(Resource):
             order = Order()
             validator.postData(request.json)
             data = request.json
-            validator.addField("rating_grade", type="integer", validate=['not empty'])
+            validator.addField("rating_grade", type="integer", validate=['not empty'], allowed=[1,2,3,4,5])
             validator.addField("rating_message", validate=['not empty'])
         if validator.validate():
-            
+
             date = order.timeStamp()
             rating.set("rating_grade", validator.get("rating_grade"))
             rating.set("rating_sender_id", current_user.get("user_id"))
@@ -37,8 +37,3 @@ class Rating(Resource):
                 return{"message": "Arvosten jättäminen epäonnistui"},400
         else:
             return{"message": "Virheelliset tiedot"}, 400
-            
-            
-            
-            
-    
