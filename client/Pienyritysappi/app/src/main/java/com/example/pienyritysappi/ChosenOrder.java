@@ -63,11 +63,11 @@ public class ChosenOrder extends AppCompatActivity {
                             tvOrderTitle.setText(serviceName);
                             int servicePriceType = service.getInt("service_type");
                             String servicepricetypeString;
-                          //  if (servicePriceType==1){
-                           //     servicepricetypeString = "/tunti";
-                            //}else{
+                            if (servicePriceType==1){
+                                servicepricetypeString = "/tunti";
+                            }else{
                                 servicepricetypeString = " kertamaksu";
-                           // }
+                            }
                             String orderInfo = jobDescription + "\nhinta: " + orderPrice + " €" + servicepricetypeString + "\nkommentti: " + orderComment;
                             tvOrderInfo.setText(orderInfo);
                         } catch (JSONException e) {
@@ -99,6 +99,11 @@ public class ChosenOrder extends AppCompatActivity {
 
     public void profileButtonClicked(View view) {
         Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
+        startActivity(intent);
+    }
+
+    public void goBackButtonClicked(View view) {
+        Intent intent = new Intent(getApplicationContext(),OrderedServices.class);
         startActivity(intent);
     }
 }
