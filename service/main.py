@@ -33,6 +33,11 @@ from routes.image import Image
 from routes.categories import Categories
 from routes.category import Category
 from routes.providers import Providers
+from routes.order import Order
+from routes.orders import Orders
+from routes.rating import Rating
+from routes.messages import Messages
+from routes.message import Message
 
 # Route for testing all things in the real scope
 from routes.testroute import TestRoute
@@ -54,9 +59,16 @@ api.add_resource(Image, "/image/<id>")
 api.add_resource(Providers, "/providers")
 api.add_resource(TestRoute, "/test")
 
+api.add_resource(Orders, "/orders")
+api.add_resource(Order, "/order/<id>")
+api.add_resource(Rating, "/rating/<id>")
+
+api.add_resource(Messages, "/messages")
+api.add_resource(Message, "/message/<id>")
+
 
 def main():
-    app.run(host="127.0.0.1", port=5021, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
 
 if __name__ == '__main__':
     main()
