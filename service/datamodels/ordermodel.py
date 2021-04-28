@@ -8,6 +8,7 @@ class OrderModel(DataModel):
         self.fields ={
             "order_id": self.field(),
             "order_sender_id": self.field(),
+            "order_service_provider_id":self.field(),
             "order_service_id": self.field(),
             "order_status": self.field(),
             "order_comments": self.field(),
