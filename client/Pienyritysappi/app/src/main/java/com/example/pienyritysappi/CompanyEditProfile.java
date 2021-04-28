@@ -40,12 +40,12 @@ public class CompanyEditProfile extends AppCompatActivity {
      private EditText textInputPasswordConfirm;
      private EditText textInputCompanyId;
      private EditText textInputCompanyDescription;
+     private EditText textInputCompanySalesRep;
 
      private String url= "http://mobiilisovellus.therozor.com:5000/user/me";
-
      private RequestQueue mQueue;
      private JSONArray userInfo;
-     private JSONObject jsonObject;
+     private JSONObject getData;
      private JSONObject postData;
      private String api_key;
 
@@ -53,9 +53,7 @@ public class CompanyEditProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_edit_profile);
-
         api_key = "A5NG1QCBjxNwikVq2zocyAOtGXw3oZCm";
-
         mQueue = Volley.newRequestQueue(this);
 
         textInputAddress = findViewById(R.id.companyAddressEditText);
@@ -68,6 +66,7 @@ public class CompanyEditProfile extends AppCompatActivity {
         textInputPasswordConfirm = findViewById(R.id.companyPasswordConfirmEditText);
         textInputPhone = findViewById(R.id.companyPhoneEditText);
         textInputPostalCode = findViewById(R.id.companyPostalCodeEditText);
+        textInputCompanySalesRep = findViewById(R.id.companyAdminEditText);
 
         textInputAddress.setEnabled(false);
         textInputCity.setEnabled(false);
@@ -79,6 +78,7 @@ public class CompanyEditProfile extends AppCompatActivity {
         textInputPostalCode.setEnabled(false);
         textInputPhone.setEnabled(false);
         textInputEmail.setEnabled(false);
+        textInputCompanySalesRep.setEnabled(false);
 
         getCompanyProfileInfo();
 
@@ -244,6 +244,7 @@ public class CompanyEditProfile extends AppCompatActivity {
         textInputPostalCode.setEnabled(true);
         textInputPhone.setEnabled(true);
         textInputEmail.setEnabled(true);
+        textInputCompanySalesRep.setEnabled(true);
     }
 
     public void saveInformationButtonClicked(View view)
@@ -255,11 +256,12 @@ public class CompanyEditProfile extends AppCompatActivity {
         String updatePostalCode;
         String updateCity;
         String updatePassword;
+        String updatePasswordAgain;
         String updateCompanyId;
         String updateCompanyDesc;
+        String updateSalesRep;
 
-
-        if (!checkPassword() | !checkEmail() | !checkCompanyName() | !checkAddress() | !checkCity() | !checkPostalCode() | !checkPhoneNumber())
+        if (!checkEmail() | !checkCompanyName() | !checkAddress() | !checkCity() | !checkPostalCode() | !checkPhoneNumber() | !checkPassword())
         {
             return;
         }
@@ -274,6 +276,7 @@ public class CompanyEditProfile extends AppCompatActivity {
         textInputPostalCode.setEnabled(false);
         textInputPhone.setEnabled(false);
         textInputEmail.setEnabled(false);
+        textInputCompanySalesRep.setEnabled(false);
 
         updateAddress = textInputAddress.getText().toString();
         updateCity = textInputCity.getText().toString();
@@ -282,8 +285,10 @@ public class CompanyEditProfile extends AppCompatActivity {
         updateCompanyName = textInputCompanyName.getText().toString();
         updateEmail = textInputEmail.getText().toString();
         updatePassword = textInputPassword.getText().toString();
+        updatePasswordAgain = textInputPasswordConfirm.getText().toString();
         updatePhone = textInputPhone.getText().toString();
         updatePostalCode = textInputPostalCode.getText().toString();
+        updateSalesRep = textInputCompanySalesRep.getText().toString();
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         postData = new JSONObject();
@@ -291,33 +296,39 @@ public class CompanyEditProfile extends AppCompatActivity {
         {
             postData.put("user_address", updateAddress);
             postData.put("user_city",updateCity);
+            postData.put("user_name",updateSalesRep);
            // postData.put("",updateCompanyDesc);
             postData.put("user_company_id",updateCompanyId);
             postData.put("user_company_name",updateCompanyName);
             postData.put("user_email",updateEmail);
-            postData.put("user_password",updatePassword);
             postData.put("user_phone",updatePhone);
             postData.put("user_postalcode",updatePostalCode);
+            postData.put("user_password",updatePassword);
+            postData.put("user_password_again",updatePasswordAgain);
 
         } catch (JSONException e)
         {
             e.printStackTrace();
         }
 
-        JsonObjectRequest jsonObjectRequest= new JsonObjectRequest(Request.Method.POST, url, postData, new Response.Listener<JSONObject>()
+        JsonObjectRequest jsonObjectRequest1= new JsonObjectRequest(Request.Method.PUT, url, postData, new Response.Listener<JSONObject>()
         {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse(JSONObject response)
+            {
                 System.out.println(response);
-                System.out.println(" tietojen muokkaus onninstui muokkaus onnistui");
+                System.out.println(" tietojen muokkaus onninstui");
             }
-        }, new Response.ErrorListener() {
+        }, new Response.ErrorListener()
+        {
             @Override
-            public void onErrorResponse(VolleyError e) {
+            public void onErrorResponse(VolleyError e)
+            {
                 e.printStackTrace();
                 System.out.println("saveInformationButtonClicked Error Response");
             }
         })
+
         {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError
@@ -327,7 +338,8 @@ public class CompanyEditProfile extends AppCompatActivity {
                 return headers;
             }
         };
-        requestQueue.add(jsonObjectRequest);
+        requestQueue.add(jsonObjectRequest1);
+       // requestQueue.add(jsonObjectRequest2);
 
         Toast.makeText(this, "Tallennus onnistui!", Toast.LENGTH_SHORT).show();
     }
@@ -335,7 +347,7 @@ public class CompanyEditProfile extends AppCompatActivity {
 
     private void getCompanyProfileInfo()
     {
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>()
+        JsonObjectRequest request1 = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>()
         {
             @Override
             public void onResponse(JSONObject response)
@@ -343,40 +355,43 @@ public class CompanyEditProfile extends AppCompatActivity {
                 try
                 {
                     userInfo = response.getJSONArray("data");
-                    jsonObject = userInfo.getJSONObject(0);
+                    getData = userInfo.getJSONObject(0);
 
-                  //  String address = jsonObject.getString("user_address");
-                   // String postalCode = jsonObject.getString("user_postalcode");
-                   // String phone = jsonObject.getString("user_phone");
-                    String companyName = jsonObject.getString("user_company_name");
-                    String companyId = jsonObject.getString("user_company_id");
-                   // String companyDesc = jsonObject.getString(""); //????????
-                    String email = jsonObject.getString("user_email");
-                   // String city = jsonObject.getString("user_city");
-                    //String pw = jsonObject.getString("user_password");
+                    String address = getData.getString("user_address");
+                    String postalCode = getData.getString("user_postalcode");
+                    String phone = getData.getString("user_phone");
+                    String companyName = getData.getString("user_company_name");
+                    String companyId = getData.getString("user_company_id");
+                    String salesRep = getData.getString("user_name");
+                    // String companyDesc = getData.getString(""); //????????
+                    String email = getData.getString("user_email");
+                    String city = getData.getString("user_city");
 
-                   // textInputAddress.setText(address);
-                   // textInputCity.setText(city);
+                    textInputAddress.setText(address);
+                    textInputCity.setText(city);
                     textInputCompanyId.setText(companyId);
                     textInputCompanyName.setText(companyName);
                     //textInputCompanyDescription.setText(companyDesc);
                     textInputEmail.setText(email);
-                   // textInputPhone.setText(phone);
-                    //textInputPostalCode.setText(postalCode);
-                   // textInputPassword.setText(pw);
+                    textInputPhone.setText(phone);
+                    textInputPostalCode.setText(postalCode);
+                    textInputCompanySalesRep.setText(salesRep);
 
                 } catch (JSONException e)
                 {
                     e.printStackTrace();
                 }
             }
-        }, new Response.ErrorListener() {
+        }, new Response.ErrorListener()
+        {
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void onErrorResponse(VolleyError error)
+            {
                 error.printStackTrace();
-                System.out.println("getCompanyProfileInfo Error Response");
+                System.out.println("getCompanyProfileInfo other data Error Response");
             }
         })
+
         {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError
@@ -386,6 +401,8 @@ public class CompanyEditProfile extends AppCompatActivity {
                 return headers;
             }
         };
-        mQueue.add(request);
+
+        mQueue.add(request1);
+
     }
 }

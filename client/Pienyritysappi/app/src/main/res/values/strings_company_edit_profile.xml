@@ -15,13 +15,15 @@
     <string name="companyCityEditText">Yrityksen Kaupunki</string>
     <string name="companyIdTextView">Y-tunnus (ei pakollinen)</string>
     <string name="companyIdEditText">Y-tunnus</string>
-    <string name="passwordTextView">Salasana</string>
+    <string name="passwordTextView">Uusi Salasana</string>
     <string name="passwordEditText">Salasana</string>
-    <string name="pwConfirmTextView">Vahvista Salasana</string>
+    <string name="pwConfirmTextView">Vahvista Uusi Salasana</string>
     <string name="pwConfirmEditText">Salasana</string>
-    <string name="companyDescTextView">Yrityksen kuvaus</string>
+    <string name="companyDescTextView">Yrityksen Kuvaus</string>
     <string name="companyDescEditText">kuvaus</string>
     <string name="editButton">Muokkaa</string>
     <string name="saveButton">Tallenna</string>
     <string name="home1Button">home button</string>
+    <string name="companyAdminTextView">Yrityksen Yhteyshenkilö</string>
+    <string name="companyAdminEditText">yhteyshenkilö</string>
 </resources>
