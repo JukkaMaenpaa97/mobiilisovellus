@@ -10,9 +10,22 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 public class CustomerProfile extends AppCompatActivity {
@@ -38,11 +51,23 @@ public class CustomerProfile extends AppCompatActivity {
     private EditText textInputPassword2;
     private EditText textInputNumber;
 
+    private String url= "http://mobiilisovellus.therozor.com:5000/user/me";
+
+    private RequestQueue mQueue;
+    private JSONArray userInfo;
+    private JSONObject jsonObject;
+    private JSONObject postData;
+    private String api_key;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_profile);
+
+        api_key = "A5NG1QCBjxNwikVq2zocyAOtGXw3oZCm";
+
+        mQueue = Volley.newRequestQueue(this);
 
         textInputEmail = findViewById(R.id.editTextTextEmailAddress2);
         textInputPassword = findViewById(R.id.editTextTextPassword2);
@@ -65,6 +90,7 @@ public class CustomerProfile extends AppCompatActivity {
         EditText mEdit5 = (EditText) findViewById(R.id.muokaanumero);
         mEdit5.setEnabled(false);
 
+        getUserProfileInfo();
     }
 
     private boolean tarkastaEmail() {
@@ -157,6 +183,11 @@ public class CustomerProfile extends AppCompatActivity {
 
     public void tallennatiedot(View view) {
 
+        String updateUsername;
+        String updateUserEmail;
+        String updateUserPhone;
+        String updateUserPassword;
+        String updatePasswordAgain;
 
             EditText mEdit = (EditText) findViewById(R.id.editTextTextPersonName3);
             mEdit.setEnabled(true);
@@ -189,14 +220,126 @@ public class CustomerProfile extends AppCompatActivity {
         mEdit4 = (EditText) findViewById(R.id.editTextTextPassword3);
         mEdit4.setEnabled(false);
 
+        mEdit5 = (EditText) findViewById(R.id.muokaanumero);
+        mEdit5.setEnabled(false);
+
+
+
             String input = "Sähköposti: " + textInputEmail.getText().toString();
             input += "\n";
             input += "Nimi: " + textInputUsername.getText().toString();
             Toast.makeText(this, input, Toast.LENGTH_SHORT).show();
 
 
+            updateUsername = textInputUsername.getText().toString();
+            updateUserEmail = textInputEmail.getText().toString();
+            updateUserPhone = textInputNumber.getText().toString();
+            updateUserPassword = textInputPassword.getText().toString();
+            updatePasswordAgain = textInputPassword2.getText().toString();
+            String updateAddress = "a";
+            String updateCity = "b";
+            String updatePostalCode = "c";
+            String updateCompanyId = "d";
+            String updateCompanyName = "e";
+
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        postData = new JSONObject();
+        try
+        {
+            postData.put("user_name", updateUsername);
+            postData.put("user_email",updateUserEmail);
+            postData.put("user_phone",updateUserPhone);
+            postData.put("user_address", updateAddress);
+            postData.put("user_city",updateCity);
+            postData.put("user_postalcode",updatePostalCode);
+            postData.put("user_company_id",updateCompanyId);
+            postData.put("user_company_name",updateCompanyName);
+            postData.put("user_password",updateUserPassword);
+            postData.put("user_password_again",updatePasswordAgain);
+
+        } catch (JSONException e)
+        {
+            e.printStackTrace();
         }
+
+        JsonObjectRequest jsonObjectRequest= new JsonObjectRequest(Request.Method.PUT, url, postData, new Response.Listener<JSONObject>()
+        {
+            @Override
+            public void onResponse(JSONObject response) {
+                System.out.println(response);
+                System.out.println(" tietojen muokkaus onninstui muokkaus onnistui");
+                Toast.makeText(getApplicationContext(), "Tallennus onnistui!", Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError e) {
+                e.printStackTrace();
+                System.out.println("saveInformationButtonClicked Error Response");
+                Toast.makeText(getApplicationContext(), "Tallennus epäonnistui!", Toast.LENGTH_SHORT).show();
+            }
+        })
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError
+            {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("apikey", api_key);
+                return headers;
+            }
+        };
+        requestQueue.add(jsonObjectRequest);
 
 
     }
+
+
+
+       private void getUserProfileInfo()
+       {
+           JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+               @Override
+               public void onResponse(JSONObject response) {
+                   try {
+                       userInfo = response.getJSONArray("data");
+                       jsonObject = userInfo.getJSONObject(0);
+
+                       String CustomerName = jsonObject.getString("user_name");
+                       String CustomerEmail = jsonObject.getString("user_email");
+                       //String CustomerPw = jsonObject.getString("user_password");
+                       String CustomerPhone = jsonObject.getString("user_phone");
+
+
+
+                       textInputEmail.setText(CustomerEmail);
+                       textInputNumber.setText(CustomerPhone);
+                       textInputUsername.setText(CustomerName);
+
+                   } catch (JSONException e) {
+                       e.printStackTrace();
+                   }
+               }
+           }, new Response.ErrorListener() {
+               @Override
+               public void onErrorResponse(VolleyError error) {
+                   error.printStackTrace();
+                   System.out.println("getCompanyProfileInfo Error Response");
+               }
+           })
+           {
+               @Override
+               public Map<String, String> getHeaders() throws AuthFailureError
+               {
+                   HashMap<String, String> headers = new HashMap<String, String>();
+                   headers.put("apikey", api_key);
+                   return headers;
+               }
+           };
+           mQueue.add(request);
+       }
+}
+
+
+
+
 
