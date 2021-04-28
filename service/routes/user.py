@@ -5,7 +5,7 @@ from security.auth import Auth
 from datamodels.usermodel import UserModel
 
 from validate.postvalidator import PostValidator
-
+import hashlib
 class User(Resource):
 
     # GET
@@ -46,6 +46,8 @@ class User(Resource):
             validator.addField("user_address", validate=['not_empty'])
             validator.addField("user_postalcode", validate=['not_empty'])
             validator.addField("user_city", validate=['not_empty'])
+            validator.addField("user_password")
+            validator.addField("user_password_again")
             validator.addField("user_company_name")
             validator.addField("user_company_id")
 
@@ -57,6 +59,16 @@ class User(Resource):
                 current_user.set("user_city", validator.get("user_city"))
                 current_user.set("user_company_name", validator.get("user_company_name"))
                 current_user.set("user_company_id", validator.get("user_company_id"))
+
+                if validator.get("user_password") != "":
+                    if validator.get("user_password") == validator.get("user_password_again"):
+                        current_user.set("user_password", hashlib.sha256(validator.get("user_password").encode("utf-8")).hexdigest())
+                    else:
+                        return {
+                            "error": "300",
+                            "message": "Tietojen päivitys epäonnistui. Salasanat eivät täsmää.",
+                            "invalid_fields": ["user_password", "user_password_again"]
+                        }, 400
 
                 if current_user.update():
                     return {
