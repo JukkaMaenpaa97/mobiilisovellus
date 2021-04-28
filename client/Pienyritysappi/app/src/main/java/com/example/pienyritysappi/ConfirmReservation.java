@@ -109,9 +109,8 @@ public class ConfirmReservation extends AppCompatActivity {
         orderComments = mEditText.getText().toString();
         System.out.println(orderComments);
         String usernameInput = mEditText.getText().toString().trim();
-        if (usernameInput.length() > 50) {
-            mEditText.setError("Nimi liian pitkä");
-            //kato tämä kuntoon
+        if (usernameInput.length() > 75) {
+            mEditText.setError("kommentti liian pitkä");
         }else{
                 postNewOrder();
             }
@@ -132,8 +131,8 @@ public class ConfirmReservation extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 System.out.println(response);
                 System.out.println("onnistui");
-                //Intent intent = new Intent(getApplicationContext(), OrderedServices.class);
-                //startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), OrderedServices.class);
+                startActivity(intent);
             }
         }, new Response.ErrorListener() {
             @Override

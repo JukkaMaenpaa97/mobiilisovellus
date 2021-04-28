@@ -2,6 +2,7 @@ package com.example.pienyritysappi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -143,8 +144,8 @@ public class AddJob extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 System.out.println(response);
                 System.out.println("onnistui");
-                //Intent intent = new Intent(getApplicationContext(), Services.class);
-                //startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), Categories.class);
+                startActivity(intent);
             }
         }, new Response.ErrorListener() {
             @Override
