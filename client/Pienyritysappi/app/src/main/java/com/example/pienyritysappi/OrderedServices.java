@@ -26,14 +26,13 @@ import java.util.Map;
 public class OrderedServices extends AppCompatActivity {
 
     private String Url = "http://mobiilisovellus.therozor.com:5000/orders";
-    private String orderID;
     private String serviceTitle;
     private String orderPrice;
     private int orderStatus;
     private String orderStatusString;
     private String serviceProvider;
     private String buttonText;
-    private String api_key = "A5NG1QCBjxNwikVq2zocyAOtGXw3oZCm";
+    private String api_key = "A5NG1QCBjxNwikVq2zocyAOtGXw3oZCm"; //rXjzYOZmZuCzW3vEm8mcCwokN2S0p1TQ
     private Button nButton;
     private RequestQueue mQueue;
     private int orderCount;
@@ -83,7 +82,6 @@ public class OrderedServices extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        intent.putExtra("orderID", orderID);
                         startActivity(intent);
                     }
                 });
@@ -110,7 +108,7 @@ public class OrderedServices extends AppCompatActivity {
             serviceTitle = service.getString("service_title");
             orderPrice = service.getString("service_price");
             serviceProvider = service.getString("service_provider_name");
-            orderID = orderObject.getString("order_id");
+            String orderID = orderObject.getString("order_id");
             orderStatus = orderObject.getInt("order_status");
             switch(orderStatus){
                 case 1:

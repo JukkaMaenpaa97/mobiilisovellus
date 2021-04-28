@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -18,12 +19,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ChosenOrder extends AppCompatActivity {
 
 
     private String baseurl = "http://mobiilisovellus.therozor.com:5000/order/";
     private String orderID = "";
     private String url = "";
+    private String api_key = "A5NG1QCBjxNwikVq2zocyAOtGXw3oZCm";
     private RequestQueue mQueue;
     private TextView tvOrderInfo;
     private TextView tvOrderTitle;
@@ -54,16 +59,15 @@ public class ChosenOrder extends AppCompatActivity {
                             String serviceName = service.getString("service_title");
                             Double orderPrice = service.getDouble("service_price");
                             String jobDescription = service.getString("service_description");
-                            //int orderCreatedTime = order.getInt("order_created"); // älä vittu edes yritä uncommenttaa tätä
                             String orderComment = order.getString("order_comments");
                             tvOrderTitle.setText(serviceName);
-                            int servicePriceType = service.getInt("service_Type");
+                            int servicePriceType = service.getInt("service_type");
                             String servicepricetypeString;
-                            if (servicePriceType==1){
-                                servicepricetypeString = "/tunti";
-                            }else{
+                          //  if (servicePriceType==1){
+                           //     servicepricetypeString = "/tunti";
+                            //}else{
                                 servicepricetypeString = " kertamaksu";
-                            }
+                           // }
                             String orderInfo = jobDescription + "\nhinta: " + orderPrice + " €" + servicepricetypeString + "\nkommentti: " + orderComment;
                             tvOrderInfo.setText(orderInfo);
                         } catch (JSONException e) {
@@ -77,7 +81,14 @@ public class ChosenOrder extends AppCompatActivity {
                 System.out.println("onErrorResponsessa ollaan.");
                 error.printStackTrace();
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("apikey", api_key);
+                return headers;
+            }
+        };
         mQueue.add(request);
     }
 
