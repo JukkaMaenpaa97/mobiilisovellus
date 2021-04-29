@@ -99,11 +99,11 @@ public class Company extends AppCompatActivity {
         int userType = g.getUser_type();
 
         if(userType == 1) {
-            Intent intent = new Intent(getApplicationContext(),CompanyEditProfile.class);
+            Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
             startActivity(intent);
         }
         else if(userType == 2) {
-            Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
+            Intent intent = new Intent(getApplicationContext(),CompanyEditProfile.class);
             startActivity(intent);
         }
         else {
