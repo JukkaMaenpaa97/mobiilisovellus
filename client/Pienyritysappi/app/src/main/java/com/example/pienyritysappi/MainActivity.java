@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
     public void LogOutClicked(View view) {
         String apikey = g.getApi_key();
         System.out.println(apikey);
-        g.setApi_key("");
+        g.setApi_key(null);
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JSONObject postData = new JSONObject();
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.DELETE, logInUrl, postData,

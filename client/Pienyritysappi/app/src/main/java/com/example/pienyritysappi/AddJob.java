@@ -60,7 +60,7 @@ public class AddJob extends AppCompatActivity {
         setContentView(R.layout.activity_add_job);
         api_key = g.getApi_key();
         int usertype = g.getUser_type();
-        if (api_key == ""){
+        if (api_key == null){
             Toast.makeText(getApplicationContext(),"Kirjautumisesi on vanhentunut",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
             startActivity(intent);

@@ -48,7 +48,7 @@ public class OrderedServices extends AppCompatActivity {
         setContentView(R.layout.activity_ordered_services);
         mQueue = Volley.newRequestQueue(this);
         api_key = g.getApi_key();
-        if (api_key == ""){
+        if (api_key == null){
             Toast.makeText(getApplicationContext(),"Et ole kirjautunut sisään tai kirjautumisesi on vanhentunut",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
             startActivity(intent);

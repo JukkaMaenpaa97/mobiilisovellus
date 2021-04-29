@@ -75,7 +75,7 @@ public class LogIn extends AppCompatActivity {
                     g.setUser_type(response.getInt("user_type"));
                     //tähän väliin apikkeyllä pyyntö user/me osoitteeseen josta tallennetaan käyttäjän tiedot
 
-                    Intent intent = new Intent(getApplicationContext(), Categories.class);
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                 } catch (JSONException e) {
                     e.printStackTrace();

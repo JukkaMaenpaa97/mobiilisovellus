@@ -40,7 +40,7 @@ public class ChosenOrder extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chosen_order);
         api_key = g.getApi_key();
-        if (api_key == ""){
+        if (api_key == null){
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
             Toast.makeText(getApplicationContext(),"Et ole kirjautunut sisään tai kirjautumisesi on vanhentunut",Toast.LENGTH_SHORT).show();
             startActivity(intent);
