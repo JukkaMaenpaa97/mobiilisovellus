@@ -201,12 +201,7 @@ public class CompanyEditProfile extends AppCompatActivity {
     {
         String emailInput = textInputEmail.getText().toString().trim();
 
-        if(emailInput.isEmpty())
-        {
-            textInputEmail.setError("Kenttä ei voi olla tyhjä");
-            return false;
-        }
-        else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches())
+        if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches())
         {
             textInputEmail.setError("Sähköposti ei ole pätevä");
             return false;
