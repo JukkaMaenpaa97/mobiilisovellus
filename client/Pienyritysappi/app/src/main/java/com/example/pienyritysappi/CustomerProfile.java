@@ -59,13 +59,9 @@ public class CustomerProfile extends AppCompatActivity {
         setContentView(R.layout.activity_customer_profile);
 
         api_key = g.getApi_key();
-        int usertype = g.getUser_type();
         if (api_key == "") {
             Toast.makeText(getApplicationContext(), "Kirjautumisesi on vanhentunut", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-        }else if(usertype == 2) {
-            Intent intent = new Intent(getApplicationContext(), CompanyEditProfile.class);
             startActivity(intent);
         }
 
