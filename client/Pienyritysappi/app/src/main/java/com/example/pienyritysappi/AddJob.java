@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -51,11 +52,23 @@ public class AddJob extends AppCompatActivity {
     private int spinnerpositionpricetype;
     private String categoryId;
     private JSONObject postData;
+    Globals g = Globals.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_job);
+        api_key = g.getApi_key();
+        int usertype = g.getUser_type();
+        if (api_key == ""){
+            Toast.makeText(getApplicationContext(),"Kirjautumisesi on vanhentunut",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
+        }else if(usertype != 2){
+            Toast.makeText(getApplicationContext(),"Et ole kirjautuneena yritystilillä",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
+        }
         mSpinner = findViewById(R.id.spinner);
         mSpinnerPriceType = findViewById(R.id.spinnerpricetype);
         tvJobTitle = findViewById(R.id.editTextJobName);
@@ -117,7 +130,7 @@ public class AddJob extends AppCompatActivity {
         job_price = tvJobPrice.getText().toString();
         job_price_type = 1;
         job_title = tvJobTitle.getText().toString();
-        api_key = "A5NG1QCBjxNwikVq2zocyAOtGXw3oZCm";
+
         System.out.println(job_availability);
         System.out.println(categoryId);
         System.out.println(job_description);

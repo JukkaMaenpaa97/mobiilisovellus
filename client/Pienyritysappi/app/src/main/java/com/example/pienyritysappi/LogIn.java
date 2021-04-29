@@ -49,7 +49,7 @@ public class LogIn extends AppCompatActivity {
     }
 
     public void logInButtonClicked(View view) {
-        Toast.makeText(getApplicationContext(), "tässä saattaa kestää hetki", Toast.LENGTH_SHORT);
+        Toast.makeText(getApplicationContext(), "tässä saattaa kestää hetki", Toast.LENGTH_SHORT).show();
         logInEmail = etEmail.getText().toString();
         logInPassword = etPassword.getText().toString();
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -72,6 +72,7 @@ public class LogIn extends AppCompatActivity {
                     g.setApi_key(apikey);
                     String apikeyglobalista=g.getApi_key();
                     System.out.println("apikey globalista: " + apikeyglobalista);
+                    g.setUser_type(response.getInt("user_type"));
                     //tähän väliin apikkeyllä pyyntö user/me osoitteeseen josta tallennetaan käyttäjän tiedot
 
                     Intent intent = new Intent(getApplicationContext(), Categories.class);

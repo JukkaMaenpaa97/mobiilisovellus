@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -42,12 +43,19 @@ public class ConfirmReservation extends AppCompatActivity {
     private String orderComments;
     private EditText mEditText;
     private JSONObject postData;
-    private String api_key = "A5NG1QCBjxNwikVq2zocyAOtGXw3oZCm";
+    private String api_key;
+    Globals g = Globals.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_reservation);
+        api_key = g.getApi_key();
+        if (api_key == ""){
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            Toast.makeText(getApplicationContext(),"Et ole kirjautunut tai kirjautumisesi on vanhentunut",Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+        }
         try{
             url = getIntent().getStringExtra("url");}
         catch (Exception e){

@@ -18,4 +18,5 @@
     <string name="buttonaddjob">addjob</string>
     <string name="editCompanyProfile">firma edit</string>
     <string name="buttonorderedservices">tilatut työt</string>
+    <string name="buttonLogOut">Log Out</string>
 </resources>

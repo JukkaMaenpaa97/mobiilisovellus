@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -28,15 +29,22 @@ public class ChosenOrder extends AppCompatActivity {
     private String baseurl = "http://mobiilisovellus.therozor.com:5000/order/";
     private String orderID = "";
     private String url = "";
-    private String api_key = "A5NG1QCBjxNwikVq2zocyAOtGXw3oZCm";
+    private String api_key;
     private RequestQueue mQueue;
     private TextView tvOrderInfo;
     private TextView tvOrderTitle;
+    Globals g = Globals.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chosen_order);
+        api_key = g.getApi_key();
+        if (api_key == ""){
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            Toast.makeText(getApplicationContext(),"Et ole kirjautunut sisään tai kirjautumisesi on vanhentunut",Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+        }
         orderID = getIntent().getStringExtra("orderID");
         url = baseurl + orderID;
         tvOrderInfo = findViewById(R.id.textViewOrderInfo);

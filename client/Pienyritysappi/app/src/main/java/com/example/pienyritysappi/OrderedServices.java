@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -32,19 +33,28 @@ public class OrderedServices extends AppCompatActivity {
     private String orderStatusString;
     private String serviceProvider;
     private String buttonText;
-    private String api_key = "A5NG1QCBjxNwikVq2zocyAOtGXw3oZCm"; //rXjzYOZmZuCzW3vEm8mcCwokN2S0p1TQ
+    private String api_key;
     private Button nButton;
     private RequestQueue mQueue;
     private int orderCount;
     private JSONArray jsonArray;
     private JSONObject service;
     private JsonObjectRequest request;
+    Globals g = Globals.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ordered_services);
         mQueue = Volley.newRequestQueue(this);
+        api_key = g.getApi_key();
+        if (api_key == ""){
+            Toast.makeText(getApplicationContext(),"Et ole kirjautunut sisään tai kirjautumisesi on vanhentunut",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
+        }else{
+            System.out.println(api_key);
+        }
         jsonParse();
     }
 
