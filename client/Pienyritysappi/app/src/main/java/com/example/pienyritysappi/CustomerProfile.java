@@ -30,16 +30,6 @@ import java.util.regex.Pattern;
 
 public class CustomerProfile extends AppCompatActivity {
 
-    //private static final Pattern PASSWORD_PATTERN =
-    // Pattern.compile("^" +
-    //"(?=.*[0-9])" +         //at least 1 digit
-    //"(?=.*[a-z])" +         //at least 1 lower case letter
-    //"(?=.*[A-Z])" +         //at least 1 upper case letter
-    //"(?=.*[a-zA-Z])" +      //any letter
-    //"(?=.*[@#$%^&+=])" +    //at least 1 special character
-    // "(?=\\S+$)" +           //no white spaces
-    // ".{4,}" +               //at least 4 characters
-    //  "$");
 
     private static final Pattern PUHELIN_PATTERN =
             Pattern.compile("^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$");
@@ -59,13 +49,25 @@ public class CustomerProfile extends AppCompatActivity {
     private JSONObject postData;
     private String api_key;
 
+    Globals g = Globals.getInstance();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_profile);
 
-        api_key = "A5NG1QCBjxNwikVq2zocyAOtGXw3oZCm";
+        api_key = g.getApi_key();
+        int usertype = g.getUser_type();
+        if (api_key == "") {
+            Toast.makeText(getApplicationContext(), "Kirjautumisesi on vanhentunut", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        }else if(usertype == 2) {
+            Intent intent = new Intent(getApplicationContext(), CompanyEditProfile.class);
+            startActivity(intent);
+        }
 
         mQueue = Volley.newRequestQueue(this);
 
@@ -159,7 +161,7 @@ public class CustomerProfile extends AppCompatActivity {
     }
 
 
-    public void profileButton2Clicked(View view) {
+    public void homeButton2Clicked(View view) {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
