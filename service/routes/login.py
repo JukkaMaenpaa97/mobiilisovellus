@@ -57,6 +57,8 @@ class Login(Resource):
                 if sessionmodel.create():
                     return {
                         "message": "Kirjautuminen onnistui",
+                        "user_type": usermodel.get("user_type"),
+                        "user_id": usermodel.get("user_id"),
                         "apikey": apikey
                     }, 200
 
@@ -81,7 +83,7 @@ class Login(Resource):
         if not current_user:
             return Auth.unauthorizedResponse()
 
-        session_delete_query = query("DELETE FROM "+sessionmodel.getTable()+" WHERE session_user_id=%(user_id)s", {"user_id": current_user.get("user_id")})
+        session_delete_query = query("DELETE FROM "+sessionmodel.getTable()+" WHERE session_apikey=%(apikey)s", {"apikey": Auth.getApiKey()})
         if session_delete_query != None:
             return {"message": "Uloskirjautuminen onnistui."}, 200
         else:
