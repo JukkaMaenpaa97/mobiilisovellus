@@ -33,6 +33,7 @@ public class Categories extends AppCompatActivity {
     private String categoryName;
     private JSONArray jsonArray;
     private JSONObject category;
+    Globals g = Globals.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,8 @@ public class Categories extends AppCompatActivity {
         Intent intent = getIntent();
         catUrl = "http://mobiilisovellus.therozor.com:5000/categories";
         mQueue = Volley.newRequestQueue(this);
+        String apikey = g.getApi_key();
+        System.out.println("apikey Categories.javassa" + apikey);
         jsonParse();
     }
 

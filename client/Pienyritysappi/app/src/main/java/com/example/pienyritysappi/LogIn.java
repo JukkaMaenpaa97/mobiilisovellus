@@ -28,6 +28,7 @@ public class LogIn extends AppCompatActivity {
     private String userId = "";
     private String registeredPassword = "";
     private String registeredEmail = "";
+    Globals g = Globals.getInstance();
 
 
     @Override
@@ -67,8 +68,12 @@ public class LogIn extends AppCompatActivity {
                 try {
                     apikey = response.getString("apikey");
                     System.out.println(apikey);
-                    //userId = response.getString("user_id"); //täs välis vielä käyttäjän id:n tallennus
                     System.out.println(userId);
+                    g.setApi_key(apikey);
+                    String apikeyglobalista=g.getApi_key();
+                    System.out.println("apikey globalista: " + apikeyglobalista);
+                    //tähän väliin apikkeyllä pyyntö user/me osoitteeseen josta tallennetaan käyttäjän tiedot
+
                     Intent intent = new Intent(getApplicationContext(), Categories.class);
                     startActivity(intent);
                 } catch (JSONException e) {
@@ -89,10 +94,6 @@ public class LogIn extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void registerCompanyButtonClicked(View view) {
-        Intent intent = new Intent(getApplicationContext(),Register.class);
-        startActivity(intent);
-    }
 
     public void logInLessClicked(View view) {
         Intent intent = new Intent(getApplicationContext(), Categories.class);
