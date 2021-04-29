@@ -52,3 +52,10 @@ class Auth():
     @staticmethod
     def unauthorizedResponse():
         return {"message": "Ei oikeuksia sisältöön"}, 401
+
+    @staticmethod
+    def getApiKey():
+        apikey = request.headers.get('apikey')
+        if apikey == None:
+            return False
+        return apikey
