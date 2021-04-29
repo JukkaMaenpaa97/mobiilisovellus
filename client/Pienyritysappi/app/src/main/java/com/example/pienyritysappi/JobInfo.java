@@ -97,11 +97,18 @@ public class JobInfo extends AppCompatActivity {
         }
     }
 
-    public void purchaseJobButtonClicked(View view)
-    {
-        Intent intent = new Intent(getApplicationContext(),ConfirmReservation.class);
-        intent.putExtra("url",url);
-        startActivity(intent);
+    public void purchaseJobButtonClicked(View view) {
+
+        if (g.getApi_key() == null) {
+            Intent intent = new Intent(getApplicationContext(), LogIn.class);
+            System.out.println(g.getApi_key());
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(getApplicationContext(), ConfirmReservation.class);
+            intent.putExtra("url", url);
+            System.out.println(g.getApi_key());
+            startActivity(intent);
+        }
     }
 
     public void chatButtonClicked(View view)
