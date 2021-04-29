@@ -39,7 +39,6 @@ public class CompanyEditProfile extends AppCompatActivity {
      private EditText textInputPassword;
      private EditText textInputPasswordConfirm;
      private EditText textInputCompanyId;
-     private EditText textInputCompanyDescription;
      private EditText textInputCompanySalesRep;
 
      private String url= "http://mobiilisovellus.therozor.com:5000/user/me";
@@ -58,7 +57,6 @@ public class CompanyEditProfile extends AppCompatActivity {
 
         textInputAddress = findViewById(R.id.companyAddressEditText);
         textInputCity = findViewById(R.id.companyCityEditText);
-        textInputCompanyDescription = findViewById(R.id.companyDescriptionEditText);
         textInputCompanyId = findViewById(R.id.companyIdEditText);
         textInputCompanyName = findViewById(R.id.companyNameEditText);
         textInputEmail = findViewById(R.id.companyEmailEditText);
@@ -70,7 +68,6 @@ public class CompanyEditProfile extends AppCompatActivity {
 
         textInputAddress.setEnabled(false);
         textInputCity.setEnabled(false);
-        textInputCompanyDescription.setEnabled(false);
         textInputCompanyId.setEnabled(false);
         textInputCompanyName.setEnabled(false);
         textInputPassword.setEnabled(false);
@@ -236,7 +233,6 @@ public class CompanyEditProfile extends AppCompatActivity {
     {
         textInputAddress.setEnabled(true);
         textInputCity.setEnabled(true);
-        textInputCompanyDescription.setEnabled(true);
         textInputCompanyId.setEnabled(true);
         textInputCompanyName.setEnabled(true);
         textInputPassword.setEnabled(true);
@@ -258,7 +254,6 @@ public class CompanyEditProfile extends AppCompatActivity {
         String updatePassword;
         String updatePasswordAgain;
         String updateCompanyId;
-        String updateCompanyDesc;
         String updateSalesRep;
 
         if (!checkEmail() | !checkCompanyName() | !checkAddress() | !checkCity() | !checkPostalCode() | !checkPhoneNumber() | !checkPassword())
@@ -268,7 +263,6 @@ public class CompanyEditProfile extends AppCompatActivity {
 
         textInputAddress.setEnabled(false);
         textInputCity.setEnabled(false);
-        textInputCompanyDescription.setEnabled(false);
         textInputCompanyId.setEnabled(false);
         textInputCompanyName.setEnabled(false);
         textInputPassword.setEnabled(false);
@@ -280,7 +274,6 @@ public class CompanyEditProfile extends AppCompatActivity {
 
         updateAddress = textInputAddress.getText().toString();
         updateCity = textInputCity.getText().toString();
-        //updateCompanyDesc = textInputCompanyDescription.getText().toString();
         updateCompanyId = textInputCompanyId.getText().toString();
         updateCompanyName = textInputCompanyName.getText().toString();
         updateEmail = textInputEmail.getText().toString();
@@ -297,7 +290,6 @@ public class CompanyEditProfile extends AppCompatActivity {
             postData.put("user_address", updateAddress);
             postData.put("user_city",updateCity);
             postData.put("user_name",updateSalesRep);
-           // postData.put("",updateCompanyDesc);
             postData.put("user_company_id",updateCompanyId);
             postData.put("user_company_name",updateCompanyName);
             postData.put("user_email",updateEmail);
@@ -339,7 +331,6 @@ public class CompanyEditProfile extends AppCompatActivity {
             }
         };
         requestQueue.add(jsonObjectRequest1);
-       // requestQueue.add(jsonObjectRequest2);
 
         Toast.makeText(this, "Tallennus onnistui!", Toast.LENGTH_SHORT).show();
     }
@@ -363,7 +354,6 @@ public class CompanyEditProfile extends AppCompatActivity {
                     String companyName = getData.getString("user_company_name");
                     String companyId = getData.getString("user_company_id");
                     String salesRep = getData.getString("user_name");
-                    // String companyDesc = getData.getString(""); //????????
                     String email = getData.getString("user_email");
                     String city = getData.getString("user_city");
 
@@ -371,7 +361,6 @@ public class CompanyEditProfile extends AppCompatActivity {
                     textInputCity.setText(city);
                     textInputCompanyId.setText(companyId);
                     textInputCompanyName.setText(companyName);
-                    //textInputCompanyDescription.setText(companyDesc);
                     textInputEmail.setText(email);
                     textInputPhone.setText(phone);
                     textInputPostalCode.setText(postalCode);

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -25,7 +26,10 @@ public class Company extends AppCompatActivity {
     private String url = "";
     private RequestQueue mQueue;
     private TextView mTextViewCompanyName;
-    private TextView mTextViewCompanyInfo;
+    private TextView mCompanyAddressTextView;
+    private TextView mCompanyPhoneTextView;
+    private TextView mCompanyContactTextView;
+    private TextView mCompanyIdTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,11 @@ public class Company extends AppCompatActivity {
         setContentView(R.layout.activity_company);
         Intent intent = getIntent();
         mTextViewCompanyName = findViewById(R.id.companyName);
-        mTextViewCompanyInfo = findViewById(R.id.companyInfoTextView);
+        mCompanyAddressTextView = findViewById(R.id.companyAddress2TextView);
+        mCompanyContactTextView = findViewById(R.id.companyContact2TextView);
+        mCompanyPhoneTextView = findViewById(R.id.companyPhone2TextView);
+        mCompanyIdTextView = findViewById(R.id.companyYtunnus2TextView);
+
         Bundle extras = intent.getExtras();
         user_id = intent.getStringExtra("userId");
         System.out.println(user_id);
@@ -53,11 +61,21 @@ public class Company extends AppCompatActivity {
                         try {
                             JSONArray jsonArray = response.getJSONArray("data");
                             JSONObject company = jsonArray.getJSONObject(0);
+
                             mTextViewCompanyName.setText(company.getString("user_company_name"));
+                            String postal = company.getString("user_postalcode");
+                            String address = company.getString("user_address");
+                            String city = company.getString("user_city");
+                            String companyContact = address + "," + postal + "," + city;
+                            mCompanyAddressTextView.setText(companyContact);
                             String companyUser = company.getString("user_name");
+                            mCompanyContactTextView.setText(companyUser);
+                            String phone = company.getString("user_phone");
+                            mCompanyPhoneTextView.setText(phone);
                             String companyId = company.getString("user_company_id");
-                            String companyInfo = "Yhteyshenkilö: " + companyUser + "\n" + "Y-tunnus: " + companyId;
-                            mTextViewCompanyInfo.setText(companyInfo);
+                            mCompanyIdTextView.setText(companyId);
+
+
 
 
                         } catch (JSONException e) {
@@ -85,11 +103,6 @@ public class Company extends AppCompatActivity {
     {
         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
-    }
-
-    public void contactButtonClicked(View view)
-    {
-        System.out.println(url);
     }
 
     public void jobListingsButtonClicked(View view)

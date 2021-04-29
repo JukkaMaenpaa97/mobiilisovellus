@@ -5,7 +5,14 @@
     <string name="textViewCompanyName">Firman Nimi</string>
     <string name="contactButton">Yhteystiedot</string>
     <string name="jobListingsButton">Selaa töitä</string>
-    <string name="infoTextView">Tähän tulee kaikki tiedo esim vaikka seuraavat asiat missä miten yms firman ite kirjoitettava. tiorp[ewiop[rtewp[ojfdkjghflsdk;tirep[owitroep[wtrewtew</string>
+    <string name="companyAddress1Textview">Osoite:</string>
+    <string name="companyAddress2Textview">Osoite: jouk sosotirerte</string>
+    <string name="companyPhone1TextView">Puh.</string>
+    <string name="companyPhone2TextView">0404005654</string>
+    <string name="contact">Yhteyshenkilö</string>
+    <string name="contact1">hlö</string>
+    <string name="ytunnus">Y-Tunnus</string>
+    <string name="ytunnus1">00000000</string>
     <string name="profileButton">profileButton</string>
     <string name="companyPicture">companyPicture</string>
 </resources>

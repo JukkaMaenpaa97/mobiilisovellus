@@ -337,37 +337,6 @@
             app:layout_constraintStart_toStartOf="@id/companyPasswordConfirmTextView"
             android:importantForAutofill="no" />
 
-        <TextView
-            android:id="@+id/companyDescriptionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/companyDescTextView"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:shadowColor="@color/black"
-            android:shadowDx="2"
-            android:shadowDy="2"
-            android:shadowRadius="2"
-            app:layout_constraintTop_toBottomOf="@id/companyPasswordConfirmEditText"
-            app:layout_constraintStart_toStartOf="@id/companyPasswordConfirmEditText"
-            android:layout_marginTop="10dp" />
-
-        <EditText
-            android:id="@+id/companyDescriptionEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:textColor="@color/white"
-            android:shadowColor="@color/black"
-            android:shadowDx="2"
-            android:shadowDy="2"
-            android:shadowRadius="2"
-            android:inputType="textMultiLine"
-            android:hint="@string/companyDescEditText"
-            app:layout_constraintTop_toBottomOf="@id/companyDescriptionTextView"
-            app:layout_constraintStart_toStartOf="@id/companyDescriptionTextView"
-            android:importantForAutofill="no" />
 
         <TextView
             android:id="@+id/companyAdminTextView"
@@ -381,8 +350,8 @@
             android:shadowDx="2"
             android:shadowDy="2"
             android:shadowRadius="2"
-            app:layout_constraintTop_toBottomOf="@id/companyDescriptionEditText"
-            app:layout_constraintStart_toStartOf="@id/companyDescriptionEditText"
+            app:layout_constraintTop_toBottomOf="@id/companyPasswordConfirmEditText"
+            app:layout_constraintStart_toStartOf="@id/companyPasswordConfirmEditText"
             android:layout_marginTop="10dp" />
 
         <EditText
