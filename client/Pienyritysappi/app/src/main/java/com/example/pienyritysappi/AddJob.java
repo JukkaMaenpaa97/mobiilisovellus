@@ -80,8 +80,8 @@ public class AddJob extends AppCompatActivity {
         mSpinner.setAdapter(spinnerAdapter);
         spinnerAdapterPriceType = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, android.R.id.text1);
         spinnerAdapterPriceType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerAdapterPriceType.add("Tuntihinta");
         spinnerAdapterPriceType.add("Kertamaksu");
+        spinnerAdapterPriceType.add("Tuntihinta");
         spinnerAdapterPriceType.notifyDataSetChanged();
         mSpinnerPriceType.setAdapter(spinnerAdapterPriceType);
         mQueue = Volley.newRequestQueue(this);
@@ -176,6 +176,4 @@ public class AddJob extends AppCompatActivity {
         };
         requestQueue.add(jsonObjectRequest);
     }
-
-
 }
