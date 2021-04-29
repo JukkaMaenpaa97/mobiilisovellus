@@ -163,7 +163,16 @@ public class OrderedServices extends AppCompatActivity {
     }
 
     public void profileButtonClicked(View view) {
-        Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
-        startActivity(intent);
+        int userType = g.getUser_type();
+        if (userType == 1) {
+            Intent intent = new Intent(getApplicationContext(), CustomerProfile.class);
+            startActivity(intent);
+        }else if (userType == 2){
+            Intent intent = new Intent(getApplicationContext(), CompanyEditProfile.class);
+            startActivity(intent);
+        }else{
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        }
     }
 }
