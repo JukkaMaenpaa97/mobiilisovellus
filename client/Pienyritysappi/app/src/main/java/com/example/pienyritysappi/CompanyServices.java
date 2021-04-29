@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -33,7 +34,7 @@ public class CompanyServices extends AppCompatActivity {
     private JSONArray jsonArray;
     private JSONObject job;
     private int jobCount;
-
+    Globals g = Globals.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,8 +116,19 @@ public class CompanyServices extends AppCompatActivity {
 
 
     public void profileButtonClicked(View view) {
-        Intent intent = new Intent(getApplicationContext(), CustomerProfile.class);
-        startActivity(intent);
+        int userType = g.getUser_type();
+
+        if(userType == 1) {
+            Intent intent = new Intent(getApplicationContext(),CompanyEditProfile.class);
+            startActivity(intent);
+        }
+        else if(userType == 2) {
+            Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"Et ole kirjautuneena sisään",Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void homeButtonClicked(View view) {

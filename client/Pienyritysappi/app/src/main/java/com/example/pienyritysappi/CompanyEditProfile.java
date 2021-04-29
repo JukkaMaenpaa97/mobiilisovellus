@@ -46,15 +46,26 @@ public class CompanyEditProfile extends AppCompatActivity {
      private JSONArray userInfo;
      private JSONObject getData;
      private JSONObject postData;
-     private String api_key;
+     private String api_key  = "";
+
+     Globals g = Globals.getInstance();
 
      @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_edit_profile);
-        api_key = "A5NG1QCBjxNwikVq2zocyAOtGXw3oZCm";
+        api_key = g.getApi_key();
         mQueue = Volley.newRequestQueue(this);
-
+        int usertype = g.getUser_type();
+         if (api_key.equals("")){
+             Toast.makeText(getApplicationContext(),"Kirjautumisesi on vanhentunut",Toast.LENGTH_SHORT).show();
+             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+             startActivity(intent);
+         }else if(usertype != 2){
+             Toast.makeText(getApplicationContext(),"Et ole kirjautuneena yritystilillä",Toast.LENGTH_SHORT).show();
+             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+             startActivity(intent);
+         }
         textInputAddress = findViewById(R.id.companyAddressEditText);
         textInputCity = findViewById(R.id.companyCityEditText);
         textInputCompanyId = findViewById(R.id.companyIdEditText);

@@ -108,8 +108,19 @@ public class ConfirmReservation extends AppCompatActivity {
     }
 
     public void profileButtonClicked(View view) {
-        Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
-        startActivity(intent);
+        int userType = g.getUser_type();
+
+        if(userType == 1) {
+            Intent intent = new Intent(getApplicationContext(),CompanyEditProfile.class);
+            startActivity(intent);
+        }
+        else if(userType == 2) {
+            Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"Et ole kirjautuneena sisään",Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void ConfirmClicked(View view) {

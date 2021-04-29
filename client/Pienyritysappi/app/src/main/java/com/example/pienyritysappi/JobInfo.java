@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,7 +26,7 @@ public class JobInfo extends AppCompatActivity {
     private TextView mTextViewPricing;
     private RequestQueue mQueue;
     private String url;
-
+    Globals g = Globals.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,8 +82,19 @@ public class JobInfo extends AppCompatActivity {
 
     public void profileButtonClicked(View view)
     {
-        Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
-        startActivity(intent);
+        int userType = g.getUser_type();
+
+        if(userType == 1) {
+            Intent intent = new Intent(getApplicationContext(),CompanyEditProfile.class);
+            startActivity(intent);
+        }
+        else if(userType == 2) {
+            Intent intent = new Intent(getApplicationContext(),CustomerProfile.class);
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"Et ole kirjautuneena sisään",Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void purchaseJobButtonClicked(View view)
