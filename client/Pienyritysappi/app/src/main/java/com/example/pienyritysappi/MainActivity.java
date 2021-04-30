@@ -34,11 +34,40 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         String userid = g.getUser_id();
+        int usertype = g.getUser_type();
         Button logButton = findViewById(R.id.buttonLogOut);
         if (userid == null){
             logButton.setText("Kirjaudu sisään");
         }else{
             logButton.setText("Kirjaudu ulos");
+        }
+        if(usertype==2){
+            Button profileButton = findViewById(R.id.button7);
+            Button orderedServicesButton = findViewById(R.id.button14);
+            Button companyprofileButton = findViewById(R.id.buttonCompanyEditProfile);
+            Button addJobButton = findViewById(R.id.button13);
+            orderedServicesButton.setVisibility(View.VISIBLE);
+            companyprofileButton.setVisibility(View.VISIBLE);
+            addJobButton.setVisibility(View.VISIBLE);
+            profileButton.setVisibility(View.VISIBLE);
+        }else if (usertype==1){
+            Button companyprofileButton = findViewById(R.id.buttonCompanyEditProfile);
+            Button addJobButton = findViewById(R.id.button13);
+            Button profileButton = findViewById(R.id.button7);
+            Button orderedServicesButton = findViewById(R.id.button14);
+            orderedServicesButton.setVisibility(View.VISIBLE);
+            companyprofileButton.setVisibility(View.INVISIBLE);
+            addJobButton.setVisibility(View.INVISIBLE);
+            profileButton.setVisibility(View.VISIBLE);
+        }else{
+            Button profileButton = findViewById(R.id.button7);
+            Button companyprofileButton = findViewById(R.id.buttonCompanyEditProfile);
+            Button addJobButton = findViewById(R.id.button13);
+            Button orderedServicesButton = findViewById(R.id.button14);
+            orderedServicesButton.setVisibility(View.INVISIBLE);
+            companyprofileButton.setVisibility(View.INVISIBLE);
+            addJobButton.setVisibility(View.INVISIBLE);
+            profileButton.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -126,6 +155,14 @@ public class MainActivity extends AppCompatActivity {
         g.setApi_key(null);
         g.setUser_id(null);
         g.setUser_type(0);
+        Button profileButton = findViewById(R.id.button7);
+        Button companyprofileButton = findViewById(R.id.buttonCompanyEditProfile);
+        Button addJobButton = findViewById(R.id.button13);
+        Button orderedServicesButton = findViewById(R.id.button14);
+        orderedServicesButton.setVisibility(View.INVISIBLE);
+        companyprofileButton.setVisibility(View.INVISIBLE);
+        addJobButton.setVisibility(View.INVISIBLE);
+        profileButton.setVisibility(View.INVISIBLE);
         Button logButton = findViewById(R.id.buttonLogOut);
         logButton.setText("Kirjaudu sisään");
         requestQueue.add(jsonObjectRequest);

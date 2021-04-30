@@ -30,6 +30,7 @@ public class OrderedServices extends AppCompatActivity {
     private String Url = "";
     private String serviceTitle;
     private String orderPrice;
+    private String orderer;
     private int orderStatus;
     private String orderStatusString;
     private String serviceProvider;
@@ -124,9 +125,11 @@ public class OrderedServices extends AppCompatActivity {
         try {
             JSONObject orderObject = jsonArray.getJSONObject(i);
             service = orderObject.getJSONObject("order_service_info");
+            JSONObject sender_info = orderObject.getJSONObject("order_sender_info");
             //tässä kohtaa tarvii saada tolla i-indeksillä sen kyseisen servicen tiedot; palvelunimi, palvelu selostus, mahdollinen kommentti, palvelun tila, yms. ja laittaa ne buttonTextiin
             serviceTitle = service.getString("service_title");
             orderPrice = service.getString("service_price");
+            orderer = sender_info.getString("user_name");
             serviceProvider = service.getString("service_provider_name");
             String orderID = orderObject.getString("order_id");
             orderStatus = orderObject.getInt("order_status");
@@ -144,7 +147,7 @@ public class OrderedServices extends AppCompatActivity {
                     orderStatusString="Peruutettu";
                     break;
             }
-            buttonText = serviceTitle + "\ntila: " + orderStatusString + "\n" + serviceProvider + "\nhinta: " + orderPrice + " €";
+            buttonText = serviceTitle + "\ntila: " + orderStatusString + "\nTilaaja: " + orderer + "\nPalveluntarjoaja: " + serviceProvider + "\nhinta: " + orderPrice + " €";
 
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
             params.setMargins(0,15,0,15);
