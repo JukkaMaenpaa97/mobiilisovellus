@@ -11,7 +11,7 @@ import copy
 # providers -> loads list of providers
 # orders -> loads list of your orders
 
-print("Jobster administrator controller")
+print("Jobster administrator controller - Type 'help' to see commands")
 api = "http://mobiilisovellus.therozor.com:5000/"
 command = ""
 headers = {
@@ -255,6 +255,23 @@ def add_order():
         print(r.status_code)
         print(r.text)
 
+def help():
+    print("Available commands:")
+    print("login")
+    print("add_user")
+    print("me")
+    print("update_me")
+    print("services")
+    print("add_service")
+    print("categories")
+    print("add_category")
+    print("users")
+    print("add_user")
+    print("providers")
+    print("orders")
+    print("add_order")
+    print("help")
+
 while(command != "exit"):
     command = input(">>")
 
@@ -286,5 +303,7 @@ while(command != "exit"):
         orders()
     elif command == "add_order":
         add_order()
+    elif command == "help":
+        help()
     else:
         print("Command not found")
