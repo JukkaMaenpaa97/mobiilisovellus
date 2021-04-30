@@ -26,7 +26,7 @@ import java.util.Map;
 
 public class OrderedServices extends AppCompatActivity {
 
-    private String Url = "http://mobiilisovellus.therozor.com:5000/orders";
+    private String Url = "";
     private String serviceTitle;
     private String orderPrice;
     private int orderStatus;
@@ -37,6 +37,7 @@ public class OrderedServices extends AppCompatActivity {
     private Button nButton;
     private RequestQueue mQueue;
     private int orderCount;
+    private int userType;
     private JSONArray jsonArray;
     private JSONObject service;
     private JsonObjectRequest request;
@@ -48,6 +49,12 @@ public class OrderedServices extends AppCompatActivity {
         setContentView(R.layout.activity_ordered_services);
         mQueue = Volley.newRequestQueue(this);
         api_key = g.getApi_key();
+        userType = g.getUser_type();
+        if (userType == 2){
+            Url = "http://mobiilisovellus.therozor.com:5000/providedorders";
+        }else if (userType == 1){
+            Url = "http://mobiilisovellus.therozor.com:5000/orders";
+        }
         if (api_key == null){
             Toast.makeText(getApplicationContext(),"Et ole kirjautunut sisään tai kirjautumisesi on vanhentunut",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
