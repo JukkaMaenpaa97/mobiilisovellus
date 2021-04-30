@@ -59,12 +59,11 @@ class Orders(Resource):
                 user_id = current_user.get("user_id")
                 #user_type = current_user.get("user_type")
                 if(orderlist.load("SELECT " + ordermodel.getFields()+ " FROM " + ordermodel.getTable()+" WHERE order_sender_id=%(user_id)s",{"user_id": user_id})):
-                   if orderlist.count() > 0:
-                       orderlist.computeAll()
-                       return{"message": "Tilausten listaus",
+                        orderlist.computeAll()
+                        return{"message": "Tilausten listaus",
                                    "count": orderlist.count(),
                                    "data": orderlist.serialize()},200
-                   else:
+                else:
                         return{"message": "Tilausten listaus epäonnistui"}, 404
 
 

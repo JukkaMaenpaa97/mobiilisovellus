@@ -19,7 +19,7 @@ class Order(Resource):
                 if current_user.get("user_id") == order.get("order_sender_id"):
                     return {"data": [order.serialize()]}, 200
                 else:
-                    return{"message": "ei oikeuksia tähän tilaukseen"}
+                    return Auth.unauthorizedResponse()
             else:
                 return {"message": "Tilausta ei löytynyt"}, 404
             
