@@ -13,7 +13,8 @@ class CategoryModel(DataModel):
         }
 
         self.computed_fields = {
-            "category_service_count": self.computedField(parent="category_id", handler=self.getServiceCount)
+            "category_service_count": self.computedField(parent="category_id", handler=self.getServiceCount),
+            "category_images": self.computedField(parent="category_id", handler=self.getCategoryImage)
         }
 
     # has to be rewritten to pure sql
@@ -26,4 +27,14 @@ class CategoryModel(DataModel):
         else:
             return 0
 
+    def getCategoryImage(self, value):
+        imagemodel = ImageModel()
+        imagelist = DataModelList(ImageModel)
+
+        if imagelist.load("SELECT "+imagemodel.getFields()+" FROM "+imagemodel.getTable()+" WHERE image_owner_id = %(id)s", {"id": value}):
+            return imagelist.serialize()
+        else:
+            return None
+
 from datamodels.servicemodel import ServiceModel
+from datamodels.imagemodel import ImageModel
