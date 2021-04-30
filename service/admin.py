@@ -223,6 +223,38 @@ def providers_list():
         print(r.status_code)
         print(r.text)
 
+def orders():
+    global headers
+    print("Loading your orders...")
+    r = requests.get(api+"orders", headers=headers)
+    if r.status_code == 200 and r.text != "null":
+        print(str(r.status_code)+" | Your orders: ")
+        count = 0
+        for order in r.json()['data']:
+            print("["+str(count)+"] "+order['order_service_info']['service_title']+", "+order['order_comments'])
+            count = count + 1
+    else:
+        print(r.status_code)
+        print(r.text)
+
+def add_order():
+    global headers
+    print("Add a new order")
+    services_list()
+    service_number = input(">> Service number:")
+    order = {}
+    order['order_service_id'] = services[int(service_number)]['service_id']
+    print("Service id("+str(order['order_service_id'])+") set!")
+    order['order_comments'] = input(">> Comments to order: ")
+
+    r = requests.post(api+"orders", headers=headers, json=order)
+    if r.status_code == 200:
+        print("Order created!")
+    else:
+        print("Failed to create order, response:")
+        print(r.status_code)
+        print(r.text)
+
 while(command != "exit"):
     command = input(">>")
 
@@ -250,3 +282,9 @@ while(command != "exit"):
         add_user()
     elif command == "providers":
         providers_list()
+    elif command == "orders":
+        orders()
+    elif command == "add_order":
+        add_order()
+    else:
+        print("Command not found")
