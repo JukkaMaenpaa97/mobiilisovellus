@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,12 +34,14 @@ public class ChosenOrder extends AppCompatActivity {
     private RequestQueue mQueue;
     private TextView tvOrderInfo;
     private TextView tvOrderTitle;
+    private Spinner orderStatusSpinner;
     Globals g = Globals.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chosen_order);
+        orderStatusSpinner = findViewById(R.id.spinnerOrderStatus);
         api_key = g.getApi_key();
         if (api_key == null){
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
@@ -122,5 +125,9 @@ public class ChosenOrder extends AppCompatActivity {
     public void goBackButtonClicked(View view) {
         Intent intent = new Intent(getApplicationContext(),OrderedServices.class);
         startActivity(intent);
+    }
+
+    public void updateClicked(View view) {
+
     }
 }

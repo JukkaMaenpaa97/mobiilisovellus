@@ -40,7 +40,7 @@
     <TextView
         android:id="@+id/textViewOrderInfo"
         android:layout_width="319dp"
-        android:layout_height="336dp"
+        android:layout_height="286dp"
         android:layout_marginTop="196dp"
         android:background="@drawable/textview_border"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,9 +64,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="600dp"
-        android:text="@string/buttonTakaisinChosenOrder"
         android:onClick="goBackButtonClicked"
+        android:text="@string/buttonTakaisinChosenOrder"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerOrderStatus"
+        android:layout_width="190dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="517dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="120dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="245dp"
+        android:layout_marginTop="517dp"
+        android:text="@string/buttonorderupdate"
+        android:onClick="updateClicked"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="496dp"
+        android:text="@string/tila"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
