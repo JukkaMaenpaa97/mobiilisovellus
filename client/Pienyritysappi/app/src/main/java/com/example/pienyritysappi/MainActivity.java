@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -27,52 +28,23 @@ public class MainActivity extends AppCompatActivity {
     Globals g = Globals.getInstance();
     private String logInUrl = "http://mobiilisovellus.therozor.com:5000/login";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        String userid = g.getUser_id();
+        Button logButton = findViewById(R.id.buttonLogOut);
+        if (userid == null){
+            logButton.setText("Kirjaudu sisään");
+        }else{
+            logButton.setText("Kirjaudu ulos");
+        }
     }
 
-    public void button1Clicked(View view)
-    {
-        Intent intent = new Intent(getApplicationContext(), ChosenCategory.class);
-        startActivity(intent);
-    }
-    public void button2Clicked(View view)
-    {
-        Intent intent = new Intent(getApplicationContext(),Company.class);
-        startActivity(intent);
-    }
-    public void button3Clicked(View view)
-    {
-        Intent intent = new Intent(getApplicationContext(), CompanyServices.class);
-        startActivity(intent);
-    }
-    public void button4Clicked(View view)
-    {
-        Intent intent = new Intent(getApplicationContext(),Register.class);
-        startActivity(intent);
-    }
     public void button5Clicked(View view)
     {
         Intent intent = new Intent(getApplicationContext(), Categories.class);
-        startActivity(intent);
-    }
-
-    public void button6Clicked(View view)
-    {
-        Intent intent = new Intent(getApplicationContext(),JobInfo.class);
-        startActivity(intent);
-    }
-
-    public void reserveButtonClicked(View view) {
-        Intent intent = new Intent(getApplicationContext(),ReservationActivity.class);
-        startActivity(intent);
-    }
-
-    public void button10Clicked(View view)
-    {
-        Intent intent = new Intent(getApplicationContext(),LogIn.class);
         startActivity(intent);
     }
 
@@ -96,14 +68,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void companyEditProfileClicked(View view)
+    public void companyProfileClicked(View view)
     {
         int userType = g.getUser_type();
         if (userType == 1) {
-            Intent intent = new Intent(getApplicationContext(), CustomerProfile.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
         }else if (userType == 2){
-            Intent intent = new Intent(getApplicationContext(), CompanyEditProfile.class);
+            String userID = g.getUser_id();
+            Intent intent = new Intent(getApplicationContext(), Company.class);
+            intent.putExtra("userId", userID);
             startActivity(intent);
         }else{
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -116,10 +90,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void LogOutClicked(View view) {
+    public void LogInOutClicked(View view) {
         String apikey = g.getApi_key();
         System.out.println(apikey);
-        g.setApi_key(null);
+        if (apikey == null){
+            Intent intent = new Intent(getApplicationContext(),LogIn.class);
+            startActivity(intent);
+        }
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JSONObject postData = new JSONObject();
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.DELETE, logInUrl, postData,
@@ -127,8 +104,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         System.out.println(response);
+                        g.setApi_key(null);
                         String apikey = g.getApi_key();
-                        if (apikey == "") {
+                        if (apikey == null) {
                             Toast.makeText(getApplicationContext(), "Uloskirjautuminen onnistui", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -145,6 +123,11 @@ public class MainActivity extends AppCompatActivity {
                 return headers;
             }
         };
+        g.setApi_key(null);
+        g.setUser_id(null);
+        g.setUser_type(0);
+        Button logButton = findViewById(R.id.buttonLogOut);
+        logButton.setText("Kirjaudu sisään");
         requestQueue.add(jsonObjectRequest);
     }
 }

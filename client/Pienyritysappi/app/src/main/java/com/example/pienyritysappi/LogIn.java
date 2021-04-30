@@ -68,8 +68,10 @@ public class LogIn extends AppCompatActivity {
                 try {
                     apikey = response.getString("apikey");
                     System.out.println(apikey);
+                    userId = response.getString("user_id");
                     System.out.println(userId);
                     g.setApi_key(apikey);
+                    g.setUser_id(userId);
                     String apikeyglobalista=g.getApi_key();
                     System.out.println("apikey globalista: " + apikeyglobalista);
                     g.setUser_type(response.getInt("user_type"));

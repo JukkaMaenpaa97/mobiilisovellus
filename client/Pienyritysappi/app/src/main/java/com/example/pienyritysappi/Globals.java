@@ -3,6 +3,7 @@ package com.example.pienyritysappi;
 public class Globals {
     private static Globals instance;
     private static String api_key;
+    private static String user_id;
     private static int user_type;
 
     private Globals(){
@@ -14,6 +15,14 @@ public class Globals {
 
     public static String getApi_key(){
         return Globals.api_key;
+    }
+
+    public static void setUser_id(String user_id){
+        Globals.user_id = user_id;
+    }
+
+    public static String getUser_id(){
+        return Globals.user_id;
     }
 
     public static void setUser_type(int userType){
