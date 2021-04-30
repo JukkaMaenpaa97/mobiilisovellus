@@ -7,35 +7,31 @@
     android:background="@drawable/gradient_background"
     tools:context=".ChosenOrder">
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/round_button"
+        android:src="@drawable/home_pic_icon_foreground"
         android:contentDescription="@string/imageViewHomeReservation"
         android:onClick="homeButtonClicked"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/home_pic_icon_foreground" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageViewProfileReservation"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="19dp"
-        android:background="@drawable/round_button"
-        android:contentDescription="@string/imageViewProfileReservation"
-        android:onClick="profileButtonClicked"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/profile_pic_icon_foreground" />
+        android:background="@drawable/round_button"
+        android:src="@drawable/profile_pic_icon_foreground"
+        android:contentDescription="@string/imageViewProfileReservation"
+        android:onClick="profileButtonClicked" />
 
     <TextView
         android:id="@+id/textViewOrderInfo"
@@ -66,6 +62,12 @@
         android:layout_marginTop="600dp"
         android:onClick="goBackButtonClicked"
         android:text="@string/buttonTakaisinChosenOrder"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:backgroundTint="#BAA3EF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -86,6 +88,12 @@
         android:layout_marginStart="245dp"
         android:layout_marginTop="517dp"
         android:text="@string/buttonorderupdate"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:backgroundTint="#BAA3EF"
         android:onClick="updateClicked"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -97,6 +105,13 @@
         android:layout_marginStart="46dp"
         android:layout_marginTop="496dp"
         android:text="@string/tila"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:textStyle="bold"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,11 +34,12 @@
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
         android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/round_button"
         android:onClick="profileButtonClicked"
         android:src="@drawable/profile_pic_icon_foreground"
-        app:layout_constraintStart_toStartOf="parent" 
-        app:layout_constraintTop_toTopOf="parent"/>
+        />
 
     <ImageButton
         android:id="@+id/homeButton"
@@ -51,19 +52,23 @@
         android:src="@drawable/home_pic_icon_foreground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    
-    <GridLayout
-        android:id="@+id/servicesGridLayout"
-        android:layout_width="360dp"
-        android:layout_height="500dp"
-        android:layout_margin="50sp"
-        android:rowCount="8"
-        android:columnCount="1"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent">
-    </GridLayout>
 
+    <ScrollView
+        android:layout_height="500dp"
+        android:layout_width="360dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="25dp">
+    
+     <GridLayout
+         android:id="@+id/servicesGridLayout"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:columnCount="1">
+     </GridLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.example.pienyritysappi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -89,12 +90,14 @@ public class OrderedServices extends AppCompatActivity {
                 GridLayout layout = (GridLayout)findViewById(R.id.OrderedServicesGridLayout);
                 nButton = new Button(getApplicationContext());
                 GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-                params.setMargins(10,10,10,10);
+                params.setMargins(0,15,0,15);
+                params.width = GridLayout.LayoutParams.MATCH_PARENT;
                 nButton.setLayoutParams(params);
                 nButton.setBackground(nButton.getContext().getDrawable(R.drawable.rounded_button));
                 nButton.setText("ei tilauksia");
-                nButton.setPadding(30,0,30,0);
-                nButton.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+                nButton.setShadowLayer(2,2,2,0xFF000000);
+                nButton.setTextColor(Color.parseColor("#FFFFFF"));
+                nButton.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 nButton.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View v) {
@@ -144,12 +147,14 @@ public class OrderedServices extends AppCompatActivity {
             buttonText = serviceTitle + "\ntila: " + orderStatusString + "\n" + serviceProvider + "\nhinta: " + orderPrice + " €";
 
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-            params.setMargins(10,10,10,10);
+            params.setMargins(0,15,0,15);
+            params.width = GridLayout.LayoutParams.MATCH_PARENT;
             nButton.setLayoutParams(params);
+            nButton.setShadowLayer(2,2,2,0xFF000000);
+            nButton.setTextColor(Color.parseColor("#FFFFFF"));
             nButton.setBackground(nButton.getContext().getDrawable(R.drawable.rounded_button));
             nButton.setText(buttonText);
-            nButton.setPadding(30,0,30,0);
-            nButton.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+            nButton.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             nButton.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {

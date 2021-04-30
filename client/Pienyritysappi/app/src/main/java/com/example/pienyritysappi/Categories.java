@@ -22,7 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+
 
 public class Categories extends AppCompatActivity {
 
@@ -43,7 +43,7 @@ public class Categories extends AppCompatActivity {
         catUrl = "http://mobiilisovellus.therozor.com:5000/categories";
         mQueue = Volley.newRequestQueue(this);
         String apikey = g.getApi_key();
-        System.out.println("apikey Categories.javassa" + apikey);
+        System.out.println("apikey Categories.javassa:  " + apikey);
         jsonParse();
     }
 
@@ -55,8 +55,6 @@ public class Categories extends AppCompatActivity {
         button = new Button(this);
         try{
 
-            params.setMargins(0,15,0,15);
-            params.width = MATCH_PARENT;
             category = jsonArray.getJSONObject(i);
             categoryName = category.getString("category_name");
             String buttonText = categoryName ;
@@ -66,6 +64,8 @@ public class Categories extends AppCompatActivity {
             button.setTextColor(Color.parseColor("#FFFFFF"));
             button.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             button.setBackground(button.getContext().getDrawable(R.drawable.rounded_button));
+            params.setMargins(0,15,0,15);
+            params.width = GridLayout.LayoutParams.MATCH_PARENT;
             button.setLayoutParams(params);
 
             button.setOnClickListener(new View.OnClickListener() {
