@@ -139,15 +139,12 @@ public class CustomerProfile extends AppCompatActivity {
         }
     }
 
-    private boolean tarkastaSalasana() {
+   private boolean tarkastaSalasana() {
 
         String pw = textInputPassword.getText().toString().trim();
         String pw2 = textInputPassword2.getText().toString().trim();
 
-        if (pw.isEmpty()) {
-            textInputPassword.setError("Salasana ei voi olla tyhjä");
-            return false;
-        } else if (!pw.equals(pw2)) {
+         if (!pw.equals(pw2)) {
             textInputPassword.setError("Salasant eivät täsmää");
             return false;
         } else {
