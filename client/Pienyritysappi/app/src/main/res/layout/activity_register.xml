@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/gradient_background">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:paddingStart="50dp"
+            android:paddingEnd="0dp"
+            android:text="@string/register"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:textSize="30sp" />
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:paddingStart="50dp"
+            android:paddingEnd="0dp"
+            android:layout_marginTop="30dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="337dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="textEmailAddress" />
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textNimi"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:textSize="18sp"
+            android:paddingStart="50dp"
+            android:paddingEnd="0dp"
+            android:layout_marginTop="30dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="336dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:inputType="textPersonName"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textNumber"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:paddingStart="50dp"
+            android:paddingEnd="0dp"
+            android:layout_marginTop="30dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="337dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:maxLength="10"
+            android:inputType="phone" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textPaikka"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:paddingStart="50dp"
+            android:paddingEnd="0dp"
+            android:layout_marginTop="30dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="333dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:importantForAutofill="no"
+            android:inputType="textPostalAddress"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textSalasana"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:textSize="18sp"
+            android:paddingStart="50dp"
+            android:paddingEnd="0dp"
+            android:layout_marginTop="30dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="332dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:inputType="textPassword" />
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/textView8"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:textSize="18sp"
+            android:paddingStart="50dp"
+            android:paddingEnd="0dp"
+            android:layout_marginTop="30dp"
+            />
+
+        <EditText
+            android:id="@+id/editTextTextPassword4"
+            android:layout_width="326dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:inputType="textPassword" />
+
+        <Switch
+            android:id="@+id/switchasiakas"
+            android:layout_width="342dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/switchAsiakas"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:textSize="20sp" />
+
+        <Switch
+            android:id="@+id/switchtarjoaja"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/switchTarjoaja"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/buttonUser"
+            android:backgroundTint="#BAA3EF"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:onClick="buttonregister"
+            />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white"
+            android:onClick="button8Clicked"
+            android:text="@string/buttonAlreadyacc"
+            android:textColor="@color/black" />
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</ScrollView>
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="register">Rekisteröidy</string>
+    <string name="email">Sähköposti</string>
+    <string name="textNimi">Nimi</string>
+    <string name="textPaikka">Paikkakunta</string>
+    <string name="textNumber">Puhelinnumero</string>
+    <string name="buttonUser">Luo Käyttäjä</string>
+    <string name="textSalasana">Salasana</string>
+    <string name="buttonAlreadyacc">Onko jo Käyttäjä?</string>
+    <string name="textView8">Vahvista salasana</string>
+    <string name="switchAsiakas">Asiakas</string>
+    <string name="switchTarjoaja">Palvelun tarjoaja</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="orderInfoHeaderTextView">Tyon nimi</string>
+    <string name="jobDetailsInfoTextView">Tahan tulee tarkempaa tietoa siita mitä työ sisältää.</string>
+    <string name="pricingInfoTextView">Tähän tulee työn hinnoittelu</string>
+    <string name="purchaseJobButton">Tilaa työ</string>
+    <string name="chatButton">"Chat "</string>
+    <string name="moreInfoHeader">Info</string>
+    <string name="pricingHeader">Hinnoittelu</string>
+
+</resources>

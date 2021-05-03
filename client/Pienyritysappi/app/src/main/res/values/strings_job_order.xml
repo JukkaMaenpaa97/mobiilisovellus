@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="textViewPalvelutTyot">Palvelut ja työt</string>
+    <string name="buttonTyoInfo">Tietoja työstä/palvelusta \ntaas muutamalla rivillä \nja ehkä hinta yms</string>
+    <string name="imageViewTyo" />
+    <string name="textviewCustomJob">olkoon tässä vaikka \njoku custom työ</string>
+    <string name="imageButtonHomeInJobOrder" />
+    <string name="imageButtonProfileInJobOrder" />
+    <integer name="numberOfJobs">8</integer>
+
+
+</resources>

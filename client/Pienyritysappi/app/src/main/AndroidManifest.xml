@@ -2,13 +2,30 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pienyritysappi">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Pienyritysappi">
+        android:theme="@style/Theme.Pienyritysappi"
+        android:usesCleartextTraffic="true">
+        
+        <activity android:name=".ChosenOrder"/>
+        <activity android:name=".OrderedServices" />
+        <activity android:name=".AddJob" />
+        <activity android:name=".CompanyEditProfile" />
+        <activity android:name=".ConfirmReservation" />
+        <activity android:name=".ReservationActivity" />
+        <activity android:name=".LogIn" />
+        <activity android:name=".JobInfo" />
+        <activity android:name=".CompanyServices" />
+        <activity android:name=".Company" />
+        <activity android:name=".ChosenCategory" />
+        <activity android:name=".Categories" />
+        <activity android:name=".Register" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,6 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CustomerProfile" />
     </application>
 
 </manifest>

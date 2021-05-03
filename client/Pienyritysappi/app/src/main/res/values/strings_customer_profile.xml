@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="homeButton">customerhomebutton</string>
+    <string name="customerprofileImage">customerImage</string>
+    <string name="customerName"> </string>
+    <string name="customerprofileName">Nimi</string>
+    <string name="emailcustomerprofile">Sähköposti</string>
+    <string name="customerprofilepassword">Salasana</string>
+    <string name="customerconfirmpass">Vahvista salasana</string>
+    <string name="buttonasiakasprofiili">Asiakas profiili</string>
+    <string name="customerprofilebutton">Muokkaa tietoja</string>
+    <string name="buttonsavecustomerprofile">Tallenna tiedot</string>
+    <string name="puhelinnumero">Puhelinnumero</string>
+</resources>

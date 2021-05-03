@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="textViewsalasana">Salasana</string>
+    <string name="textViewEmail">Sähköposti</string>
+    <string name="textViewLogIn">Kirjaudu Sisään</string>
+    <string name="buttonLogIn">Kirjaudu Sisään</string>
+    <string name="buttonRegisterCustomer">Rekisteröidy</string>
+    <string name="editTextEmailLogIn">sähköposti</string>
+    <string name="editTextPasswordLogIn">salasana</string>
+    <string name="buttonLogIn2">Jatka Kirjautumatta</string>
+</resources>

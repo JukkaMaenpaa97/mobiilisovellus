@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="textviewAddJobHeader">Lisää Palvelu / Työ</string>
+    <string name="buttonAddJobConfirm">Lisää työ</string>
+    <string name="nameNewJobName" />
+    <string name="newJobAvailability" />
+    <string name="newJobDescription" />
+    <string name="newJobPrice" />
+    <string name="uuden_palvelun_nimi">Uuden palvelun nimi</string>
+    <string name="saatavuus">Saatavuus</string>
+    <string name="hinta">Hinta</string>
+    <string name="palvelun_selostus_sis_lt">Palvelun selostus / sisältö</string>
+    <string name="apikey">apikeypls</string>
+    <string name="textviewpricetype">Kertamaksu vai Tuntihinta</string>
+    <string name="textviewcategory">Kategoria</string>
+</resources>

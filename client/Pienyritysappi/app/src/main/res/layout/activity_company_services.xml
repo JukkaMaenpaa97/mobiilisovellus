@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CompanyServices"
+    android:background="@drawable/gradient_background">
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/textViewPalvelutTyot"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:gravity="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_button"
+        android:contentDescription="@string/imageButtonProfileInJobOrder"
+        android:onClick="profileButtonClicked"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_pic_icon_foreground" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_button"
+        android:contentDescription="@string/imageButtonHomeInJobOrder"
+        android:onClick="homeButtonClicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/home_pic_icon_foreground" />
+
+    <GridLayout
+        android:id="@+id/jobButtonGridLayout"
+        android:layout_width="360dp"
+        android:layout_height="500dp"
+        android:layout_margin="50sp"
+        android:columnCount="1"
+        android:rowCount="@integer/numberOfCompanies"
+        app:layout_constraintTop_toBottomOf="@id/textView9"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

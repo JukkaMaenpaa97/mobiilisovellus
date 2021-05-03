@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReservationActivity"
+    android:background="@drawable/gradient_background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/textview_border">
+
+        <GridLayout
+            android:id="@+id/reservationGridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="@integer/numberOfTimes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </GridLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="20dp"
+        android:onClick="homeButtonClicked"
+        android:background="@drawable/round_button"
+        android:contentDescription="@string/imageViewHomeReservation"
+        app:srcCompat="@drawable/home_pic_icon_foreground" />
+
+    <ImageView
+        android:id="@+id/imageViewProfileReservation"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="19dp"
+        android:onClick="profileButtonClicked"
+        android:background="@drawable/round_button"
+        app:srcCompat="@drawable/profile_pic_icon_foreground"
+        android:contentDescription="@string/imageViewProfileReservation" />
+
+    <Button
+        android:id="@+id/supersecreteastereggasmrbuttoninreservationactivity"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:onClick="supersecreteastereggasmr"
+        android:alpha="0"
+        android:text="@string/supersecreteastereggasmrbuttoninreservationactivity" />
+
+</RelativeLayout>

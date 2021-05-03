@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="numberOfTimes">64</integer>
+    <string name="imageViewHomeReservation" />
+    <string name="imageViewProfileReservation" />
+    <string name="switch_turha_switch">turha switch</string>
+    <string name="supersecreteastereggasmrbuttoninreservationactivity" />
+</resources>

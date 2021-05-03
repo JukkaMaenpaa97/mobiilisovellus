@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".AddJob">
+
+    <ImageButton
+        android:id="@+id/profileButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:onClick="addjobprofilebtnclick"
+        android:background="@drawable/round_button"
+        android:src="@drawable/profile_pic_icon_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/homeButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:onClick="addjobhomebuttonclick"
+        android:background="@drawable/round_button"
+        android:src="@drawable/home_pic_icon_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/textviewAddJobHeader"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="596dp"
+        android:onClick="addJobConfirmClicked"
+        android:text="@string/buttonAddJobConfirm"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:backgroundTint="#BAA3EF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextJobName"
+        android:layout_width="318dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="142dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/uuden_palvelun_nimi"
+        android:inputType="textPersonName"
+        android:text="@string/nameNewJobName"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextJobAvailability"
+        android:layout_width="321dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="196dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/saatavuus"
+        android:inputType="textPersonName"
+        android:text="@string/newJobAvailability"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextPrice"
+        android:layout_width="321dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="373dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/hinta"
+        android:inputType="textPersonName"
+        android:text="@string/newJobPrice"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextJobDescription"
+        android:layout_width="321dp"
+        android:layout_height="113dp"
+        android:layout_marginTop="252dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/palvelun_selostus_sis_lt"
+        android:inputType="textPersonName"
+        android:text="@string/newJobDescription"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="321dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="528dp"
+        android:background="@drawable/textview_border"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerpricetype"
+        android:layout_width="321dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="456dp"
+        android:background="@drawable/textview_border"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="437dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:text="@string/textviewpricetype"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="509dp"
+        android:text="@string/textviewcategory"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

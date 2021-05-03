@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/gradient_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".CompanyEditProfile">
+
+        <ImageButton
+            android:id="@+id/homeButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/round_button"
+            android:onClick="homeButtonClicked"
+            android:src="@drawable/home_pic_icon_foreground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/homeButton" />
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:text="@string/companyEditProfileHeader"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/companyNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/companyName"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            app:layout_constraintTop_toBottomOf="@id/editProfileButton"
+            app:layout_constraintStart_toStartOf="@id/editProfileButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="220dp"/>
+
+        <EditText
+            android:id="@+id/companyNameEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:inputType="textPersonName"
+            app:layout_constraintTop_toBottomOf="@id/companyNameTextView"
+            app:layout_constraintStart_toStartOf="@id/companyNameTextView"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/companyEmailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/companyEmailTextView"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            app:layout_constraintTop_toBottomOf="@id/companyNameEditText"
+            app:layout_constraintStart_toStartOf="@id/companyNameEditText"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/companyEmailEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:inputType="textEmailAddress"
+
+            app:layout_constraintTop_toBottomOf="@id/companyEmailTextView"
+            app:layout_constraintStart_toStartOf="@id/companyEmailTextView"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/companyPhoneTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/companyPhoneTextView"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            app:layout_constraintTop_toBottomOf="@id/companyEmailEditText"
+            app:layout_constraintStart_toStartOf="@id/companyEmailEditText"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/companyPhoneEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:inputType="phone"
+
+            app:layout_constraintTop_toBottomOf="@id/companyPhoneTextView"
+            app:layout_constraintStart_toStartOf="@id/companyPhoneTextView"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/companyAddressTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/companyAddressTextView"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            app:layout_constraintTop_toBottomOf="@id/companyPhoneEditText"
+            app:layout_constraintStart_toStartOf="@id/companyPhoneEditText"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/companyAddressEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:inputType="textPostalAddress"
+
+            app:layout_constraintTop_toBottomOf="@id/companyAddressTextView"
+            app:layout_constraintStart_toStartOf="@id/companyAddressTextView"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/companyPostalCodeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/companyPostalCodeTextView"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            app:layout_constraintTop_toBottomOf="@id/companyAddressEditText"
+            app:layout_constraintStart_toStartOf="@id/companyAddressEditText"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/companyPostalCodeEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:inputType="phone"
+
+            app:layout_constraintTop_toBottomOf="@id/companyPostalCodeTextView"
+            app:layout_constraintStart_toStartOf="@id/companyPostalCodeTextView"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/companyCityTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/companyCityTextView"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            app:layout_constraintTop_toBottomOf="@id/companyPostalCodeEditText"
+            app:layout_constraintStart_toStartOf="@id/companyAddressEditText"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/companyCityEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:ems="10"
+
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            app:layout_constraintStart_toStartOf="@id/companyCityTextView"
+            app:layout_constraintTop_toBottomOf="@id/companyCityTextView" />
+
+        <TextView
+            android:id="@+id/companyIdTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/companyIdTextView"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            app:layout_constraintTop_toBottomOf="@id/companyCityEditText"
+            app:layout_constraintStart_toStartOf="@id/companyCityEditText"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/companyIdEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:inputType="text"
+
+            app:layout_constraintTop_toBottomOf="@id/companyIdTextView"
+            app:layout_constraintStart_toStartOf="@id/companyIdTextView"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/companyPasswordTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/passwordTextView"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            app:layout_constraintTop_toBottomOf="@id/companyIdEditText"
+            app:layout_constraintStart_toStartOf="@id/companyIdEditText"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/companyPasswordEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:inputType="textPassword"
+
+            app:layout_constraintTop_toBottomOf="@id/companyPasswordTextView"
+            app:layout_constraintStart_toStartOf="@id/companyPasswordTextView"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/companyPasswordConfirmTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pwConfirmTextView"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            app:layout_constraintTop_toBottomOf="@id/companyPasswordEditText"
+            app:layout_constraintStart_toStartOf="@id/companyPasswordEditText"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/companyPasswordConfirmEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:inputType="textPassword"
+
+            app:layout_constraintTop_toBottomOf="@id/companyPasswordConfirmTextView"
+            app:layout_constraintStart_toStartOf="@id/companyPasswordConfirmTextView"
+            android:importantForAutofill="no" />
+
+
+        <TextView
+            android:id="@+id/companyAdminTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/companyAdminTextView"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            app:layout_constraintTop_toBottomOf="@id/companyPasswordConfirmEditText"
+            app:layout_constraintStart_toStartOf="@id/companyPasswordConfirmEditText"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/companyAdminEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:inputType="textMultiLine"
+
+            app:layout_constraintTop_toBottomOf="@id/companyAdminTextView"
+            app:layout_constraintStart_toStartOf="@id/companyAdminTextView"
+            android:importantForAutofill="no" />
+
+        <Button
+            android:id="@+id/editProfileButton"
+            android:onClick="editInformationButtonClicked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/editButton"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:backgroundTint="#BAA3EF"
+            app:layout_constraintTop_toBottomOf="@id/header"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp" />
+
+        <Button
+            android:id="@+id/saveProfileButton"
+            android:onClick="saveInformationButtonClicked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:text="@string/saveButton"
+            android:backgroundTint="#BAA3EF"
+            app:layout_constraintTop_toBottomOf="@id/header"
+            android:layout_marginEnd="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
