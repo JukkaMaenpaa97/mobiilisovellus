@@ -11,5 +11,5 @@
     <string name="buttonorderedservices">tilatut työt</string>
     <string name="buttonLogOut">Log Out</string>
     <string name="muokkaa_profiilia">Muokkaa profiilia</string>
-    <string name="pienyritys_sovellus">Pienyritys-sovellus</string>
+    <string name="pienyrityssovellus">Pienyrityssovellus</string>
 </resources>
