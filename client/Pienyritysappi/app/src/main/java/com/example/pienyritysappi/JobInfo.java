@@ -98,9 +98,9 @@ public class JobInfo extends AppCompatActivity {
     }
 
     public void purchaseJobButtonClicked(View view) {
-
         if (g.getApi_key() == null) {
             Intent intent = new Intent(getApplicationContext(), LogIn.class);
+            Toast.makeText(getApplicationContext(),"Et ole kirjautunut tai kirjautumisesi on vanhentunut",Toast.LENGTH_SHORT).show();
             System.out.println(g.getApi_key());
             startActivity(intent);
         } else {
@@ -111,9 +111,8 @@ public class JobInfo extends AppCompatActivity {
         }
     }
 
-    public void chatButtonClicked(View view)
-    {
-
+    public void chatButtonClicked(View view) {
+        Toast.makeText(getApplicationContext(), "Tämä 'feature' tulee myöhemmin", Toast.LENGTH_SHORT).show();
     }
 
 
