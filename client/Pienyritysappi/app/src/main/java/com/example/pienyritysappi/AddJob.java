@@ -177,4 +177,14 @@ public class AddJob extends AppCompatActivity {
         };
         requestQueue.add(jsonObjectRequest);
     }
+
+    public void addjobhomebuttonclick(View view) {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void addjobprofilebtnclick(View view) {
+        Intent intent = new Intent(getApplicationContext(), CompanyEditProfile.class);
+        startActivity(intent);
+    }
 }
