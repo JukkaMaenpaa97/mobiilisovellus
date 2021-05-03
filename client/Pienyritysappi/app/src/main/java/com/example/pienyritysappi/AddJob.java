@@ -156,6 +156,7 @@ public class AddJob extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 System.out.println(response);
+                Toast.makeText(getApplicationContext(),"Palvelun luominen onnistui!", Toast.LENGTH_SHORT).show();
                 System.out.println("onnistui");
                 Intent intent = new Intent(getApplicationContext(), Categories.class);
                 startActivity(intent);
