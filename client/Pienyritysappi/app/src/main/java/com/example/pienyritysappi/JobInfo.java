@@ -19,7 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class JobInfo extends AppCompatActivity {
+public class  JobInfo extends AppCompatActivity {
 
     private TextView mTextViewResult;
     private TextView mTextViewDescription;

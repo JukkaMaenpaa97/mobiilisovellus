@@ -218,12 +218,7 @@ public class CompanyEditProfile extends AppCompatActivity {
         String password = textInputPassword.getText().toString().trim();
         String passwordConfirm = textInputPasswordConfirm.getText().toString().trim();
 
-        if(password.isEmpty())
-        {
-            textInputPassword.setError("Kenttä ei voi olla tyhjä");
-            return false;
-        }
-        else if (!password.equals(passwordConfirm))
+        if (!password.equals(passwordConfirm))
         {
             textInputPassword.setError("Salasanat eivat täsmää");
             return false;

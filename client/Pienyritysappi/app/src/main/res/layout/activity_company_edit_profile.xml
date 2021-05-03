@@ -75,7 +75,6 @@
             android:shadowDy="2"
             android:shadowRadius="2"
             android:inputType="textPersonName"
-            android:hint="@string/companyNameEditText"
             app:layout_constraintTop_toBottomOf="@id/companyNameTextView"
             app:layout_constraintStart_toStartOf="@id/companyNameTextView"
             android:importantForAutofill="no" />
@@ -107,7 +106,7 @@
             android:shadowDy="2"
             android:shadowRadius="2"
             android:inputType="textEmailAddress"
-            android:hint="@string/companyEmailEditText"
+
             app:layout_constraintTop_toBottomOf="@id/companyEmailTextView"
             app:layout_constraintStart_toStartOf="@id/companyEmailTextView"
             android:importantForAutofill="no" />
@@ -139,7 +138,7 @@
             android:shadowDy="2"
             android:shadowRadius="2"
             android:inputType="phone"
-            android:hint="@string/companyPhoneEditText"
+
             app:layout_constraintTop_toBottomOf="@id/companyPhoneTextView"
             app:layout_constraintStart_toStartOf="@id/companyPhoneTextView"
             android:importantForAutofill="no" />
@@ -171,7 +170,7 @@
             android:shadowDy="2"
             android:shadowRadius="2"
             android:inputType="textPostalAddress"
-            android:hint="@string/comapanyAddressEditText"
+
             app:layout_constraintTop_toBottomOf="@id/companyAddressTextView"
             app:layout_constraintStart_toStartOf="@id/companyAddressTextView"
             android:importantForAutofill="no" />
@@ -203,7 +202,7 @@
             android:shadowDy="2"
             android:shadowRadius="2"
             android:inputType="phone"
-            android:hint="@string/companyPostalCodeEditText"
+
             app:layout_constraintTop_toBottomOf="@id/companyPostalCodeTextView"
             app:layout_constraintStart_toStartOf="@id/companyPostalCodeTextView"
             android:importantForAutofill="no" />
@@ -230,7 +229,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:ems="10"
-            android:hint="@string/companyCityEditText"
+
             android:importantForAutofill="no"
             android:inputType="text"
             android:textColor="@color/white"
@@ -268,7 +267,7 @@
             android:shadowDy="2"
             android:shadowRadius="2"
             android:inputType="text"
-            android:hint="@string/companyIdEditText"
+
             app:layout_constraintTop_toBottomOf="@id/companyIdTextView"
             app:layout_constraintStart_toStartOf="@id/companyIdTextView"
             android:importantForAutofill="no" />
@@ -300,7 +299,7 @@
             android:shadowDy="2"
             android:shadowRadius="2"
             android:inputType="textPassword"
-            android:hint="@string/passwordEditText"
+
             app:layout_constraintTop_toBottomOf="@id/companyPasswordTextView"
             app:layout_constraintStart_toStartOf="@id/companyPasswordTextView"
             android:importantForAutofill="no" />
@@ -332,7 +331,7 @@
             android:shadowDy="2"
             android:shadowRadius="2"
             android:inputType="textPassword"
-            android:hint="@string/pwConfirmEditText"
+
             app:layout_constraintTop_toBottomOf="@id/companyPasswordConfirmTextView"
             app:layout_constraintStart_toStartOf="@id/companyPasswordConfirmTextView"
             android:importantForAutofill="no" />
@@ -365,7 +364,7 @@
             android:shadowDy="2"
             android:shadowRadius="2"
             android:inputType="textMultiLine"
-            android:hint="@string/companyAdminEditText"
+
             app:layout_constraintTop_toBottomOf="@id/companyAdminTextView"
             app:layout_constraintStart_toStartOf="@id/companyAdminTextView"
             android:importantForAutofill="no" />

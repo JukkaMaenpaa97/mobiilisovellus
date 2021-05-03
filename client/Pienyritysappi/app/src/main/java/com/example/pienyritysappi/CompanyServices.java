@@ -22,7 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+
 
 public class CompanyServices extends AppCompatActivity {
 
@@ -88,7 +88,7 @@ public class CompanyServices extends AppCompatActivity {
             String buttonText = jobName + "\nSaatavilla: " + jobAvailability + "\n" + jobPrice + " €";
 
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-            params.width = MATCH_PARENT;
+            params.width = GridLayout.LayoutParams.MATCH_PARENT;
             params.setMargins(0,15,0,15);
             nButton.setText(buttonText);
             nButton.setShadowLayer(2,2,2,0xFF000000);

@@ -21,7 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+
 
 public class ChosenCategory extends AppCompatActivity {
 
@@ -90,7 +90,7 @@ public class ChosenCategory extends AppCompatActivity {
 
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
             params.setMargins(0,15,0,15);
-            params.width = MATCH_PARENT;
+            params.width = GridLayout.LayoutParams.MATCH_PARENT;
             nButton.setLayoutParams(params);
             nButton.setShadowLayer(2,2,2,0xFF000000);
             nButton.setTextColor(Color.parseColor("#FFFFFF"));

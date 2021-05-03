@@ -57,6 +57,11 @@
             android:layout_gravity="center"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
             android:autofillHints=""
             android:ems="10"
             android:inputType="textEmailAddress" />
@@ -88,6 +93,11 @@
             android:layout_marginTop="10dp"
             android:autofillHints=""
             android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
             android:inputType="textPersonName"
             android:text="" />
 
@@ -117,6 +127,11 @@
             android:layout_marginTop="10dp"
             android:autofillHints=""
             android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
             android:maxLength="10"
             android:inputType="phone" />
 
@@ -145,6 +160,11 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
             android:importantForAutofill="no"
             android:inputType="textPostalAddress"
             android:text="" />
@@ -175,6 +195,11 @@
             android:layout_marginTop="10dp"
             android:autofillHints=""
             android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
             android:inputType="textPassword" />
 
 
@@ -205,6 +230,11 @@
             android:layout_marginEnd="20dp"
             android:autofillHints=""
             android:ems="10"
+            android:textColor="@color/white"
+            android:shadowColor="@color/black"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
             android:inputType="textPassword" />
 
         <Switch
